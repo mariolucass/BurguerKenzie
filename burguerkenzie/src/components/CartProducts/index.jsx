@@ -1,3 +1,5 @@
+import { CartList } from "./styles";
+
 export const CartProducts = () => {
-  return <ul></ul>;
+  return <CartList></CartList>;
 };

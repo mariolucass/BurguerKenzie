@@ -1,15 +1,24 @@
+import { ButtonHeader, HeaderDiv, InputHeader } from "./styles";
+
 export const Header = () => {
-  function searchProduct() {}
+  const searchProduct = () => {};
+  const setPesquisa = () => {};
+
   return (
-    <header>
+    <HeaderDiv>
       <div>
-        <h1>Burguer</h1>
-        <span className="spanLogo">Kenzie</span>
+        <h1>
+          Burguer <span className="spanLogo">Kenzie</span>
+        </h1>
       </div>
       <form action="" onSubmit={searchProduct}>
-        <input type="text" placeholder="Digitar Pesquisa" />
-        <button type="submit">Pesquisar</button>
+        <InputHeader
+          placeholder="Digitar Pesquisa"
+          type="text"
+          onChange={setPesquisa}
+        />
+        <ButtonHeader type="submit">Pesquisar</ButtonHeader>
       </form>
-    </header>
+    </HeaderDiv>
   );
 };

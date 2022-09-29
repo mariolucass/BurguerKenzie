@@ -1,17 +1,21 @@
+import { ButtonProducts, CardProduct } from "./styles";
+
 export const Product = (props) => {
-  function addCart() {}
+  const addCart = () => {};
 
   return (
-    <li>
+    <CardProduct>
       <div className="imgDiv">
-        <img src={props.img} alt={props.title} />
+        <img src={props.img} alt={props.name} />
       </div>
       <div className="textDiv">
-        <h2>{props.title}</h2>
-        <span>{props.type}</span>
+        <h3>{props.name}</h3>
+        <span>{props.category}</span>
         <span>{props.price}</span>
-        <button onClick={addCart}>Adicionar</button>
+        <ButtonProducts id={props.id} onClick={addCart}>
+          Adicionar
+        </ButtonProducts>
       </div>
-    </li>
+    </CardProduct>
   );
 };

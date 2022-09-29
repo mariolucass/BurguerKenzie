@@ -1,7 +1,17 @@
 import { Product } from "../Product";
+import { ProductList } from "./styles";
 
 export const ProductsList = (props) => {
-  const products = props.list.map((elem) => <Product />);
+  const products = props.list.map((e) => (
+    <Product
+      id={e.id}
+      key={e.id}
+      name={e.name}
+      category={e.category}
+      price={e.price}
+      img={e.img}
+    />
+  ));
 
-  return <ul>{products}</ul>;
+  return <ProductList>{products}</ProductList>;
 };

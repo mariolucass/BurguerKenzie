@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { ProductsList } from "../ProductsList";
+import { DivCarrinho } from "./styles";
 
 export const Cart = (props) => {
+  const [cartTotal, setCartTotal] = useState(0);
   const productsCart = <ProductsList list={"lista"} />;
 
   return (
-    <div>
+    <DivCarrinho>
       <div className="labelCart">
-        <h3>Carrinho de compras</h3>
+        <h4>Carrinho de compras</h4>
       </div>
       <div className="containerProducts">
         {props.list.length ? (
@@ -18,6 +21,6 @@ export const Cart = (props) => {
           </div>
         )}
       </div>
-    </div>
+    </DivCarrinho>
   );
 };
