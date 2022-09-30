@@ -2,7 +2,12 @@ import { CartProduct } from "../CartProduct";
 import { CartList } from "./styles";
 
 export const CartProducts = (props) => {
-  const totalValue = props.list.reduce((acc, e) => acc + e, 0);
+  const removeAllProducts = () => {
+    props.setCurrentSale([]);
+  };
+
+  const totalValue = props.list.reduce((acc, e) => acc + e.price, 0);
+
   const produtosCarrinho = props.list.map((e) => (
     <CartProduct
       id={e.id}
@@ -22,7 +27,9 @@ export const CartProducts = (props) => {
           <span>Total</span>
           <span>R${totalValue}</span>
         </div>
-        <button type="submit">Remover Todos</button>
+        <button type="submit" onClick={removeAllProducts}>
+          Remover Todos
+        </button>
       </div>
     </CartList>
   );

@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { ButtonHeader, HeaderDiv, InputHeader } from "./styles";
 
 export const Header = () => {
-  const searchProduct = () => {};
-  const setPesquisa = () => {};
+  const [pesquisa, setPesquisa] = useState("");
+
+  const searchProduct = (event) => {
+    event.preventDefault();
+    console.log(pesquisa);
+  };
 
   return (
     <HeaderDiv>
@@ -16,7 +21,9 @@ export const Header = () => {
         <InputHeader
           placeholder="Digitar Pesquisa"
           type="text"
-          onChange={setPesquisa}
+          onChange={(event) => {
+            setPesquisa(event.target.value);
+          }}
         />
         <ButtonHeader type="submit">Pesquisar</ButtonHeader>
       </form>

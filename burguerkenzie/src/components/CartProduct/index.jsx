@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { ButtonRemove, CartProductLi } from "./styles";
 
 export const CartProduct = (props) => {
-  const removeCart = () => {
+  const removeCart = (id) => {
     console.log(props.list);
   };
 
@@ -15,8 +14,7 @@ export const CartProduct = (props) => {
       <div className="textDiv">
         <h3>{props.name}</h3>
         <span>{props.category}</span>
-        <span>{props.price}</span>
-        <ButtonRemove id={props.id} onClick={removeCart}>
+        <ButtonRemove id={props.id} onClick={() => removeCart(props.id)}>
           Remover
         </ButtonRemove>
       </div>

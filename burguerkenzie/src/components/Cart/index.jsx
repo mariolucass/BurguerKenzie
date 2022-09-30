@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { CartProducts } from "../CartProducts";
 import { DivCarrinho } from "./styles";
 
 export const Cart = (props) => {
-  console.log(props.list);
-
   return (
     <DivCarrinho>
       <div className="labelCart">
@@ -22,8 +19,6 @@ export const Cart = (props) => {
           <span>Adicione itens</span>
         </div>
       )}
-
-      <div className="divPrice"></div>
     </DivCarrinho>
   );
 };

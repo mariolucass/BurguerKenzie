@@ -1,9 +1,17 @@
 import { ButtonProducts, CardProduct } from "./styles";
+import { toast } from "react-toastify";
 
 export const Product = (props) => {
-  const addCart = (id) => {
+  const notify = (name) => {
+    toast(`Esse produto já se encontra no carrinho: ${name}`);
+  };
+
+  const addCart = (id, name) => {
     const produto = props.list.find((e) => e.id === id);
-    props.setCurrentSale(produto);
+
+    props.cartList.find((e) => e.id === id)
+      ? notify(name)
+      : props.setCurrentSale((cartList) => [...cartList, produto]);
   };
 
   return (
@@ -19,7 +27,7 @@ export const Product = (props) => {
         <ButtonProducts
           id={props.id}
           onClick={() => {
-            addCart(props.id);
+            addCart(props.id, props.name);
           }}
         >
           Adicionar

@@ -11,6 +11,7 @@ export const ProductsList = (props) => {
       price={e.price}
       img={e.img}
       list={props.list}
+      cartList={props.cartList}
       setCurrentSale={props.setCurrentSale}
     />
   ));

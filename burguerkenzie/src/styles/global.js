@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
     margin:0 ;
     padding:0;
     box-sizing: border-box;
+    list-style:none
 }
 
 body{
@@ -47,4 +48,9 @@ export const DivContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 3rem;
+
+  @media (min-width: 768px) {
+    margin: 0 115px;
+    flex-direction: row;
+  }
 `;

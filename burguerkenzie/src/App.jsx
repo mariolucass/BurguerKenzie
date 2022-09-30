@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { Cart } from "./components/Cart";
 import { Header } from "./components/Header";
@@ -27,12 +29,15 @@ function App() {
       <DivContainer>
         <ProductsList
           list={products}
+          cartList={currentSale}
           listFiltered={filteredProducts}
           setCurrentSale={setCurrentSale}
         />
 
         <Cart list={currentSale} setCurrentSale={setCurrentSale} />
       </DivContainer>
+
+      <ToastContainer />
     </>
   );
 }
