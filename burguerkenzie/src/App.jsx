@@ -24,16 +24,24 @@ function App() {
     <>
       <GlobalStyle />
 
-      <Header setFilteredProducts={setFilteredProducts} />
+      <Header setFilteredProducts={setFilteredProducts} list={products} />
 
       <DivContainer>
-        <ProductsList
-          list={products}
-          cartList={currentSale}
-          listFiltered={filteredProducts}
-          setCurrentSale={setCurrentSale}
-        />
-
+        {filteredProducts.length ? (
+          <ProductsList
+            list={filteredProducts}
+            cartList={currentSale}
+            listFiltered={filteredProducts}
+            setCurrentSale={setCurrentSale}
+          />
+        ) : (
+          <ProductsList
+            list={products}
+            cartList={currentSale}
+            listFiltered={filteredProducts}
+            setCurrentSale={setCurrentSale}
+          />
+        )}
         <Cart list={currentSale} setCurrentSale={setCurrentSale} />
       </DivContainer>
 

@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
-export const ButtonRemove = styled.button``;
+export const ButtonRemove = styled.button`
+  color: var(--gray-button);
+  font-size: 12px;
+
+  :hover {
+    text-decoration: underline;
+  }
+
+  :active {
+  }
+
+  :focus {
+  }
+`;
 
 export const CartProductLi = styled.li`
   display: flex;
@@ -8,11 +21,6 @@ export const CartProductLi = styled.li`
   width: 90%;
   height: 50%;
   margin: 0 auto;
-
-  button {
-    color: var(--gray-button);
-    font-size: 12px;
-  }
 
   .imgDiv {
     display: flex;

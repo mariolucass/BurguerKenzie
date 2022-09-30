@@ -41,6 +41,9 @@ export const CardProduct = styled.li`
   .textDiv .spanPrice {
     color: var(--color-primary);
   }
+
+  :hover {
+  }
 `;
 
 export const ButtonProducts = styled.button`
@@ -52,4 +55,13 @@ export const ButtonProducts = styled.button`
   height: 40px;
   border: none;
   border-radius: 0.5rem;
+
+  :hover {
+  }
+
+  :focus {
+  }
+
+  :active {
+  }
 `;

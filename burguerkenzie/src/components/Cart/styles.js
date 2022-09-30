@@ -6,8 +6,12 @@ export const DivCarrinho = styled.div`
   margin: 0 auto;
   width: 90%;
 
-  @media (min-width: 768px) {
-    min-width: 300px;
+  @media (min-width: 1023px) {
+    width: 30%;
+    max-width: 400px;
+    position: fixed;
+    right: 115px;
+    top: 15%;
   }
 
   .labelCart {

@@ -8,6 +8,12 @@ export const HeaderDiv = styled.header`
   height: 150px;
   padding: 1rem;
   align-items: center;
+
+  h1 {
+    margin-left: 115px;
+    cursor: pointer;
+  }
+
   span {
     color: red;
     font-size: 1.2rem;
@@ -22,8 +28,14 @@ export const HeaderDiv = styled.header`
     justify-content: space-between;
     height: 100px;
 
+    h1 {
+      margin-left: 115px;
+    }
+
     form {
       width: 30%;
+      max-width: 400px;
+      margin-right: 115px;
     }
   }
 `;
@@ -41,6 +53,7 @@ export const ButtonHeader = styled.button`
 
   @media (min-width: 768px) {
     top: 40px;
+    right: 140px;
   }
 `;
 
