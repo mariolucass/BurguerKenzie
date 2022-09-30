@@ -6,12 +6,13 @@ export const CardProduct = styled.li`
   width: 300px;
   border: 2px solid var(--gray-20);
   align-items: center;
+  border-radius: 0.3rem;
 
   .imgDiv {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 290px;
     height: 150px;
     background-color: var(--gray-0);
     padding: 1rem;
@@ -25,15 +26,20 @@ export const CardProduct = styled.li`
 
   .textDiv {
     width: 100%;
-    height: 150px;
+    height: 190px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    padding: 1rem;
   }
 
   .textDiv span {
     font-size: 1rem;
+  }
+
+  .textDiv .spanPrice {
+    color: var(--color-primary);
   }
 `;
 

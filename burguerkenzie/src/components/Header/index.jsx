@@ -11,6 +11,7 @@ export const Header = () => {
           Burguer <span className="spanLogo">Kenzie</span>
         </h1>
       </div>
+
       <form action="" onSubmit={searchProduct}>
         <InputHeader
           placeholder="Digitar Pesquisa"

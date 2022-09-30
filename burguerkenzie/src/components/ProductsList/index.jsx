@@ -10,6 +10,8 @@ export const ProductsList = (props) => {
       category={e.category}
       price={e.price}
       img={e.img}
+      list={props.list}
+      setCurrentSale={props.setCurrentSale}
     />
   ));
 

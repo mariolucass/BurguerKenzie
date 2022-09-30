@@ -21,10 +21,17 @@ function App() {
   return (
     <>
       <GlobalStyle />
+
       <Header setFilteredProducts={setFilteredProducts} />
+
       <DivContainer>
-        <ProductsList list={products} listFiltered={filteredProducts} />
-        <Cart list={[]} cart />
+        <ProductsList
+          list={products}
+          listFiltered={filteredProducts}
+          setCurrentSale={setCurrentSale}
+        />
+
+        <Cart list={currentSale} setCurrentSale={setCurrentSale} />
       </DivContainer>
     </>
   );
