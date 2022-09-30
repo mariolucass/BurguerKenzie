@@ -5,6 +5,7 @@ export const CartList = styled.ul`
   flex-direction: column;
   gap: 1rem;
   background-color: var(--gray-0);
+  padding: 1rem;
 
   .cartValue {
     display: flex;
@@ -17,7 +18,7 @@ export const CartList = styled.ul`
     font-weight: 600;
     margin-top: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .cartValue button {

@@ -1,10 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { bounceInRight, tada } from "react-animations";
+
+const bounceAnimation = keyframes`${bounceInRight}`;
+const tadaAnimation = keyframes`${tada}`;
 
 export const DivCarrinho = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   width: 90%;
+  animation: 1.5s ${bounceAnimation};
 
   @media (min-width: 1023px) {
     width: 30%;
@@ -33,5 +38,6 @@ export const DivCarrinho = styled.div`
     justify-content: center;
     gap: 1rem;
     background-color: var(--gray-0);
+    animation: 1s ${tadaAnimation};
   }
 `;

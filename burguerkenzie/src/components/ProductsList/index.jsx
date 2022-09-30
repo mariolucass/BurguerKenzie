@@ -1,7 +1,10 @@
 import { Product } from "../Product";
+import { ButtonProducts } from "../Product/styles";
 import { ProductList } from "./styles";
 
 export const ProductsList = (props) => {
+  console.log(props.listFiltered);
+
   const products = props.list.map((e) => (
     <Product
       id={e.id}
@@ -16,5 +19,9 @@ export const ProductsList = (props) => {
     />
   ));
 
-  return <ProductList>{products}</ProductList>;
+  return props.listFiltered.length ? (
+    <ProductList>{products}</ProductList>
+  ) : (
+    <ProductList>{products}</ProductList>
+  );
 };

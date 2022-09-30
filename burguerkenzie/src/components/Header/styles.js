@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { bounceInDown } from "react-animations";
+
+const bounceAnimation = keyframes`${bounceInDown}`;
 
 export const HeaderDiv = styled.header`
   display: flex;
@@ -8,9 +11,9 @@ export const HeaderDiv = styled.header`
   height: 150px;
   padding: 1rem;
   align-items: center;
+  animation: 1.5s ${bounceAnimation};
 
   h1 {
-    margin-left: 115px;
     cursor: pointer;
   }
 

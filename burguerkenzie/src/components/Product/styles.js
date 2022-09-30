@@ -57,6 +57,7 @@ export const ButtonProducts = styled.button`
   border-radius: 0.5rem;
 
   :hover {
+    transform: scale(0.8);
   }
 
   :focus {

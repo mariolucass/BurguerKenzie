@@ -18,6 +18,8 @@ export const GlobalStyle = createGlobalStyle`
   --warning: #ffcd07;
   --sucess: #168821;
   --information: #155bcb;
+  --toastify-color-progress-light: #27ae60;
+  --toastify-font-family: "Inter" sans-serif;
 }
 
 *{
