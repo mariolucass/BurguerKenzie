@@ -6,6 +6,10 @@ export const DivCarrinho = styled.div`
   margin: 0 auto;
   width: 90%;
 
+  @media (min-width: 768px) {
+    min-width: 300px;
+  }
+
   .labelCart {
     display: flex;
     background-color: var(--color-primary);

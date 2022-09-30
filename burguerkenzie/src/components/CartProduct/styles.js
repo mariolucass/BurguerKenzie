@@ -4,15 +4,25 @@ export const ButtonRemove = styled.button``;
 
 export const CartProductLi = styled.li`
   display: flex;
+  justify-content: space-around;
+  width: 90%;
+  height: 50%;
+  margin: 0 auto;
+
+  button {
+    color: var(--gray-button);
+    font-size: 12px;
+  }
 
   .imgDiv {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 70px;
-    background-color: var(--gray-0);
-    padding: 1rem;
+    width: 100px;
+    height: 100px;
+    background-color: var(--gray-20);
+    padding: 0.9rem;
+    border-radius: 0.3rem;
   }
 
   .imgDiv img {
@@ -20,6 +30,20 @@ export const CartProductLi = styled.li`
     height: 100%;
     object-fit: cover;
   }
+
   .textDiv {
+    width: 40%;
+    height: 100%;
+  }
+
+  .textDiv h3 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .textDiv span {
+    color: var(--gray-50);
+    font-size: 12px;
   }
 `;

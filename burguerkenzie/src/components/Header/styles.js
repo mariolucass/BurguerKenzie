@@ -8,7 +8,6 @@ export const HeaderDiv = styled.header`
   height: 150px;
   padding: 1rem;
   align-items: center;
-
   span {
     color: red;
     font-size: 1.2rem;
@@ -16,6 +15,16 @@ export const HeaderDiv = styled.header`
 
   form {
     width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+
+    form {
+      width: 30%;
+    }
   }
 `;
 
@@ -29,6 +38,10 @@ export const ButtonHeader = styled.button`
   height: 30px;
   border: none;
   border-radius: 0.5rem;
+
+  @media (min-width: 768px) {
+    top: 40px;
+  }
 `;
 
 export const InputHeader = styled.input`

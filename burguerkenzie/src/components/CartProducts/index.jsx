@@ -16,6 +16,8 @@ export const CartProducts = (props) => {
       category={e.category}
       price={e.price}
       img={e.img}
+      cartList={props.list}
+      setCurrentSale={props.setCurrentSale}
     />
   ));
 
