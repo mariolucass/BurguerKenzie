@@ -58,6 +58,10 @@ export const ButtonHeader = styled.button`
     top: 40px;
     right: 140px;
   }
+
+  :hover {
+    background-color: var(--color-primary-50);
+  }
 `;
 
 export const InputHeader = styled.input`

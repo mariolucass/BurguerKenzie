@@ -6,7 +6,7 @@ export const Header = (props) => {
   const [pesquisa, setPesquisa] = useState("");
 
   const notify = (name) => {
-    toast(`Não encontramos o produto especificado: ${name}`);
+    toast(`Não encontramos o produto ou categoria procurado: ${name}`);
   };
   const semProdutos = () => {
     notify(pesquisa);

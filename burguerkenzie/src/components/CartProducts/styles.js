@@ -29,4 +29,8 @@ export const CartList = styled.ul`
     margin: 0 auto;
     border-radius: 0.5rem;
   }
+
+  .totalValue {
+    color: var(--gray-50);
+  }
 `;

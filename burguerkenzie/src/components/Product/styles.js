@@ -21,7 +21,7 @@ export const CardProduct = styled.li`
   .imgDiv img {
     width: 60%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .textDiv {
@@ -58,6 +58,7 @@ export const ButtonProducts = styled.button`
 
   :hover {
     transform: scale(0.8);
+    background-color: var(--color-primary-50);
   }
 
   :focus {

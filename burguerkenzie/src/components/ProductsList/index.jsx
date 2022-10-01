@@ -1,10 +1,7 @@
 import { Product } from "../Product";
-import { ButtonProducts } from "../Product/styles";
 import { ProductList } from "./styles";
 
 export const ProductsList = (props) => {
-  console.log(props.listFiltered);
-
   const products = props.list.map((e) => (
     <Product
       id={e.id}

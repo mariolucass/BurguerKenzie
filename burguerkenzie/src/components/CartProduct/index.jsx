@@ -7,7 +7,7 @@ export const CartProduct = (props) => {
 
     props.cartList.length === 1
       ? props.setCurrentSale([])
-      : props.setCurrentSale(props.cartList.splice(product, 1));
+      : props.setCurrentSale(props.cartList.filter((e, i) => i !== product));
   };
 
   return (
@@ -20,6 +20,9 @@ export const CartProduct = (props) => {
         <h3>{props.name}</h3>
         <span>{props.category}</span>
       </div>
+      <button>+</button>
+      <span>{props.counter}</span>
+      <button>-</button>
 
       <ButtonRemove id={props.id} onClick={() => removeCart(props.id)}>
         Remover

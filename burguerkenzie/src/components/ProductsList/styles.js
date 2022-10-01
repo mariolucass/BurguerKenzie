@@ -21,7 +21,7 @@ export const ProductList = styled.ul`
   }
 
   @media (min-width: 1023px) {
-    width: 70%;
+    width: 62.5%;
     flex-wrap: wrap;
     height: 40%;
     max-width: 1000px;

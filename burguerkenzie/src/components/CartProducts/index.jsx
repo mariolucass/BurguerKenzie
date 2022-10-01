@@ -6,7 +6,7 @@ export const CartProducts = (props) => {
     props.setCurrentSale([]);
   };
 
-  const totalValue = props.list.reduce((acc, e) => acc + e.price, 0);
+  const totalValue = props.list.reduce((acc, e) => acc + e.price, 0).toFixed(2);
 
   const produtosCarrinho = props.list.map((e) => (
     <CartProduct
@@ -27,7 +27,7 @@ export const CartProducts = (props) => {
       <div className="cartValue">
         <div>
           <span>Total</span>
-          <span>R${totalValue}</span>
+          <span className="totalValue">R${totalValue}</span>
         </div>
         <button type="submit" onClick={removeAllProducts}>
           Remover Todos

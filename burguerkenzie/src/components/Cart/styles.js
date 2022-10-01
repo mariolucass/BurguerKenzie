@@ -10,6 +10,7 @@ export const DivCarrinho = styled.div`
   margin: 0 auto;
   width: 90%;
   animation: 1.5s ${bounceAnimation};
+  max-width: 400px;
 
   @media (min-width: 1023px) {
     width: 30%;
