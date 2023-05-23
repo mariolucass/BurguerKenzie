@@ -7,6 +7,7 @@ export const CardProduct = styled.li`
   border: 2px solid var(--gray-20);
   align-items: center;
   border-radius: 0.3rem;
+  background-color: white;
 `;
 
 export const ButtonProducts = styled.button`
@@ -20,7 +21,7 @@ export const ButtonProducts = styled.button`
   border-radius: 0.5rem;
 
   :hover {
-    transform: scale(0.8);
+    transform: scale(0.95);
     background-color: var(--color-primary-50);
   }
 `;
@@ -57,4 +58,10 @@ export const ImageProduct = styled.div`
     height: 100%;
     object-fit: contain;
   }
+`;
+
+export const ButtonDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 `;

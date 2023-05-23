@@ -1,5 +1,5 @@
 import { useCartContext } from "../../contexts";
-import { ProductInterfaceProps } from "../../interfaces";
+import { ProductCartInterfaceProps } from "../../interfaces";
 import {
   ButtonRemove,
   CartProductLi,
@@ -7,17 +7,8 @@ import {
   TextCartProduct,
 } from "./styles";
 
-export const CartProduct = ({ product }: ProductInterfaceProps) => {
-  const { currentSale, setCurrentSale } = useCartContext();
-
-  const handleRemoveProduct = () => {
-    const element = currentSale.find((e) => e.id === product.id);
-    const productIndex = currentSale.indexOf(element!);
-
-    currentSale.length === 1
-      ? setCurrentSale([])
-      : setCurrentSale(currentSale.filter((e, i) => i !== productIndex));
-  };
+export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
+  const { currentSale, handleRemoveFromCart } = useCartContext();
 
   return (
     <CartProductLi>
@@ -31,10 +22,12 @@ export const CartProduct = ({ product }: ProductInterfaceProps) => {
       </TextCartProduct>
 
       <button>+</button>
-      <span>{currentSale.length}</span>
+      <span>{product.quantity}</span>
       <button>-</button>
 
-      <ButtonRemove onClick={handleRemoveProduct}>Remover</ButtonRemove>
+      <ButtonRemove onClick={() => handleRemoveFromCart(product.id)}>
+        Remover
+      </ButtonRemove>
     </CartProductLi>
   );
 };

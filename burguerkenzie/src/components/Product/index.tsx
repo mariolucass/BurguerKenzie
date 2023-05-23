@@ -1,24 +1,20 @@
-import { toast } from "react-toastify";
 import { ProductInterfaceProps } from "../../interfaces";
-import { useProductsContext, useCartContext } from "../../contexts";
+import { useCartContext } from "../../contexts";
 import {
+  ButtonDiv,
   ButtonProducts,
   CardProduct,
   ImageProduct,
   TextProduct,
 } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export const Product = ({ product }: ProductInterfaceProps) => {
-  const { products } = useProductsContext();
-  const { setCurrentSale, currentSale } = useCartContext();
+  const navigate = useNavigate();
+  const { handleAddToCart } = useCartContext();
 
-  const handleAddToCart = () => {
-    const productToAdd = products.find((e) => e.id === product.id);
-    if (productToAdd) {
-      currentSale.find((e) => e.id === product.id)
-        ? toast.error("Esse produto já se encontra no carrinho")
-        : setCurrentSale((cartList) => [...cartList, productToAdd]);
-    }
+  const handleRedirectToProductPage = () => {
+    navigate(`/products/${product.id}`);
   };
 
   return (
@@ -32,7 +28,15 @@ export const Product = ({ product }: ProductInterfaceProps) => {
         <span>{product.category}</span>
         <span className="productPrice">R$ {product.price}</span>
 
-        <ButtonProducts onClick={handleAddToCart}>Adicionar</ButtonProducts>
+        <ButtonDiv>
+          <ButtonProducts onClick={() => handleAddToCart(product.id)}>
+            Adicionar
+          </ButtonProducts>
+
+          <ButtonProducts onClick={handleRedirectToProductPage}>
+            Ver detalhes
+          </ButtonProducts>
+        </ButtonDiv>
       </TextProduct>
     </CardProduct>
   );

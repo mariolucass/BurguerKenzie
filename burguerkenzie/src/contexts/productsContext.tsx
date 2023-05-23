@@ -23,6 +23,7 @@ export const ProductsProvider = ({ children }: Children) => {
       setProducts(products);
     })();
   }, []);
+
   return (
     <ProductsContext.Provider
       value={{

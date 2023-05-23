@@ -1,28 +1,16 @@
-import { useState } from "react";
-import { toast } from "react-toastify";
 import { useProductsContext } from "../../contexts";
-import { ButtonHeader, HeaderDiv, InputHeader } from "./styles";
+import { HeaderList } from "./headerList";
+import { SearchBar } from "./searchBar";
+import { HeaderDiv, InteractionsDiv } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
-  const [pesquisa, setPesquisa] = useState("");
-  const { products, setFilteredProducts } = useProductsContext();
-
-  const noProducts = () => {
-    toast.error(`Não encontramos o produto ou categoria procurado`);
-    setFilteredProducts([]);
-  };
+  const navigate = useNavigate();
+  const { setFilteredProducts } = useProductsContext();
 
   const handleClickToHome = () => {
+    navigate("/products");
     setFilteredProducts([]);
-  };
-
-  const searchProduct = () => {
-    const lista = products.filter(
-      (e) =>
-        e.name.toLowerCase().includes(pesquisa.toLowerCase()) ||
-        e.category.toLowerCase().includes(pesquisa.toLowerCase())
-    );
-    lista.length ? setFilteredProducts(lista) : noProducts();
   };
 
   return (
@@ -33,22 +21,10 @@ export const Header = () => {
         </h1>
       </div>
 
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          searchProduct();
-        }}
-      >
-        <InputHeader
-          placeholder="Digitar Pesquisa"
-          type="text"
-          onChange={(event) => {
-            setPesquisa(event.target.value);
-          }}
-        />
-
-        <ButtonHeader type="submit">Pesquisar</ButtonHeader>
-      </form>
+      <InteractionsDiv>
+        <SearchBar />
+        <HeaderList />
+      </InteractionsDiv>
     </HeaderDiv>
   );
 };

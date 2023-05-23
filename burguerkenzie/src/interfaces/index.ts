@@ -15,3 +15,11 @@ export interface ProductInterface {
 export interface ProductInterfaceProps {
   product: ProductInterface;
 }
+
+export interface ProductCartInterface extends ProductInterface {
+  quantity: number;
+}
+
+export interface ProductCartInterfaceProps {
+  product: ProductCartInterface;
+}
