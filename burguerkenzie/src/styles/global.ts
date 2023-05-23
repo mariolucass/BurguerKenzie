@@ -27,15 +27,24 @@ body{
     margin:0;
     padding:0;   
     font-family: 'Inter', sans-serif;
+    min-height:100vh;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-primary-50) 35%,  var(--gray-0)35%);
 }
 
 button{
-    cursor: pointer;
     border: none;
     background:transparent;
+    cursor: pointer;
 }
 
 button, input{
     font-family: 'Inter', sans-serif;
+}
+input{
+    ::placeholder{
+        font-family: 'Inter', sans-serif; 
+    }
 }
 `;

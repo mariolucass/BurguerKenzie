@@ -1,3 +1,13 @@
+import { Header } from "../../layouts";
+
 export const Dashboard = () => {
-  return <div></div>;
+  return (
+    <>
+      <section></section>
+
+      <section></section>
+
+      <section></section>
+    </>
+  );
 };

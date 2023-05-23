@@ -7,7 +7,7 @@ export const CartProducts = () => {
   const handleRemoveAllProducts = () => setCurrentSale([]);
 
   const totalValue = currentSale
-    .reduce((acc, e) => acc + e.price, 0)
+    .reduce((acc, e) => acc + e.price * e.quantity, 0)
     .toFixed(2);
 
   const renderCartProducts = currentSale.map((elem) => (
@@ -23,6 +23,7 @@ export const CartProducts = () => {
           <span>Total</span>
           <span className="totalValue">R${totalValue}</span>
         </div>
+
         <button type="submit" onClick={handleRemoveAllProducts}>
           Remover Todos
         </button>

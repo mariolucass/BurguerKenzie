@@ -1,7 +1,4 @@
-import { bounceInLeft } from "react-animations";
-import styled, { keyframes } from "styled-components";
-
-const bounceAnimation = keyframes`${bounceInLeft}`;
+import styled from "styled-components";
 
 export const ProductList = styled.ul`
   margin-top: 50px;
@@ -10,7 +7,7 @@ export const ProductList = styled.ul`
   flex-direction: row;
   gap: 1rem;
   overflow-x: auto;
-  animation: 1.5s ${bounceAnimation};
+  justify-content: center;
 
   .divFiltered {
     position: fixed;

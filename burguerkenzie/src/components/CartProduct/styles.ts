@@ -1,7 +1,4 @@
-import { bounceInRight } from "react-animations";
-import styled, { keyframes } from "styled-components";
-
-const bounceAnimation = keyframes`${bounceInRight}`;
+import styled from "styled-components";
 
 export const ButtonRemove = styled.button`
   color: var(--gray-button);
@@ -19,7 +16,6 @@ export const CartProductLi = styled.li`
   width: 90%;
   height: 50%;
   margin: 0 auto;
-  animation: 1s ${bounceAnimation};
 `;
 
 export const TextCartProduct = styled.div`
