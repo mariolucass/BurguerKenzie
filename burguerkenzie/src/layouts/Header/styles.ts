@@ -4,11 +4,19 @@ export const HeaderDiv = styled.header`
   display: flex;
   background-color: var(--gray-0);
   flex-direction: column;
-  width: 100vw;
+  width: calc(100vw);
   height: 150px;
   padding: 1rem;
   align-items: center;
   border-bottom: 2px solid var(--gray-50);
+
+  svg {
+    filter: invert(57%) sepia(21%) saturate(1491%) hue-rotate(93deg)
+      brightness(94%) contrast(81%);
+  }
+  .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 48px;
+  }
 
   h1 {
     cursor: pointer;
@@ -60,4 +68,7 @@ export const InteractionsDiv = styled.div`
 export const ListInteractionsIcons = styled.ul`
   display: flex;
   gap: 1.5em;
+  svg {
+    cursor: pointer;
+  }
 `;

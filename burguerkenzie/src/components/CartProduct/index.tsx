@@ -1,14 +1,48 @@
+import { useState } from "react";
+import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
+import { monetizeString } from "../../utils/utils";
 import { ProductCartInterfaceProps } from "../../interfaces";
 import {
-  ButtonRemove,
+  Chip,
+  FormControl,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
+import {
   CartProductLi,
   ImageCartProduct,
+  InteractionsCartProduct,
   TextCartProduct,
 } from "./styles";
+import { FontSx } from "../../pages/EspecificProduct/styles";
 
 export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
-  const { currentSale, handleRemoveFromCart } = useCartContext();
+  const { handleRemoveFromCart, handleQuantity } = useCartContext();
+  const [quantity, setQuantity] = useState(product.quantity);
+
+  const handleChangeQuantity = (event: SelectChangeEvent) => {
+    const quantityChosen = +event.target.value;
+    if (quantityChosen === 0) {
+      handleRemoveFromCart(product.id);
+    } else {
+      handleQuantity(product.id, quantityChosen);
+      setQuantity(quantityChosen);
+    }
+  };
+
+  const renderSelectOptions = [...Array(10).keys()].map((elem) => {
+    return elem == 0 ? (
+      <MenuItem key={elem} value={elem} sx={FontSx}>
+        {elem} (Excluir)
+      </MenuItem>
+    ) : (
+      <MenuItem key={elem} value={elem} sx={FontSx}>
+        {elem}
+      </MenuItem>
+    );
+  });
 
   return (
     <CartProductLi>
@@ -19,15 +53,30 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
       <TextCartProduct>
         <h3>{product.name}</h3>
         <span>{product.category}</span>
+        <Chip
+          label={monetizeString(product.price * product.quantity)}
+          sx={{
+            borderRadius: 2,
+            width: "75%",
+            color: "white",
+            fontFamily: "Inter",
+          }}
+        />
       </TextCartProduct>
 
-      <button>+</button>
-      <span>{product.quantity}</span>
-      <button>-</button>
+      <InteractionsCartProduct>
+        <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
 
-      <ButtonRemove onClick={() => handleRemoveFromCart(product.id)}>
-        Remover
-      </ButtonRemove>
+        <FormControl>
+          <Select
+            onChange={handleChangeQuantity}
+            value={String(quantity)}
+            sx={FontSx}
+          >
+            {renderSelectOptions}
+          </Select>
+        </FormControl>
+      </InteractionsCartProduct>
     </CartProductLi>
   );
 };

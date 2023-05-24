@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CardProduct = styled.li`
+export const CardProduct = styled(motion.li)`
   display: flex;
   flex-direction: column;
   width: 300px;

@@ -31,7 +31,7 @@ export const SearchBar = () => {
       }}
     >
       <TextField
-        placeholder="Busque por item "
+        placeholder="Busque por item"
         variant="outlined"
         type="text"
         onChange={(event) => {

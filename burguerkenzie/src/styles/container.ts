@@ -5,7 +5,7 @@ export const DivContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5em;
 
   @media (min-width: 1023px) {
     margin: 0 115px;

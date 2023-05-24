@@ -9,7 +9,7 @@ export const Header = () => {
   const { setFilteredProducts } = useProductsContext();
 
   const handleClickToHome = () => {
-    navigate("/products");
+    navigate("/dashboard");
     setFilteredProducts([]);
   };
 
