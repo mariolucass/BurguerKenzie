@@ -1,29 +1,35 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
+interface ItemProps {
+  backgroundColor: string;
+}
 
 export const ListMenu = styled.ul`
   margin-top: 1%;
-  width: 40%;
+  width: 50%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   gap: 1em;
+`;
 
-  li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-    padding-top: 0;
-    background-color: white;
-    border-radius: 8px;
-    background: linear-gradient(
-      180deg,
-      var(--color-primary) 50%,
-      var(--white) 50%
-    );
+export const ItemMenu = styled(motion.li)<ItemProps>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  padding-top: 0;
+  border-radius: 16px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background: linear-gradient(
+    180deg,
+    ${(props) => props.backgroundColor} 50%,
+    var(--white) 50%
+  );
 
-    :last-child .image {
-      margin-top: 10px;
-    }
+  :last-child .image {
+    margin-top: 10px;
   }
+
+  cursor: pointer;
 `;

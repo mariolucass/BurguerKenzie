@@ -1,27 +1,65 @@
+import { ItemMenu, ListMenu } from "./styles";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
-import { ListMenu } from "./styles";
 import { BoxSx, FontSx } from "../../pages/EspecificProduct/styles";
+import { useProductsContext } from "../../contexts";
+import { animateHiddenCard, animateShownCard } from "./animations";
 
 export const MenuCategory = () => {
+  const navigate = useNavigate();
+  const { products, setFilteredProducts } = useProductsContext();
   const list = [
     {
       title: "Mais pedidos",
       img: "https://i.imgur.com/Vng6VzV.png",
-      color: "",
+      link: "favourites",
     },
-    { title: "Lanches", img: "https://i.imgur.com/eEzZzcF.png", color: "" },
     {
-      title: "Refeições",
-      img: "https://i.imgur.com/soOUeeW.png",
-      color: "",
+      title: "Sanduíches",
+      img: "https://i.imgur.com/eEzZzcF.png",
+      link: "burguers",
     },
-    { title: "Bebidas", img: "https://i.imgur.com/iNkD4Pq.png", color: "" },
+    {
+      title: "Bebidas",
+      img: "https://i.imgur.com/iNkD4Pq.png",
+      link: "drinks",
+    },
   ];
 
-  const handleClickMenu = () => {};
+  const colorsList = ["#e6626f", "#efae78", "#f5e19c", "#66af91"];
 
-  const listRender = list.map((elem) => (
-    <li onClick={handleClickMenu}>
+  const handleClickMenu = (link: string) => {
+    navigate(`/products/${link}`);
+
+    if (link === "burguers") {
+      const productsFilter = products.filter((elem) => {
+        return elem.category === "Sanduíches";
+      });
+      setFilteredProducts(productsFilter);
+    } else if (link === "drinks") {
+      const productsFilter = products.filter((elem) => {
+        return elem.category !== "Sanduíches";
+      });
+      setFilteredProducts(productsFilter);
+    } else {
+      setFilteredProducts([]);
+    }
+  };
+
+  const listRender = list.map((elem, index) => (
+    <ItemMenu
+      key={elem.title}
+      onClick={() => handleClickMenu(elem.link)}
+      backgroundColor={colorsList[index]}
+      whileHover={{ scale: 0.95 }}
+      whileTap={{ scale: 0.75 }}
+      initial={
+        index % 2 == 0
+          ? { ...animateHiddenCard, y: 100 }
+          : { ...animateHiddenCard, y: -100 }
+      }
+      animate={{ ...animateShownCard, y: 0 }}
+    >
       <Box
         sx={{
           ...BoxSx,
@@ -47,8 +85,10 @@ export const MenuCategory = () => {
         />
       </Box>
 
-      <Typography sx={FontSx}>{elem.title}</Typography>
-    </li>
+      <Typography sx={{ ...FontSx, fontWeight: "bold" }}>
+        {elem.title}
+      </Typography>
+    </ItemMenu>
   ));
 
   return <ListMenu>{listRender}</ListMenu>;

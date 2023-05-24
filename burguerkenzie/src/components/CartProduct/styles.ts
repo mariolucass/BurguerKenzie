@@ -1,19 +1,9 @@
 import styled from "styled-components";
 
-export const ButtonRemove = styled.button`
-  color: var(--gray-button);
-  font-size: 12px;
-
-  :hover {
-    text-decoration: underline;
-    color: var(--gray-100);
-  }
-`;
-
 export const CartProductLi = styled.li`
   display: flex;
-  justify-content: space-around;
-  width: 90%;
+  justify-content: space-between;
+  width: 100%;
   height: 50%;
   margin: 0 auto;
 `;
@@ -21,6 +11,12 @@ export const CartProductLi = styled.li`
 export const TextCartProduct = styled.div`
   width: 40%;
   height: 100%;
+  padding: 8px 0 0 8px;
+  height: 100px;
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column;
+  align-items: center;
 
   h3 {
     white-space: nowrap;
@@ -49,4 +45,12 @@ export const ImageCartProduct = styled.div`
     height: 100%;
     object-fit: contain;
   }
+`;
+
+export const InteractionsCartProduct = styled.div`
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

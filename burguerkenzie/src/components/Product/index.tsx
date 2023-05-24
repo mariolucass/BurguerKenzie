@@ -8,17 +8,31 @@ import {
   TextProduct,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { monetizeString } from "../../utils/utils";
+import {
+  animateHiddenBox,
+  animateShownBox,
+  animateTransitionBox,
+} from "./animations";
 
 export const Product = ({ product }: ProductInterfaceProps) => {
   const navigate = useNavigate();
   const { handleAddToCart } = useCartContext();
 
   const handleRedirectToProductPage = () => {
-    navigate(`/products/${product.id}`);
+    if (product.category === "Sanduíches") {
+      navigate(`/products/burguers/${product.id}`);
+    } else {
+      navigate(`/products/drinks/${product.id}`);
+    }
   };
 
   return (
-    <CardProduct>
+    <CardProduct
+      initial={animateHiddenBox}
+      animate={animateShownBox}
+      transition={animateTransitionBox}
+    >
       <ImageProduct>
         <img src={product.img} alt={product.name} />
       </ImageProduct>
@@ -26,7 +40,7 @@ export const Product = ({ product }: ProductInterfaceProps) => {
       <TextProduct>
         <h3>{product.name}</h3>
         <span>{product.category}</span>
-        <span className="productPrice">R$ {product.price}</span>
+        <span className="productPrice">{monetizeString(product.price)}</span>
 
         <ButtonDiv>
           <ButtonProducts onClick={() => handleAddToCart(product.id)}>

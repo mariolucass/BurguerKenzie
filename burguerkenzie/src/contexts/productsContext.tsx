@@ -17,6 +17,7 @@ export const ProductsProvider = ({ children }: Children) => {
   const [filteredProducts, setFilteredProducts] = useState<ProductInterface[]>(
     []
   );
+
   useEffect(() => {
     (async () => {
       const products = await getAllProducts();
@@ -29,6 +30,7 @@ export const ProductsProvider = ({ children }: Children) => {
       value={{
         products,
         setProducts,
+
         filteredProducts,
         setFilteredProducts,
       }}

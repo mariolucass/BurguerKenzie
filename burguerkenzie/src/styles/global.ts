@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import WaveBackground from "../assets/background.svg";
 
 export const GlobalStyle = createGlobalStyle`
 :root {
@@ -24,13 +25,20 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body{
+    min-height:100vh;
+    height: 100%;
+    width: 100%;
     margin:0;
     padding:0;   
     font-family: 'Inter', sans-serif;
-    min-height:100vh;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, var(--color-primary-50) 35%,  var(--gray-0)35%);
+    background-image: url(${WaveBackground});
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    ::-webkit-scrollbar { 
+        display: none; 
+    }
+ 
 }
 
 button{

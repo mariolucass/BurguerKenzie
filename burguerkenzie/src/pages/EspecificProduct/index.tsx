@@ -7,6 +7,7 @@ import { ProductImage } from "./ProductImage";
 import { ProductDescription } from "./ProductDescription";
 import { ProductCheckout } from "./ProductCheckout";
 import { getAllProducts } from "../../services/api";
+import { TransitionAnimation } from "../../layouts";
 
 export const EspecificProductPage = () => {
   const { productId } = useParams();
@@ -36,32 +37,34 @@ export const EspecificProductPage = () => {
   }, []);
 
   return (
-    <Container sx={{ mt: 2 }}>
-      <Grid container spacing={2} direction={"row"}>
-        <Grid item xs={8} sx={{ minHeight: 350 }}>
-          <ProductImage src={productEspecific.img} />
-        </Grid>
+    <TransitionAnimation>
+      <Container sx={{ mt: 2 }}>
+        <Grid container spacing={2} direction={"row"}>
+          <Grid item xs={8} sx={{ minHeight: 350 }}>
+            <ProductImage src={productEspecific.img} />
+          </Grid>
 
-        <Grid item xs={4}>
-          <ProductCheckout
-            id={productEspecific.id}
-            price={productEspecific.price}
-          />
-        </Grid>
+          <Grid item xs={4}>
+            <ProductCheckout
+              id={productEspecific.id}
+              price={productEspecific.price}
+            />
+          </Grid>
 
-        <Grid
-          item
-          xs={8}
-          sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-        >
-          <ProductDescription
-            name={productEspecific.name}
-            category={productEspecific.category}
-          />
-        </Grid>
+          <Grid
+            item
+            xs={8}
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+          >
+            <ProductDescription
+              name={productEspecific.name}
+              category={productEspecific.category}
+            />
+          </Grid>
 
-        <Grid item xs={4}></Grid>
-      </Grid>
-    </Container>
+          <Grid item xs={4}></Grid>
+        </Grid>
+      </Container>
+    </TransitionAnimation>
   );
 };

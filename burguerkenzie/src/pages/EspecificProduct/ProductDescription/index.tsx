@@ -1,5 +1,11 @@
+import { motion } from "framer-motion";
 import { BoxSx, FontSx } from "../styles";
-import { Box, Chip, Stack, Typography } from "@mui/material";
+import { Box, Chip, Divider, Stack, Typography } from "@mui/material";
+import {
+  animateHiddenBox,
+  animateShownBox,
+  animateTransitionBox,
+} from "../animations";
 
 interface IProps {
   name: string;
@@ -8,7 +14,13 @@ interface IProps {
 
 export const ProductDescription = ({ name, category }: IProps) => {
   return (
-    <Box sx={BoxSx}>
+    <Box
+      sx={BoxSx}
+      component={motion.div}
+      initial={animateHiddenBox}
+      animate={animateShownBox}
+      transition={animateTransitionBox}
+    >
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -18,6 +30,8 @@ export const ProductDescription = ({ name, category }: IProps) => {
         <Typography sx={FontSx} variant="h4">
           {name ? name : "Loading..."}
         </Typography>
+
+        <Divider orientation="vertical" flexItem />
 
         <Stack
           direction="column"

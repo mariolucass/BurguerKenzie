@@ -1,11 +1,6 @@
-import { toast } from "react-toastify";
-import {
-  Children,
-  ProductCartInterface,
-  ProductInterface,
-} from "../interfaces";
-import { createContext, useContext, useState } from "react";
 import { useProductsContext } from "./productsContext";
+import { Children, ProductCartInterface } from "../interfaces";
+import { createContext, useContext, useState, useEffect } from "react";
 
 interface CartContextProps {
   currentSale: ProductCartInterface[];
@@ -13,9 +8,12 @@ interface CartContextProps {
 
   handleAddToCart: (id: number) => void;
   handleRemoveFromCart: (id: number) => void;
+  handleQuantity: (id: number, quantity: number) => void;
 
   openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
+
+  currentSaleValue: number;
 }
 
 const CartContext = createContext({} as CartContextProps);
@@ -23,7 +21,18 @@ const CartContext = createContext({} as CartContextProps);
 export const CartProvider = ({ children }: Children) => {
   const { products } = useProductsContext();
   const [currentSale, setCurrentSale] = useState<ProductCartInterface[]>([]);
+  const [currentSaleValue, setCurrentSaleValue] = useState(0);
   const [openCart, setOpenCart] = useState(false);
+
+  const handleTotalValue = () => {
+    const totalValue = +currentSale
+      .reduce((acc, e) => acc + e.price * e.quantity, 0)
+      .toFixed(2);
+
+    setCurrentSaleValue(totalValue);
+  };
+
+  useEffect(() => handleTotalValue(), [currentSale]);
 
   const handleAddToCart = (id: number) => {
     const productToAdd = products.find((e) => e.id === id);
@@ -40,7 +49,7 @@ export const CartProvider = ({ children }: Children) => {
 
         setCurrentSale((cartList) => [...cartList, productWithQuantity]);
       }
-
+      handleTotalValue();
       setOpenCart(true);
     }
   };
@@ -54,14 +63,24 @@ export const CartProvider = ({ children }: Children) => {
       : setCurrentSale(currentSale.filter((e, i) => i !== productIndex));
   };
 
+  const handleQuantity = (id: number, quantity: number) => {
+    const productToChangeQuantity = currentSale.find((e) => e.id === id);
+    const productIndex = currentSale.indexOf(productToChangeQuantity!);
+
+    currentSale[productIndex].quantity = quantity;
+    handleTotalValue();
+  };
+
   return (
     <CartContext.Provider
       value={{
         currentSale,
         setCurrentSale,
+        currentSaleValue,
 
         handleAddToCart,
         handleRemoveFromCart,
+        handleQuantity,
 
         openCart,
         setOpenCart,
