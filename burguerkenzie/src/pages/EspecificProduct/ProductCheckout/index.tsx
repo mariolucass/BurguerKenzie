@@ -1,4 +1,3 @@
-import { BoxSx, FontSx } from "../styles";
 import { useCartContext } from "../../../contexts";
 import { monetizeString } from "../../../utils/utils";
 import { Box, Button, Typography } from "@mui/material";
@@ -8,6 +7,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../animations";
+import { BoxSx } from "../../../libs/mui";
 
 interface IProps {
   id: number;
@@ -25,11 +25,8 @@ export const ProductCheckout = ({ id, price }: IProps) => {
       animate={animateShownBox}
       transition={animateTransitionBox}
     >
-      <Typography sx={FontSx}>Apenas</Typography>
-      <Typography
-        variant="h2"
-        sx={{ ...FontSx, color: "#27ae60", fontWeight: "500" }}
-      >
+      <Typography>Apenas</Typography>
+      <Typography variant="h2" sx={{ color: "#27ae60", fontWeight: "500" }}>
         {price ? monetizeString(price) : "Loading..."}
       </Typography>
 

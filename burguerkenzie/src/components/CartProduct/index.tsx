@@ -16,7 +16,6 @@ import {
   InteractionsCartProduct,
   TextCartProduct,
 } from "./styles";
-import { FontSx } from "../../pages/EspecificProduct/styles";
 
 export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
   const { handleRemoveFromCart, handleQuantity } = useCartContext();
@@ -34,11 +33,11 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
 
   const renderSelectOptions = [...Array(10).keys()].map((elem) => {
     return elem == 0 ? (
-      <MenuItem key={elem} value={elem} sx={FontSx}>
+      <MenuItem key={elem} value={elem}>
         {elem} (Excluir)
       </MenuItem>
     ) : (
-      <MenuItem key={elem} value={elem} sx={FontSx}>
+      <MenuItem key={elem} value={elem}>
         {elem}
       </MenuItem>
     );
@@ -52,31 +51,28 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
 
       <TextCartProduct>
         <h3>{product.name}</h3>
-        <span>{product.category}</span>
-        <Chip
-          label={monetizeString(product.price * product.quantity)}
-          sx={{
-            borderRadius: 2,
-            width: "75%",
-            color: "white",
-            fontFamily: "Inter",
-          }}
-        />
       </TextCartProduct>
 
-      <InteractionsCartProduct>
-        <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
+      {/* <span>{product.category}</span>
+      <Chip
+        label={monetizeString(product.price * product.quantity)}
+        sx={{
+          borderRadius: 2,
+          width: "75%",
+          color: "white",
+          fontFamily: "Inter",
+        }}
+      /> */}
 
-        <FormControl>
-          <Select
-            onChange={handleChangeQuantity}
-            value={String(quantity)}
-            sx={FontSx}
-          >
+      {/* <InteractionsCartProduct>
+        <FormControl size="small">
+          <Select onChange={handleChangeQuantity} value={String(quantity)}>
             {renderSelectOptions}
           </Select>
         </FormControl>
-      </InteractionsCartProduct>
+
+        <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
+      </InteractionsCartProduct> */}
     </CartProductLi>
   );
 };

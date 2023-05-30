@@ -1,25 +1,29 @@
 import { FiShoppingCart } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
-import { ListInteractionsIcons } from "./styles";
-import { useCartContext } from "../../contexts";
+import { useCartContext, useModalContext } from "../../../contexts";
 import { Badge } from "@mui/material";
+import { MenuHeader } from "../MenuHeader";
+import { ListInteractionsIcons, UserMenuIcon } from "./styles";
 
 export const HeaderList = () => {
   const { setOpenCart, currentSale } = useCartContext();
+  const { handleOpenMenu, handleCloseMenu } = useModalContext();
 
   const handleClickCart = () => {
     setOpenCart(true);
   };
 
-  const handleClickAccount = () => {};
-
   return (
     <ListInteractionsIcons>
-      <FaUserCircle size={"2em"} onClick={handleClickAccount} />
+      <UserMenuIcon onHoverStart={handleOpenMenu}>
+        <FaUserCircle size={"2em"} />
+      </UserMenuIcon>
 
       <Badge badgeContent={currentSale.length} showZero className="badge">
         <FiShoppingCart size={"2em"} onClick={handleClickCart} />
       </Badge>
+
+      <MenuHeader />
     </ListInteractionsIcons>
   );
 };

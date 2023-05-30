@@ -1,6 +1,6 @@
 import { useProductsContext } from "../../contexts";
-import { HeaderList } from "./headerList";
-import { SearchBar } from "./searchBar";
+import { HeaderList } from "./InteractionIcons";
+import { SearchBar } from "./SearchBar";
 import { HeaderDiv, InteractionsDiv } from "./styles";
 import { useNavigate } from "react-router-dom";
 
@@ -23,6 +23,7 @@ export const Header = () => {
 
       <InteractionsDiv>
         <SearchBar />
+
         <HeaderList />
       </InteractionsDiv>
     </HeaderDiv>

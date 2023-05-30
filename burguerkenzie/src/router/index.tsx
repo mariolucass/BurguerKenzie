@@ -8,26 +8,40 @@ import {
   ProductsPage,
   CheckoutPage,
   EspecificProductPage,
+  AddCardPage,
 } from "../pages";
+
+const AllRoutes = () => (
+  <AnimatePresence>
+    <Routes>
+      <Route element={<Dashboard />} path="/dashboard" />
+
+      <Route path="/cart">
+        <Route element={<CartPage />} index />
+        <Route element={<CheckoutPage />} path="checkout" />
+      </Route>
+
+      <Route path="/products">
+        <Route element={<ProductsPage />} path=":categoryName" />
+        <Route
+          element={<EspecificProductPage />}
+          path=":categoryName/:productId"
+        />
+      </Route>
+
+      <Route
+        element={<Navigate to={"/dashboard"} replace={true} />}
+        path="/*"
+      />
+    </Routes>
+  </AnimatePresence>
+);
 
 export const RoutesMain = () => (
   <AllContexts>
     <Header />
 
-    <AnimatePresence>
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/cart/checkout" element={<CheckoutPage />} />
-
-        <Route path="/products/:categoryName" element={<ProductsPage />} />
-        <Route
-          path="/products/:categoryName/:productId"
-          element={<EspecificProductPage />}
-        />
-        <Route path="/*" element={<Navigate to={"/dashboard"} />} />
-      </Routes>
-    </AnimatePresence>
+    <AllRoutes />
 
     <Cart />
     <Footer />

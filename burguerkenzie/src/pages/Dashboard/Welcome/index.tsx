@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import WelcomeIllustration from "../../../assets/welcome.svg";
 import WaveWelcomeBackground from "../../../assets/waves.svg";
-import { FontSx } from "../../EspecificProduct/styles";
+
 import { motion } from "framer-motion";
 import {
   animateHiddenBox,
@@ -41,14 +41,11 @@ export const WelcomeSection = () => {
           flexDirection: "column",
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{ ...FontSx, color: "#ffffff", textAlign: "right" }}
-        >
+        <Typography variant="h3" sx={{ color: "#ffffff", textAlign: "right" }}>
           Piscou, chegou!
         </Typography>
 
-        <Typography sx={{ ...FontSx, color: "#ffffff", textAlign: "right" }}>
+        <Typography sx={{ color: "#ffffff", textAlign: "right" }}>
           Nossos pedidos são feitos com rapidez, versatilidade e preparo, sempre
           com o objetivo de matar sua fome.
         </Typography>

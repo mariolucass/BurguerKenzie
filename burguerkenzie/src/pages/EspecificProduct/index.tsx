@@ -26,9 +26,7 @@ export const EspecificProductPage = () => {
     } else {
       (async () => {
         const products: ProductInterface[] = await getAllProducts();
-
         const product = products.find((product) => product.id === +productId!);
-
         if (product) {
           setProductEspecific(product);
         }

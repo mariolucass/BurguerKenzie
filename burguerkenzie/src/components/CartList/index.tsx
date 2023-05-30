@@ -1,30 +1,29 @@
 import { CartList } from "./styles";
 import { CartProduct } from "../CartProduct";
 import { useCartContext } from "../../contexts";
-import { monetizeString } from "../../utils/utils";
+import { CartPageProduct } from "../CartPageProduct";
+import { Divider } from "@mui/material";
 
-export const CartProducts = () => {
-  const { setCurrentSale, currentSale, currentSaleValue } = useCartContext();
-  const handleRemoveAllProducts = () => setCurrentSale([]);
+interface CartProps {
+  isPage?: boolean;
+}
 
-  const renderCartProducts = currentSale.map((elem) => (
-    <CartProduct key={elem.id} product={elem} />
-  ));
+export const CartProducts = ({ isPage }: CartProps) => {
+  const { currentSale } = useCartContext();
 
-  return (
-    <CartList>
-      {renderCartProducts}
+  const renderCartProducts = currentSale.map((elem) => {
+    return (
+      <>
+        {isPage ? (
+          <CartPageProduct key={elem.id} product={elem} />
+        ) : (
+          <CartProduct key={elem.id} product={elem} />
+        )}
 
-      <div className="cartValue">
-        <div>
-          <span>Total</span>
-          <span className="totalValue">{monetizeString(currentSaleValue)}</span>
-        </div>
+        <Divider flexItem component="li" />
+      </>
+    );
+  });
 
-        <button type="submit" onClick={handleRemoveAllProducts}>
-          Remover Todos
-        </button>
-      </div>
-    </CartList>
-  );
+  return <CartList>{renderCartProducts}</CartList>;
 };

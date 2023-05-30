@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SearchForm } from "./styles";
-import { useProductsContext } from "../../contexts";
+import { useProductsContext } from "../../../contexts";
 import { toast } from "react-toastify";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { GoSearch } from "react-icons/go";
@@ -46,6 +46,7 @@ export const SearchBar = () => {
             </InputAdornment>
           ),
         }}
+        sx={{ width: "190px" }}
       />
     </SearchForm>
   );

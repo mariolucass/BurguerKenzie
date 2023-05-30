@@ -9,6 +9,7 @@ export const CardProduct = styled(motion.li)`
   align-items: center;
   border-radius: 0.3rem;
   background-color: white;
+  gap: 1em;
 `;
 
 export const ButtonProducts = styled.button`
@@ -29,16 +30,11 @@ export const ButtonProducts = styled.button`
 
 export const TextProduct = styled.div`
   width: 100%;
-  height: 190px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1rem;
-
-  span {
-    font-size: 1rem;
-  }
+  padding: 0 1em;
 
   .productPrice {
     color: var(--color-primary);
@@ -51,7 +47,7 @@ export const ImageProduct = styled.div`
   justify-content: center;
   width: 290px;
   height: 150px;
-  background-color: var(--gray-0);
+  background-color: var(--white);
   padding: 1rem;
 
   img {
@@ -63,6 +59,7 @@ export const ImageProduct = styled.div`
 
 export const ButtonDiv = styled.div`
   width: 100%;
+  height: 60px;
   display: flex;
   justify-content: space-around;
 `;
