@@ -50,7 +50,12 @@ export const ImageCartProduct = styled.div`
 export const InteractionsCartProduct = styled.div`
   height: 100px;
   display: flex;
-  flex-direction: column;
+  gap: 1em;
+
   justify-content: center;
   align-items: center;
+
+  svg {
+    cursor: pointer;
+  }
 `;

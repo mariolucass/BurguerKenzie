@@ -1,21 +1,19 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const HeaderDiv = styled.header`
   display: flex;
-  background-color: var(--gray-0);
+  background-color: var(--white);
   flex-direction: column;
   width: calc(100vw);
   height: 150px;
   padding: 1rem;
   align-items: center;
-  border-bottom: 2px solid var(--gray-50);
+  /* border-bottom: 2px solid var(--gray-50); */
 
   svg {
     filter: invert(57%) sepia(21%) saturate(1491%) hue-rotate(93deg)
       brightness(94%) contrast(81%);
-  }
-  .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
-    height: 48px;
   }
 
   h1 {
@@ -46,29 +44,12 @@ export const HeaderDiv = styled.header`
   }
 `;
 
-export const SearchForm = styled.form`
-  width: 100%;
-
-  @media (min-width: 768px) {
-    width: 30%;
-    max-width: 400px;
-  }
-`;
-
 export const InteractionsDiv = styled.div`
   width: 30%;
   height: 100%;
   align-items: center;
   display: flex;
-  justify-content: flex-end;
-  gap: 1.5em;
+  justify-content: space-between;
   margin-right: 100px;
-`;
-
-export const ListInteractionsIcons = styled.ul`
-  display: flex;
-  gap: 1.5em;
-  svg {
-    cursor: pointer;
-  }
+  max-width: 350px;
 `;

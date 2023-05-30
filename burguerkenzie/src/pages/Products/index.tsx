@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ProductsList } from "../../components";
 import { useProductsContext } from "../../contexts";
 import { DivContainer } from "../../styles/container";
 import { useNavigate, useParams } from "react-router-dom";
 import { MenuCategory, TransitionAnimation } from "../../layouts";
-import { TitleSection } from "./TitleSection";
 
 export const ProductsPage = () => {
   const navigate = useNavigate();

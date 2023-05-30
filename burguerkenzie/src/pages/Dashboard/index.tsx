@@ -1,7 +1,7 @@
 import { MenuCategory } from "../../layouts";
 import { TransitionAnimation } from "../../layouts";
 import { DivContainer } from "../../styles/container";
-import { MostOrdereds } from "./MostOrdereds";
+import { SectionInfo } from "./InfoSection";
 import { ProductsCarrouselSection } from "./ProductsCarrousel";
 import { WelcomeSection } from "./Welcome";
 
@@ -15,7 +15,7 @@ export const Dashboard = () => {
 
         <ProductsCarrouselSection />
 
-        <MostOrdereds />
+        <SectionInfo />
 
         <ProductsCarrouselSection isDrinks />
       </DivContainer>

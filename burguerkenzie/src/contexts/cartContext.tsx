@@ -1,5 +1,5 @@
 import { useProductsContext } from "./productsContext";
-import { Children, ProductCartInterface } from "../interfaces";
+import { CardInterface, Children, ProductCartInterface } from "../interfaces";
 import { createContext, useContext, useState, useEffect } from "react";
 
 interface CartContextProps {
@@ -14,6 +14,9 @@ interface CartContextProps {
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
 
   currentSaleValue: number;
+
+  card: CardInterface;
+  setCard: React.Dispatch<React.SetStateAction<CardInterface>>;
 }
 
 const CartContext = createContext({} as CartContextProps);
@@ -23,6 +26,13 @@ export const CartProvider = ({ children }: Children) => {
   const [currentSale, setCurrentSale] = useState<ProductCartInterface[]>([]);
   const [currentSaleValue, setCurrentSaleValue] = useState(0);
   const [openCart, setOpenCart] = useState(false);
+  const [card, setCard] = useState<CardInterface>({
+    cvc: "",
+    expiry: "",
+    focus: "number",
+    name: "",
+    number: "",
+  });
 
   const handleTotalValue = () => {
     const totalValue = +currentSale
@@ -84,6 +94,9 @@ export const CartProvider = ({ children }: Children) => {
 
         openCart,
         setOpenCart,
+
+        card,
+        setCard,
       }}
     >
       {children}

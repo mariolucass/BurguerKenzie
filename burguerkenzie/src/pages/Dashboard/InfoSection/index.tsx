@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Box, Typography } from "@mui/material";
-import { FontSx } from "../../EspecificProduct/styles";
 import DinnerIllustration from "../../../assets/restaurantDinner.svg";
 import WaveWelcomeReverseBackground from "../../../assets/wavesReverse.svg";
 import {
@@ -13,7 +12,7 @@ const styleDiv = {
   backgroundImage: `url(${WaveWelcomeReverseBackground})`,
 };
 
-export const MostOrdereds = () => {
+export const SectionInfo = () => {
   return (
     <Box
       component={motion.div}
@@ -39,11 +38,11 @@ export const MostOrdereds = () => {
           flexDirection: "column",
         }}
       >
-        <Typography variant="h3" sx={{ ...FontSx, color: "#ffffff" }}>
+        <Typography variant="h3" sx={{ color: "#ffffff" }}>
           Suporte ao cliente.
         </Typography>
 
-        <Typography sx={{ ...FontSx, color: "#ffffff" }}>
+        <Typography sx={{ color: "#ffffff" }}>
           Nosso sistema conta com suporte ao cliente para suprir suas
           necessidades, contando com feedbacks, reclamações e sugestões.
         </Typography>

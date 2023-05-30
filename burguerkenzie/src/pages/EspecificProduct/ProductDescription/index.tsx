@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { BoxSx, FontSx } from "../styles";
 import { Box, Chip, Divider, Stack, Typography } from "@mui/material";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
 } from "../animations";
+import { BoxSx } from "../../../libs/mui";
 
 interface IProps {
   name: string;
@@ -27,9 +27,7 @@ export const ProductDescription = ({ name, category }: IProps) => {
         alignItems="flex-start"
         spacing={4}
       >
-        <Typography sx={FontSx} variant="h4">
-          {name ? name : "Loading..."}
-        </Typography>
+        <Typography variant="h4">{name ? name : "Loading..."}</Typography>
 
         <Divider orientation="vertical" flexItem />
 
@@ -49,9 +47,7 @@ export const ProductDescription = ({ name, category }: IProps) => {
               fontFamily: "Inter",
             }}
           />
-          <Typography sx={FontSx}>
-            {category ? category : "Loading..."}
-          </Typography>
+          <Typography>{category ? category : "Loading..."}</Typography>
         </Stack>
       </Stack>
     </Box>

@@ -1,5 +1,12 @@
-import { ProductInterfaceProps } from "../../interfaces";
+import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../contexts";
+import { monetizeString } from "../../utils/utils";
+import { ProductInterfaceProps } from "../../interfaces";
+import {
+  animateHiddenBox,
+  animateShownBox,
+  animateTransitionBox,
+} from "./animations";
 import {
   ButtonDiv,
   ButtonProducts,
@@ -7,13 +14,7 @@ import {
   ImageProduct,
   TextProduct,
 } from "./styles";
-import { useNavigate } from "react-router-dom";
-import { monetizeString } from "../../utils/utils";
-import {
-  animateHiddenBox,
-  animateShownBox,
-  animateTransitionBox,
-} from "./animations";
+import { Button, Divider } from "@mui/material";
 
 export const Product = ({ product }: ProductInterfaceProps) => {
   const navigate = useNavigate();
@@ -37,21 +38,35 @@ export const Product = ({ product }: ProductInterfaceProps) => {
         <img src={product.img} alt={product.name} />
       </ImageProduct>
 
+      <Divider flexItem />
+
       <TextProduct>
         <h3>{product.name}</h3>
         <span>{product.category}</span>
         <span className="productPrice">{monetizeString(product.price)}</span>
-
-        <ButtonDiv>
-          <ButtonProducts onClick={() => handleAddToCart(product.id)}>
-            Adicionar
-          </ButtonProducts>
-
-          <ButtonProducts onClick={handleRedirectToProductPage}>
-            Ver detalhes
-          </ButtonProducts>
-        </ButtonDiv>
       </TextProduct>
+
+      <Divider flexItem />
+
+      <ButtonDiv>
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={() => handleAddToCart(product.id)}
+          sx={{ maxHeight: "48px" }}
+        >
+          Adicionar
+        </Button>
+
+        <Button
+          variant="outlined"
+          size="medium"
+          onClick={handleRedirectToProductPage}
+          sx={{ maxHeight: "48px" }}
+        >
+          Ver detalhes
+        </Button>
+      </ButtonDiv>
     </CardProduct>
   );
 };

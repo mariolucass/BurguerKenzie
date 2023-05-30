@@ -1,9 +1,9 @@
 import { ItemMenu, ListMenu } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
-import { BoxSx, FontSx } from "../../pages/EspecificProduct/styles";
 import { useProductsContext } from "../../contexts";
 import { animateHiddenCard, animateShownCard } from "./animations";
+import { BoxSx } from "../../libs/mui";
 
 export const MenuCategory = () => {
   const navigate = useNavigate();
@@ -53,11 +53,7 @@ export const MenuCategory = () => {
       backgroundColor={colorsList[index]}
       whileHover={{ scale: 0.95 }}
       whileTap={{ scale: 0.75 }}
-      initial={
-        index % 2 == 0
-          ? { ...animateHiddenCard, y: 100 }
-          : { ...animateHiddenCard, y: -100 }
-      }
+      initial={{ ...animateHiddenCard, y: -100 }}
       animate={{ ...animateShownCard, y: 0 }}
     >
       <Box
@@ -85,9 +81,7 @@ export const MenuCategory = () => {
         />
       </Box>
 
-      <Typography sx={{ ...FontSx, fontWeight: "bold" }}>
-        {elem.title}
-      </Typography>
+      <Typography sx={{ fontWeight: "bold" }}>{elem.title}</Typography>
     </ItemMenu>
   ));
 

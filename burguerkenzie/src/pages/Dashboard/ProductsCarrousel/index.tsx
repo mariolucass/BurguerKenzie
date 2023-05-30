@@ -10,7 +10,6 @@ import {
 import { useProductsContext } from "../../../contexts";
 import { ListCarrousel } from "./styles";
 import { monetizeString } from "../../../utils/utils";
-import { FontSx } from "../../EspecificProduct/styles";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { animateHiddenCard, animateShownCard } from "../animations";
@@ -25,7 +24,7 @@ export const ProductsCarrouselSection = ({ isDrinks }: Props) => {
   const navigate = useNavigate();
 
   const listToRender = (list: ProductInterface[]) => {
-    return list.map((elem, index) => {
+    return list.map((elem) => {
       const handleRedirectToProductPage = () => {
         navigate(`/products/burguers/${elem.id}`);
       };
@@ -40,12 +39,8 @@ export const ProductsCarrouselSection = ({ isDrinks }: Props) => {
             cursor: "pointer",
           }}
           component={motion.div}
-          initial={
-            index % 2
-              ? { ...animateHiddenCard, y: 100 }
-              : { ...animateHiddenCard, y: -100 }
-          }
-          animate={{ ...animateShownCard, y: 0 }}
+          initial={{ ...animateHiddenCard }}
+          animate={{ ...animateShownCard }}
           onClick={handleRedirectToProductPage}
           whileHover={{ scale: 0.95 }}
           whileTap={{ scale: 0.75 }}
@@ -61,11 +56,7 @@ export const ProductsCarrouselSection = ({ isDrinks }: Props) => {
               alignItems="center"
               spacing={2}
             >
-              <Typography
-                gutterBottom
-                variant="h6"
-                sx={{ ...FontSx, fontWeight: "bold" }}
-              >
+              <Typography gutterBottom variant="h6" sx={{ fontWeight: "bold" }}>
                 {elem.name}
               </Typography>
 
@@ -87,7 +78,7 @@ export const ProductsCarrouselSection = ({ isDrinks }: Props) => {
                 />
               </Stack>
 
-              <Typography sx={{ ...FontSx, color: "#27ae60" }}>
+              <Typography sx={{ color: "#27ae60" }}>
                 {monetizeString(elem.price)}
               </Typography>
             </Stack>

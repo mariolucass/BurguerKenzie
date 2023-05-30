@@ -13,21 +13,3 @@ export const ProductImageDiv = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-export const BoxSx = {
-  p: 6,
-  borderRadius: 1,
-  maxHeight: 400,
-  backgroundColor: "white",
-};
-
-export const FontSx = { fontFamily: "Inter" };
-
-export const ImageSx = {
-  backgroundColor: "white",
-  objectFit: "contain",
-  width: "100%",
-  height: "100%",
-  padding: 2,
-  maxHeight: 350,
-};
