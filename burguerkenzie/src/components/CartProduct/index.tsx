@@ -1,8 +1,17 @@
-import { MenuItem, SelectChangeEvent } from "@mui/material";
+import { Divider, SelectChangeEvent, Typography } from "@mui/material";
 import { useState } from "react";
+import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
 import { ProductCartInterfaceProps } from "../../interfaces";
-import { CartProductLi, ImageCartProduct, TextCartProduct } from "./styles";
+import { monetizeString } from "../../utils/utils";
+import { SelectQuantity } from "../SelectQuantity";
+import {
+  CartProductLi,
+  ImageCartProduct,
+  InteractionsCartProduct,
+  StyledDiv,
+  TextCartProduct,
+} from "./styles";
 
 export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
   const { handleRemoveFromCart, handleQuantity } = useCartContext();
@@ -18,18 +27,6 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
     }
   };
 
-  const renderSelectOptions = [...Array(10).keys()].map((elem) => {
-    return elem == 0 ? (
-      <MenuItem key={elem} value={elem}>
-        {elem} (Excluir)
-      </MenuItem>
-    ) : (
-      <MenuItem key={elem} value={elem}>
-        {elem}
-      </MenuItem>
-    );
-  });
-
   return (
     <CartProductLi>
       <ImageCartProduct>
@@ -38,28 +35,32 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
 
       <TextCartProduct>
         <h3>{product.name}</h3>
+
+        <Divider variant="middle" flexItem />
+
+        <StyledDiv>
+          <div>
+            <Typography color={"#27ae60"} variant="subtitle2">
+              {product.category}
+            </Typography>
+
+            <Typography color={""} sx={{ fontWeight: "bold" }}>
+              {monetizeString(product.price)}
+            </Typography>
+          </div>
+
+          <div>
+            <InteractionsCartProduct>
+              <SelectQuantity product={product} />
+
+              <RxTrash
+                onClick={() => handleRemoveFromCart(product.id)}
+                size={24}
+              />
+            </InteractionsCartProduct>
+          </div>
+        </StyledDiv>
       </TextCartProduct>
-
-      {/* <span>{product.category}</span>
-      <Chip
-        label={monetizeString(product.price * product.quantity)}
-        sx={{
-          borderRadius: 2,
-          width: "75%",
-          color: "white",
-          fontFamily: "Inter",
-        }}
-      /> */}
-
-      {/* <InteractionsCartProduct>
-        <FormControl size="small">
-          <Select onChange={handleChangeQuantity} value={String(quantity)}>
-            {renderSelectOptions}
-          </Select>
-        </FormControl>
-
-        <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
-      </InteractionsCartProduct> */}
     </CartProductLi>
   );
 };

@@ -2,12 +2,8 @@ import { Button, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../contexts";
 import { ProductInterfaceProps } from "../../interfaces";
+import { animateTransitionBox } from "../../libs/framer";
 import { monetizeString } from "../../utils/utils";
-import {
-  animateHiddenBox,
-  animateShownBox,
-  animateTransitionBox,
-} from "./animations";
 import { ButtonDiv, CardProduct, ImageProduct, TextProduct } from "./styles";
 
 export const Product = ({ product }: ProductInterfaceProps) => {
@@ -24,9 +20,9 @@ export const Product = ({ product }: ProductInterfaceProps) => {
 
   return (
     <CardProduct
-      initial={animateHiddenBox}
-      animate={animateShownBox}
-      transition={animateTransitionBox}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1, transition: animateTransitionBox }}
+      exit={{ opacity: 0, scale: 0.5 }}
     >
       <ImageProduct>
         <img src={product.img} alt={product.name} />
@@ -51,7 +47,6 @@ export const Product = ({ product }: ProductInterfaceProps) => {
         >
           Adicionar
         </Button>
-
         <Button
           variant="outlined"
           size="medium"

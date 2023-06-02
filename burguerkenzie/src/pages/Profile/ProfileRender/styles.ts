@@ -1,9 +1,18 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const SvgDiv = styled(motion.div)`
-  width: 256px;
-  height: 256px;
+export const AvatarDiv = styled(motion.div)`
+  width: 168px;
+  min-height: 100%;
+  display: flex;
+  justify-content: color-interpolation-filters;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
   svg {
     filter: invert(57%) sepia(21%) saturate(1491%) hue-rotate(93deg)
@@ -13,7 +22,7 @@ export const SvgDiv = styled(motion.div)`
 
 export const DataDiv = styled(motion.div)`
   width: 35%;
-  min-height: 248px;
+  min-height: 168px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -23,4 +32,15 @@ export const ContentDiv = styled(motion.div)`
   display: flex;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
+  background: rgb(63, 180, 232);
+  background: linear-gradient(
+    90deg,
+    rgba(63, 180, 232, 1) 50%,
+    rgba(5, 121, 189, 1) 50%
+  );
+  padding: 1rem;
+  border-radius: 16px;
+  border-left: 8px solid #84d5fb;
+  border-right: 8px solid #84d5fb;
 `;

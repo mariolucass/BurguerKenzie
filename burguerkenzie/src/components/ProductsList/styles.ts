@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const ProductList = styled.ul`
+export const ProductList = styled(motion.ul)`
   height: 350px;
   display: flex;
   flex-direction: row;

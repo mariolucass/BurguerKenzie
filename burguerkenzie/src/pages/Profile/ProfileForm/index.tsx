@@ -6,7 +6,7 @@ import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
 import { FormChangeProfile } from "./styles";
 
 export const ProfileForm = () => {
@@ -29,9 +29,17 @@ export const ProfileForm = () => {
   ) => {
     let { name, value } = e.target;
 
-    setUser((user) => {
-      return { ...user, [name]: value };
-    });
+    if (name === "image") {
+      if (value.length > 0) {
+        setUser((user) => {
+          return { ...user, [name]: value };
+        });
+      }
+    } else {
+      setUser((user) => {
+        return { ...user, [name]: value };
+      });
+    }
   };
 
   return (

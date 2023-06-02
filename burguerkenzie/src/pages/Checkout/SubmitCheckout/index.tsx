@@ -1,12 +1,12 @@
 import { Box, Button, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useCartContext } from "../../../contexts";
-import { monetizeString } from "../../../utils/utils";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { monetizeString } from "../../../utils/utils";
 import { ValuesDiv } from "./styles";
 
 export const SubmitContent = () => {
@@ -46,22 +46,18 @@ export const SubmitContent = () => {
           <Typography variant="h5">Resumo:</Typography>
 
           <ValuesDiv>
-            <Typography sx={{ color: "#828282" }}>Itens:</Typography>
-            <Typography sx={{ color: "#828282" }}>
-              {monetizeString(currentSaleValue)}
-            </Typography>
+            <Typography>Itens:</Typography>
+            <Typography>{monetizeString(currentSaleValue)}</Typography>
           </ValuesDiv>
 
           <ValuesDiv>
-            <Typography sx={{ color: "#828282" }}>Descontos:</Typography>
-            <Typography sx={{ color: "#828282" }}>
-              {monetizeString(currentSaleValue / 10)}
-            </Typography>
+            <Typography>Descontos:</Typography>
+            <Typography>{monetizeString(currentSaleValue / 10)}</Typography>
           </ValuesDiv>
 
           <ValuesDiv>
-            <Typography sx={{ color: "#828282" }}>Total do pedido:</Typography>
-            <Typography sx={{ color: "#828282" }}>
+            <Typography>Total do pedido:</Typography>
+            <Typography>
               {monetizeString(currentSaleValue - currentSaleValue / 10)}
             </Typography>
           </ValuesDiv>
@@ -74,7 +70,7 @@ export const SubmitContent = () => {
         animate={{ ...animateShownBox, y: 0 }}
         transition={animateTransitionBox}
         sx={{
-          p: 6,
+          p: 3,
           borderRadius: "0px 0px 8px 8px",
           backgroundColor: "#93d7af",
           display: "flex",
@@ -82,8 +78,8 @@ export const SubmitContent = () => {
           minHeight: 100,
         }}
       >
-        <Typography variant="h6">
-          Parabéns, você recebeu 10% de desconto na primeira compra
+        <Typography variant="subtitle1" color="#828282">
+          Parabéns, você recebeu 10% de desconto na primeira compra!
         </Typography>
       </Box>
     </>

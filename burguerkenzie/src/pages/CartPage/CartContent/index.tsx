@@ -2,12 +2,12 @@ import { Box, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { CartProducts } from "../../../components";
 import { useCartContext } from "../../../contexts";
-import { EmptyCartPage } from "../EmptyCart";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { EmptyCartPage } from "../EmptyCart";
 
 export const CartPageContent = () => {
   const { currentSale } = useCartContext();
@@ -33,7 +33,7 @@ export const CartPageContent = () => {
 
       <Divider />
 
-      {currentSale.length ? <CartProducts isPage /> : <EmptyCartPage />}
+      {currentSale.length ? <CartProducts isCartPage /> : <EmptyCartPage />}
     </Box>
   );
 };

@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useMediaContext, useProductsContext } from "../../contexts";
+import { animateHiddenCard, animateShownCard } from "../../libs/framer";
 import { BoxSx } from "../../libs/mui";
-import { animateHiddenCard, animateShownCard } from "./animations";
 import { ItemMenu, ListMenu } from "./styles";
 
 export const MenuCategory = () => {
@@ -78,7 +78,7 @@ export const MenuCategory = () => {
             objectFit: "contain",
             width: "96px",
             height: "96px",
-            marginTop: 3,
+            mt: 3,
           }}
         />
       </Box>

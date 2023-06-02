@@ -1,11 +1,11 @@
 import { Box, Skeleton } from "@mui/material";
 import { motion } from "framer-motion";
-import { BoxSx, ImageSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { BoxSx, ImageSx } from "../../../libs/mui";
 
 interface IProps {
   src: string;

@@ -47,7 +47,7 @@ export const ImageProduct = styled.div`
   justify-content: center;
   width: 290px;
   height: 150px;
-  background-color: var(--white);
+  background-color: var(--gray-0);
   padding: 1rem;
 
   img {

@@ -11,8 +11,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useProductsContext } from "../../../contexts";
 import { ProductInterface } from "../../../interfaces";
+import { animateHiddenCard, animateShownCard } from "../../../libs/framer";
 import { monetizeString } from "../../../utils/utils";
-import { animateHiddenCard, animateShownCard } from "../animations";
 import { ListCarrousel } from "./styles";
 
 interface Props {
@@ -31,7 +31,7 @@ export const ProductsCarrouselSection = ({ isDrinks }: Props) => {
 
       return (
         <Card
-          key={elem.name}
+          key={elem.id}
           sx={{
             width: "100%",
             display: "flex",

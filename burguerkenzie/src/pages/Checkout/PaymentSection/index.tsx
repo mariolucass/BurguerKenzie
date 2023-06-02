@@ -1,12 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import Cards from "react-credit-cards";
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../../contexts";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
 import { CardDiv } from "./styles";
 
 export const PaymentContent = () => {
@@ -28,18 +29,25 @@ export const PaymentContent = () => {
         minHeight: 200,
       }}
     >
-      <Typography variant="h6">2. Método de pagamento</Typography>
+      <Box
+        sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
+      >
+        <Typography variant="h6">2. Método de pagamento</Typography>
+        {card.cvc ? <Link to="/profile/address">Alterar</Link> : <></>}
+      </Box>
 
-      <CardDiv>
-        <Cards
-          placeholders={{ name: "SEU NOME AQUI" }}
-          locale={{ valid: "valido até" }}
-          cvc={card.cvc}
-          expiry={card.expiry}
-          name={card.name}
-          number={card.number}
-        />
-      </CardDiv>
+      {card.cvc ? (
+        <CardDiv>
+          <Cards
+            cvc={card.cvc}
+            expiry={card.expiry}
+            name={card.name}
+            number={card.number}
+          />
+        </CardDiv>
+      ) : (
+        <Link to="/profile/addcard">Adicionar um cartão</Link>
+      )}
     </Box>
   );
 };

@@ -1,16 +1,9 @@
-import {
-  Chip,
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Typography,
-} from "@mui/material";
-import { useState } from "react";
+import { Chip, Typography } from "@mui/material";
 import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
 import { ProductCartInterfaceProps } from "../../interfaces";
 import { monetizeString } from "../../utils/utils";
+import { SelectQuantity } from "../SelectQuantity";
 import {
   CartPageProductLi,
   DescriptionCartPageProduct,
@@ -20,30 +13,16 @@ import {
 } from "./styles";
 
 export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
-  const { handleRemoveFromCart, handleQuantity } = useCartContext();
-  const [quantity, setQuantity] = useState(product.quantity);
+  const { handleRemoveFromCart } = useCartContext();
 
-  const handleChangeQuantity = (event: SelectChangeEvent) => {
-    const quantityChosen = +event.target.value;
-    if (quantityChosen === 0) {
-      handleRemoveFromCart(product.id);
-    } else {
-      handleQuantity(product.id, quantityChosen);
-      setQuantity(quantityChosen);
-    }
-  };
+  const price = monetizeString(product.price);
+  const totalProduct = monetizeString(product.price * product.quantity);
 
-  const renderSelectOptions = [...Array(10).keys()].map((elem) => {
-    return elem == 0 ? (
-      <MenuItem key={elem} value={elem}>
-        {elem} (Excluir)
-      </MenuItem>
-    ) : (
-      <MenuItem key={elem} value={elem}>
-        {elem}
-      </MenuItem>
-    );
-  });
+  let string = `${price}`;
+
+  if (product.quantity != 1) {
+    string += ` x ${product.quantity} = ${totalProduct}`;
+  }
 
   return (
     <CartPageProductLi>
@@ -54,6 +33,7 @@ export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
 
         <TextCartPageProduct>
           <h3>{product.name}</h3>
+
           <Chip
             label={product.category}
             sx={{
@@ -61,30 +41,21 @@ export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
               width: "100px",
               color: "white",
               backgroundColor: "#27ae60",
-              fontFamily: "Inter",
             }}
           />
         </TextCartPageProduct>
       </DescriptionCartPageProduct>
 
-      <Typography>
-        {product.quantity != 1
-          ? monetizeString(product.price) +
-            " x " +
-            String(product.quantity) +
-            " = " +
-            monetizeString(product.price * product.quantity)
-          : monetizeString(product.price)}
+      <Typography
+        variant="h6"
+        sx={{ minWidth: "180px", padding: "8px 0 0 8px" }}
+      >
+        {string}
       </Typography>
 
       <InteractionsCartPageProduct>
+        <SelectQuantity product={product} />
         <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
-
-        <FormControl>
-          <Select onChange={handleChangeQuantity} value={String(quantity)}>
-            {renderSelectOptions}
-          </Select>
-        </FormControl>
       </InteractionsCartPageProduct>
     </CartPageProductLi>
   );

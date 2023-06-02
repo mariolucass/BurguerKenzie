@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CartProductLi = styled.li`
+export const CartPageProductLi = styled.li`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -9,29 +9,24 @@ export const CartProductLi = styled.li`
   margin: 0 auto;
 `;
 
-export const TextCartProduct = styled.div`
-  width: 75%;
+export const TextCartPageProduct = styled.div`
+  width: 40%;
   height: 100%;
   padding: 8px 0 0 8px;
   height: 100px;
   display: flex;
   gap: 0.5em;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 
   h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
-
-  span {
-    color: var(--gray-50);
-    font-size: 12px;
-  }
 `;
 
-export const ImageCartProduct = styled.div`
+export const ImageCartPageProduct = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,28 +43,20 @@ export const ImageCartProduct = styled.div`
   }
 `;
 
-export const InteractionsCartProduct = styled.div`
+export const InteractionsCartPageProduct = styled.div`
   height: 100px;
   display: flex;
-  /* flex-direction: column; */
   gap: 1em;
-
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
   svg {
     cursor: pointer;
   }
 `;
 
-export const StyledDiv = styled(motion.div)`
+export const DescriptionCartPageProduct = styled(motion.div)`
   display: flex;
-  height: 60%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  div {
-    height: 100%;
-  }
+  gap: 1em;
+  min-width: 65%;
 `;

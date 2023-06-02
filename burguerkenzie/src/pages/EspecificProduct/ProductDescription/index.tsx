@@ -1,11 +1,11 @@
 import { Box, Chip, Divider, Stack, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { BoxSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 
 interface IProps {
   name: string;
@@ -38,16 +38,15 @@ export const ProductDescription = ({ name, category }: IProps) => {
           spacing={4}
         >
           <Chip
-            label={"Categoria"}
+            label={category ? category : "Loading..."}
             sx={{
-              borderRadius: 2,
+              borderRadius: 1,
               width: "100%",
               color: "white",
               backgroundColor: "#27ae60",
               fontFamily: "Inter",
             }}
           />
-          <Typography>{category ? category : "Loading..."}</Typography>
         </Stack>
       </Stack>
     </Box>

@@ -2,12 +2,12 @@ import { Box, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import Cards from "react-credit-cards";
 import { useCartContext } from "../../../contexts";
-import { BoxSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 
 export const CardIllustration = () => {
   const { card } = useCartContext();
@@ -16,7 +16,7 @@ export const CardIllustration = () => {
     <Box
       sx={{
         ...BoxSx,
-        minHeight: 420,
+        minHeight: 437.5,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
