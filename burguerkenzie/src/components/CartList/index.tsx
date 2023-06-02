@@ -1,29 +1,39 @@
 import { Divider } from "@mui/material";
 import { useCartContext } from "../../contexts";
+import { ProductCartInterfaceProps } from "../../interfaces";
 import { CartPageProduct } from "../CartPageProduct";
 import { CartProduct } from "../CartProduct";
+import { CheckoutPageProduct } from "../CheckoutPageProduct";
 import { CartList } from "./styles";
 
 interface CartProps {
-  isPage?: boolean;
+  isCartPage?: boolean;
+  isCheckoutPage?: boolean;
 }
 
-export const CartProducts = ({ isPage }: CartProps) => {
+export const CartProducts = ({ isCartPage, isCheckoutPage }: CartProps) => {
   const { currentSale } = useCartContext();
 
-  const renderCartProducts = currentSale.map((elem) => {
-    return (
-      <>
-        {isPage ? (
-          <CartPageProduct key={elem.id} product={elem} />
-        ) : (
-          <CartProduct key={elem.id} product={elem} />
-        )}
+  const RenderProduct = ({ product }: ProductCartInterfaceProps) => {
+    const props = { key: product.id, product };
 
-        <Divider flexItem component="li" />
-      </>
-    );
-  });
+    if (isCheckoutPage) {
+      return <CheckoutPageProduct {...props} />;
+    }
+
+    if (isCartPage) {
+      return <CartPageProduct {...props} />;
+    }
+
+    return <CartProduct {...props} />;
+  };
+
+  const renderCartProducts = currentSale.map((product, index) => (
+    <>
+      <RenderProduct product={product} />
+      {index != currentSale.length - 1 && <Divider flexItem component="li" />}
+    </>
+  ));
 
   return <CartList>{renderCartProducts}</CartList>;
 };

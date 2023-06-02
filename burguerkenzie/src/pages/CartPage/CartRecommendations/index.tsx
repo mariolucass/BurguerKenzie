@@ -4,7 +4,7 @@ import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
 import { ProductsRecommendations } from "./ProductsCarrousel";
 
 export const CartPageRecommendations = () => {

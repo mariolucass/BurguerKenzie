@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AllContexts } from "../contexts";
-import { Cart, Footer, Header } from "../layouts";
+import { Cart, Header } from "../layouts";
 import {
   AddCardPage,
   AddressPage,
@@ -11,6 +11,7 @@ import {
   EspecificProductPage,
   ProductsPage,
   ProfilePage,
+  SearchProductsPage,
 } from "../pages";
 
 const AllRoutes = () => (
@@ -24,7 +25,9 @@ const AllRoutes = () => (
       </Route>
 
       <Route path="/products">
+        <Route element={<Navigate to={"/dashboard"} replace={true} />} index />
         <Route element={<ProductsPage />} path=":categoryName" />
+        <Route path="search/:productSearch" element={<SearchProductsPage />} />
         <Route
           element={<EspecificProductPage />}
           path=":categoryName/:productId"
@@ -52,6 +55,6 @@ export const RoutesMain = () => (
     <AllRoutes />
 
     <Cart />
-    <Footer />
+    {/* <Footer /> */}
   </AllContexts>
 );

@@ -7,7 +7,7 @@ import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
 
 const styleDiv = {
   backgroundImage: `url(${WaveWelcomeBackground})`,

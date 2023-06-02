@@ -44,8 +44,6 @@ export const ProductsPage = () => {
       <DivContainer>
         <MenuCategory />
 
-        {/* <TitleSection /> */}
-
         <ProductsList />
       </DivContainer>
     </TransitionAnimation>

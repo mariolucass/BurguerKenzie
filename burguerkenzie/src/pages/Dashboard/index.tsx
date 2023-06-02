@@ -15,8 +15,6 @@ export const Dashboard = () => {
         <ProductsCarrouselSection />
 
         <SectionInfo />
-
-        <ProductsCarrouselSection isDrinks />
       </DivContainer>
     </TransitionAnimation>
   );

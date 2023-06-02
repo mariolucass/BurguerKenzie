@@ -2,12 +2,12 @@ import { Box, Button, Divider, TextField } from "@mui/material";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useUserContext } from "../../../contexts";
-import { getCep } from "../../../services/api";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { getCep } from "../../../services/api";
 import { FormAddress } from "./styles";
 
 export const AddressForm = () => {

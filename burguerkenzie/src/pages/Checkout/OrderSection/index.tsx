@@ -2,12 +2,12 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { CartProducts } from "../../../components";
 import { useCartContext } from "../../../contexts";
-import { EmptyCartPage } from "../../CartPage/EmptyCart";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { EmptyCartPage } from "../../CartPage/EmptyCart";
 
 export const OrderContent = () => {
   const { currentSale } = useCartContext();
@@ -29,7 +29,7 @@ export const OrderContent = () => {
     >
       <Typography variant="h6">3. Revisar itens</Typography>
 
-      {currentSale.length ? <CartProducts isPage /> : <EmptyCartPage />}
+      {currentSale.length ? <CartProducts isCheckoutPage /> : <EmptyCartPage />}
     </Box>
   );
 };

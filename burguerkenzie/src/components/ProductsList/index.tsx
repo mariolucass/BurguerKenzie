@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { useProductsContext } from "../../contexts";
 import { Product } from "../Product";
 import { ProductList } from "./styles";
@@ -11,5 +12,9 @@ export const ProductsList = () => {
     <Product product={elem} key={elem.id} />
   ));
 
-  return <ProductList>{renderProducts}</ProductList>;
+  return (
+    <ProductList>
+      <AnimatePresence>{renderProducts}</AnimatePresence>
+    </ProductList>
+  );
 };

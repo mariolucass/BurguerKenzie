@@ -2,13 +2,13 @@ import { Avatar, Box, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { FaUserCircle } from "react-icons/fa";
 import { useUserContext } from "../../../contexts";
-import { BoxSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
-import { ContentDiv, DataDiv, SvgDiv } from "./styles";
+} from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
+import { AvatarDiv, ContentDiv, DataDiv } from "./styles";
 
 export const ProfileRender = () => {
   const { user } = useUserContext();
@@ -17,7 +17,7 @@ export const ProfileRender = () => {
     <Box
       sx={{
         ...BoxSx,
-        minHeight: 420,
+        minHeight: 437.5,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
@@ -35,23 +35,32 @@ export const ProfileRender = () => {
 
       <ContentDiv>
         {!user.image ? (
-          <SvgDiv>
-            <FaUserCircle size={"256px"} />
-          </SvgDiv>
+          <AvatarDiv>
+            <FaUserCircle size={"168px"} />
+          </AvatarDiv>
         ) : (
-          <Avatar src={user.image} sx={{ width: 256, height: 256 }}></Avatar>
+          <Avatar src={user.image} sx={{ width: 176, height: 176 }} />
         )}
 
         <DataDiv>
-          <Typography variant="h6">
+          <Typography variant="subtitle1" color={"white"}>
+            Nome:
+          </Typography>
+          <Typography variant="h6" color={"white"}>
             {user.username ? user.username : "seu_nome_de_usuário"}
           </Typography>
 
-          <Typography variant="h6">
+          <Typography variant="subtitle1" color={"white"}>
+            Email:
+          </Typography>
+          <Typography variant="h6" color={"white"}>
             {user.email ? user.email : "email@example.com"}
           </Typography>
 
-          <Typography variant="h6">
+          <Typography variant="subtitle1" color={"white"}>
+            Telefone:
+          </Typography>
+          <Typography variant="h6" color={"white"}>
             {user.phone ? user.phone : "99999-9999"}
           </Typography>
         </DataDiv>

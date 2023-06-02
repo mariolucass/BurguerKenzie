@@ -6,12 +6,12 @@ import GooglePay from "../../../assets/Payments/GooglePay.svg";
 import Mastercard from "../../../assets/Payments/Mastercard.svg";
 import PayPal from "../../../assets/Payments/PayPal.svg";
 import Visa from "../../../assets/Payments/Visa.svg";
-import { BoxSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import { ListPayments } from "./styles";
 
 export const CustomerMessage = () => {
@@ -19,7 +19,7 @@ export const CustomerMessage = () => {
 
   const renderList = listPayments.map((elem) => {
     return (
-      <ListItem sx={{ width: "128px", height: "32px", p: 0 }}>
+      <ListItem key={elem} sx={{ width: "128px", height: "32px", p: 0 }}>
         <Box
           component={"img"}
           src={elem}

@@ -9,7 +9,7 @@ export const CartValue = () => {
   return (
     <CartValueDiv>
       <Typography>Total:</Typography>
-      <Typography variant="h4" sx={{ color: "#27ae60", fontWeight: "500" }}>
+      <Typography variant="h4" color="#27ae60" sx={{ fontWeight: "500" }}>
         {monetizeString(currentSaleValue)}
       </Typography>
     </CartValueDiv>

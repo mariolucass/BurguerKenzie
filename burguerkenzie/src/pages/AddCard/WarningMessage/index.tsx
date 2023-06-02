@@ -1,34 +1,33 @@
-import { Box, Typography } from "@mui/material";
+import { Alert, AlertTitle, Box } from "@mui/material";
 import { motion } from "framer-motion";
-import { BoxSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
 
 export const WarningMessage = () => {
   return (
     <Box
       sx={{
-        ...BoxSx,
-        minHeight: 420,
+        borderRadius: 1,
+        padding: 6,
+        backgroundColor: "white",
+        minHeight: 0,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around",
+        justifyContent: "flex-start",
       }}
       component={motion.div}
       initial={animateHiddenBox}
       animate={animateShownBox}
       transition={animateTransitionBox}
     >
-      <Typography>Importante!</Typography>
-      <Typography>
+      <Alert severity="warning">
+        <AlertTitle>Alerta!</AlertTitle>
         Essa página apenas simula uma página real para adicionar cartões de
-        crédito!
-      </Typography>
-
-      <Typography>Use apenas números ficticios</Typography>
+        crédito! — <strong>Use apenas números ficticios!</strong>
+      </Alert>
     </Box>
   );
 };

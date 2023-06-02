@@ -2,12 +2,12 @@ import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../../contexts";
-import { monetizeString } from "../../../utils/utils";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
-} from "../animations";
+} from "../../../libs/framer";
+import { monetizeString } from "../../../utils/utils";
 
 export const CheckoutAndValue = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export const CheckoutAndValue = () => {
           Subtotal:
         </Typography>
 
-        <Typography variant="h4" sx={{ color: "#27ae60", fontWeight: "500" }}>
+        <Typography variant="h4" color="#27ae60" sx={{ fontWeight: "500" }}>
           {monetizeString(currentSaleValue)}
         </Typography>
       </Stack>

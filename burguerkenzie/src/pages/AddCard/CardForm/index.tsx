@@ -2,15 +2,15 @@ import { Box, Button, Divider, TextField } from "@mui/material";
 import { motion } from "framer-motion";
 import { useCartContext } from "../../../contexts";
 import {
+  animateHiddenBox,
+  animateShownBox,
+  animateTransitionBox,
+} from "../../../libs/framer";
+import {
   formatCVC,
   formatCreditCardNumber,
   formatExpirationDate,
 } from "../../../utils/utils";
-import {
-  animateHiddenBox,
-  animateShownBox,
-  animateTransitionBox,
-} from "../animations";
 import { FormAddCard } from "./styles";
 
 export const FormPayment = () => {
@@ -59,6 +59,7 @@ export const FormPayment = () => {
       <FormAddCard>
         <TextField
           name="number"
+          label="Número do cartão"
           placeholder="Número do cartão"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
@@ -66,6 +67,7 @@ export const FormPayment = () => {
         />
         <TextField
           name="name"
+          label="Nome"
           placeholder="Nome"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
@@ -73,6 +75,7 @@ export const FormPayment = () => {
         />
         <TextField
           name="expiry"
+          label="Validade"
           placeholder="Validade"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
@@ -80,6 +83,7 @@ export const FormPayment = () => {
         />
         <TextField
           name="cvc"
+          label="CVC"
           placeholder="CVC"
           onChange={handleInputChange}
           onFocus={handleInputFocus}

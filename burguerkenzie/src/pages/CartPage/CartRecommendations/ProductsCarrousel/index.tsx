@@ -11,8 +11,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useProductsContext } from "../../../../contexts";
 import { ProductInterface } from "../../../../interfaces";
+import { animateHiddenCard, animateShownCard } from "../../../../libs/framer";
 import { monetizeString } from "../../../../utils/utils";
-import { animateHiddenCard, animateShownCard } from "../../animations";
 import { ListCarrousel } from "./styles";
 
 export const ProductsRecommendations = () => {
@@ -20,7 +20,7 @@ export const ProductsRecommendations = () => {
   const navigate = useNavigate();
 
   const listToRender = (list: ProductInterface[]) => {
-    return list.map((elem, index) => {
+    return list.map((elem) => {
       const handleRedirectToProductPage = () => {
         navigate(`/products/burguers/${elem.id}`);
       };
@@ -35,11 +35,7 @@ export const ProductsRecommendations = () => {
             cursor: "pointer",
           }}
           component={motion.div}
-          initial={
-            index % 2
-              ? { ...animateHiddenCard, y: 100 }
-              : { ...animateHiddenCard, y: -100 }
-          }
+          initial={{ ...animateHiddenCard, y: 100 }}
           animate={{ ...animateShownCard, y: 0 }}
           onClick={handleRedirectToProductPage}
           whileHover={{ scale: 0.95 }}
@@ -56,7 +52,18 @@ export const ProductsRecommendations = () => {
               alignItems="center"
               spacing={2}
             >
-              <Typography gutterBottom variant="h6" sx={{ fontWeight: "bold" }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                  width: "100%",
+                  minHeight: 64,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+              >
                 {elem.name}
               </Typography>
 
@@ -78,7 +85,7 @@ export const ProductsRecommendations = () => {
                 />
               </Stack>
 
-              <Typography sx={{ color: "#27ae60" }}>
+              <Typography color="#27ae60">
                 {monetizeString(elem.price)}
               </Typography>
             </Stack>

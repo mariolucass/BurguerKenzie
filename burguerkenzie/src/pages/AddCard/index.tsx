@@ -1,7 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import { DivContainer } from "../../styles/container";
-import { CardIllustration } from "./CardIllustration";
-import { FormPayment } from "./FormPayment";
+import { CardIllustration } from "./CardRender";
+import { FormPayment } from "./CardForm";
 import { WarningMessage } from "./WarningMessage";
 
 export const AddCardPage = () => {

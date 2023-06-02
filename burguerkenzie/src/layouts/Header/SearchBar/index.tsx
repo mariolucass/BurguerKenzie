@@ -1,11 +1,13 @@
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { useState } from "react";
 import { GoSearch } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useMediaContext, useProductsContext } from "../../../contexts";
 import { SearchForm } from "./styles";
 
 export const SearchBar = () => {
+  const navigate = useNavigate();
   const [pesquisa, setPesquisa] = useState("");
   const { products, setFilteredProducts } = useProductsContext();
   const { matches768 } = useMediaContext();
@@ -21,7 +23,10 @@ export const SearchBar = () => {
         e.name.toLowerCase().includes(pesquisa.toLowerCase()) ||
         e.category.toLowerCase().includes(pesquisa.toLowerCase())
     );
+
     lista.length ? setFilteredProducts(lista) : noProducts();
+
+    navigate(`/products/search/${pesquisa}`);
   };
 
   return (
