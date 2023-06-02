@@ -1,5 +1,5 @@
-import { Children } from "../interfaces";
 import { createContext, useContext, useState } from "react";
+import { Children } from "../interfaces";
 
 interface iContextProvider {
   openMenu: boolean;
@@ -9,10 +9,6 @@ interface iContextProvider {
 }
 
 const ModalContext = createContext({} as iContextProvider);
-
-export const useModalContext = () => {
-  return useContext(ModalContext);
-};
 
 export const ModalProvider = ({ children }: Children) => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -34,3 +30,5 @@ export const ModalProvider = ({ children }: Children) => {
     </ModalContext.Provider>
   );
 };
+
+export const useModalContext = () => useContext(ModalContext);

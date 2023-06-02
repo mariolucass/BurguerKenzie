@@ -1,20 +1,14 @@
+import { Button, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../contexts";
-import { monetizeString } from "../../utils/utils";
 import { ProductInterfaceProps } from "../../interfaces";
+import { monetizeString } from "../../utils/utils";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
 } from "./animations";
-import {
-  ButtonDiv,
-  ButtonProducts,
-  CardProduct,
-  ImageProduct,
-  TextProduct,
-} from "./styles";
-import { Button, Divider } from "@mui/material";
+import { ButtonDiv, CardProduct, ImageProduct, TextProduct } from "./styles";
 
 export const Product = ({ product }: ProductInterfaceProps) => {
   const navigate = useNavigate();

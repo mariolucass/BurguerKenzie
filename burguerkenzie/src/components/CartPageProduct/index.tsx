@@ -1,15 +1,3 @@
-import { useState } from "react";
-import { RxTrash } from "react-icons/rx";
-import { useCartContext } from "../../contexts";
-import { monetizeString } from "../../utils/utils";
-import { ProductCartInterfaceProps } from "../../interfaces";
-import {
-  CartPageProductLi,
-  DescriptionCartPageProduct,
-  ImageCartPageProduct,
-  InteractionsCartPageProduct,
-  TextCartPageProduct,
-} from "./styles";
 import {
   Chip,
   FormControl,
@@ -18,6 +6,18 @@ import {
   SelectChangeEvent,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
+import { RxTrash } from "react-icons/rx";
+import { useCartContext } from "../../contexts";
+import { ProductCartInterfaceProps } from "../../interfaces";
+import { monetizeString } from "../../utils/utils";
+import {
+  CartPageProductLi,
+  DescriptionCartPageProduct,
+  ImageCartPageProduct,
+  InteractionsCartPageProduct,
+  TextCartPageProduct,
+} from "./styles";
 
 export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
   const { handleRemoveFromCart, handleQuantity } = useCartContext();

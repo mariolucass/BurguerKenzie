@@ -1,6 +1,6 @@
-import { Children } from "../interfaces";
-import { createContext, useContext } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { createContext, useContext } from "react";
+import { Children } from "../interfaces";
 
 interface iContextProvider {
   matches320: boolean;
@@ -13,10 +13,6 @@ interface iContextProvider {
 }
 
 const MediaContext = createContext({} as iContextProvider);
-
-export const useMediaContext = () => {
-  return useContext(MediaContext);
-};
 
 export const MediaProvider = ({ children }: Children) => {
   const matches320 = useMediaQuery("(min-width:320px)");
@@ -43,3 +39,5 @@ export const MediaProvider = ({ children }: Children) => {
     </MediaContext.Provider>
   );
 };
+
+export const useMediaContext = () => useContext(MediaContext);

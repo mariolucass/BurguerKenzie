@@ -1,7 +1,7 @@
+import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../../contexts";
 import { CartInteractionsDiv } from "./styles";
-import { Button } from "@mui/material";
 
 export const CartInteractions = () => {
   const navigate = useNavigate();

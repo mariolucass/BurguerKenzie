@@ -8,8 +8,15 @@ export const ListMenu = styled.ul`
   margin-top: 1%;
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   gap: 1em;
+
+  @media (min-width: 1023px) {
+    width: 62.5%;
+    flex-wrap: wrap;
+    height: 40%;
+    max-width: 1000px;
+  }
 `;
 
 export const ItemMenu = styled(motion.li)<ItemProps>`

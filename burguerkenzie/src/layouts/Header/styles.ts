@@ -45,11 +45,17 @@ export const HeaderDiv = styled.header`
 `;
 
 export const InteractionsDiv = styled.div`
-  width: 30%;
+  width: 100%;
+  margin-right: 0px;
   height: 100%;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-right: 100px;
+
   max-width: 350px;
+
+  @media (min-width: 768px) {
+    width: 30%;
+    margin-right: 100px;
+  }
 `;

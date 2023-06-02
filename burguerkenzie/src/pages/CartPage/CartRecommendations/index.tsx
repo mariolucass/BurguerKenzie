@@ -1,12 +1,11 @@
-import { motion } from "framer-motion";
-import { useCartContext } from "../../../contexts";
 import { Box, Divider, Typography } from "@mui/material";
-import { ProductsRecommendations } from "./ProductsCarrousel";
+import { motion } from "framer-motion";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
 } from "../animations";
+import { ProductsRecommendations } from "./ProductsCarrousel";
 
 export const CartPageRecommendations = () => {
   return (

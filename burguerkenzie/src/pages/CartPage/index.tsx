@@ -1,10 +1,10 @@
 import { Container, Grid } from "@mui/material";
+import { useCartContext } from "../../contexts";
 import { DivContainer } from "../../styles/container";
 import { CartPageContent } from "./CartContent";
+import { CartPageRecommendations } from "./CartRecommendations";
 import { CheckoutAndValue } from "./CheckoutAndValue";
 import { CustomerMessage } from "./CustomerMessage";
-import { CartPageRecommendations } from "./CartRecommendations";
-import { useCartContext } from "../../contexts";
 
 export const CartPage = () => {
   const { currentSale } = useCartContext();

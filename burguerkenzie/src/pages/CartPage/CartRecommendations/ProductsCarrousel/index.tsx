@@ -1,10 +1,3 @@
-import { motion } from "framer-motion";
-import { ListCarrousel } from "./styles";
-import { useNavigate } from "react-router-dom";
-import { monetizeString } from "../../../../utils/utils";
-import { useProductsContext } from "../../../../contexts";
-import { ProductInterface } from "../../../../interfaces";
-import { animateHiddenCard, animateShownCard } from "../../animations";
 import {
   Box,
   Card,
@@ -14,6 +7,13 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useProductsContext } from "../../../../contexts";
+import { ProductInterface } from "../../../../interfaces";
+import { monetizeString } from "../../../../utils/utils";
+import { animateHiddenCard, animateShownCard } from "../../animations";
+import { ListCarrousel } from "./styles";
 
 export const ProductsRecommendations = () => {
   const { products } = useProductsContext();

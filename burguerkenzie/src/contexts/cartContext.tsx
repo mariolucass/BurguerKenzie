@@ -1,6 +1,6 @@
-import { useProductsContext } from "./productsContext";
+import { createContext, useContext, useEffect, useState } from "react";
 import { CardInterface, Children, ProductCartInterface } from "../interfaces";
-import { createContext, useContext, useState, useEffect } from "react";
+import { useProductsContext } from "./productsContext";
 
 interface CartContextProps {
   currentSale: ProductCartInterface[];
@@ -33,7 +33,6 @@ export const CartProvider = ({ children }: Children) => {
     name: "",
     number: "",
   });
-
   const handleTotalValue = () => {
     const totalValue = +currentSale
       .reduce((acc, e) => acc + e.price * e.quantity, 0)

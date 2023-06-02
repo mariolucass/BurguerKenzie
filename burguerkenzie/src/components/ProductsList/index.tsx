@@ -1,6 +1,6 @@
+import { useProductsContext } from "../../contexts";
 import { Product } from "../Product";
 import { ProductList } from "./styles";
-import { useProductsContext } from "../../contexts";
 
 export const ProductsList = () => {
   const { products, filteredProducts } = useProductsContext();

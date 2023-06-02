@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
+import { Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useProductsContext } from "../../contexts";
 import { ProductInterface } from "../../interfaces";
-import { Grid, Container } from "@mui/material";
-import { ProductImage } from "./ProductImage";
-import { ProductDescription } from "./ProductDescription";
-import { ProductCheckout } from "./ProductCheckout";
-import { getAllProducts } from "../../services/api";
 import { TransitionAnimation } from "../../layouts";
+import { getAllProducts } from "../../services/api";
+import { ProductCheckout } from "./ProductCheckout";
+import { ProductDescription } from "./ProductDescription";
+import { ProductImage } from "./ProductImage";
 
 export const EspecificProductPage = () => {
   const { productId } = useParams();
@@ -39,6 +39,10 @@ export const EspecificProductPage = () => {
       <Container sx={{ mt: 2 }}>
         <Grid container spacing={2} direction={"row"}>
           <Grid item xs={8} sx={{ minHeight: 350 }}>
+            <ProductDescription
+              name={productEspecific.name}
+              category={productEspecific.category}
+            />
             <ProductImage src={productEspecific.img} />
           </Grid>
 
@@ -53,12 +57,7 @@ export const EspecificProductPage = () => {
             item
             xs={8}
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          >
-            <ProductDescription
-              name={productEspecific.name}
-              category={productEspecific.category}
-            />
-          </Grid>
+          ></Grid>
 
           <Grid item xs={4}></Grid>
         </Grid>

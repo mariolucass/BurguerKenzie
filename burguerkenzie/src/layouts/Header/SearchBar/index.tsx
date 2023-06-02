@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { SearchForm } from "./styles";
-import { useProductsContext } from "../../../contexts";
-import { toast } from "react-toastify";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { useState } from "react";
 import { GoSearch } from "react-icons/go";
+import { toast } from "react-toastify";
+import { useMediaContext, useProductsContext } from "../../../contexts";
+import { SearchForm } from "./styles";
 
 export const SearchBar = () => {
   const [pesquisa, setPesquisa] = useState("");
   const { products, setFilteredProducts } = useProductsContext();
+  const { matches768 } = useMediaContext();
 
   const noProducts = () => {
     toast.error(`Não encontramos o produto ou categoria procurado`);
@@ -46,7 +47,7 @@ export const SearchBar = () => {
             </InputAdornment>
           ),
         }}
-        sx={{ width: "190px" }}
+        sx={{ width: { matches768 } ? "190px" : "100%" }}
       />
     </SearchForm>
   );

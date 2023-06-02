@@ -1,13 +1,15 @@
-import { ItemMenu, ListMenu } from "./styles";
-import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
-import { useProductsContext } from "../../contexts";
-import { animateHiddenCard, animateShownCard } from "./animations";
+import { useNavigate } from "react-router-dom";
+import { useMediaContext, useProductsContext } from "../../contexts";
 import { BoxSx } from "../../libs/mui";
+import { animateHiddenCard, animateShownCard } from "./animations";
+import { ItemMenu, ListMenu } from "./styles";
 
 export const MenuCategory = () => {
   const navigate = useNavigate();
   const { products, setFilteredProducts } = useProductsContext();
+  const { matches768 } = useMediaContext();
+
   const list = [
     {
       title: "Mais pedidos",

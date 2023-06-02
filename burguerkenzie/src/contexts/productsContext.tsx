@@ -1,6 +1,6 @@
-import { getAllProducts } from "../services/api";
-import { Children, ProductInterface } from "../interfaces";
 import { createContext, useContext, useEffect, useState } from "react";
+import { Children, ProductInterface } from "../interfaces";
+import { getAllProducts } from "../services/api";
 
 interface ProductsProps {
   products: ProductInterface[];
