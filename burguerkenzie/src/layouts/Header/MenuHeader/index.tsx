@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { ListMenuStyled } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useModalContext } from "../../../contexts";
 import { animateHiddenUl, animateShownUl } from "../../../libs/framer";
+import { ListMenuStyled } from "./styles";
 
 export const MenuHeader = () => {
   const navigate = useNavigate();
@@ -10,9 +10,9 @@ export const MenuHeader = () => {
 
   const animateIfMenuIsOpen = openMenu ? animateShownUl : animateHiddenUl;
 
-  const handleRedirectToProfile = () => {};
-  const handleRedirectToAddCard = () => {};
-  const handleLogoutUser = () => {};
+  const handleRedirectToProfile = () => navigate("/profile");
+  const handleRedirectToAddCard = () => navigate("/profile/addCard");
+  const handleRedirectToAddress = () => navigate("/profile/address");
 
   return (
     <motion.nav className="menu">
@@ -33,6 +33,13 @@ export const MenuHeader = () => {
 
         <motion.li
           animate={animateIfMenuIsOpen}
+          onClick={handleRedirectToAddress}
+        >
+          Editar Endereço
+        </motion.li>
+
+        <motion.li
+          animate={animateIfMenuIsOpen}
           onClick={handleRedirectToProfile}
         >
           Editar Perfil
@@ -43,10 +50,6 @@ export const MenuHeader = () => {
           onClick={handleRedirectToAddCard}
         >
           Adicionar Cartão
-        </motion.li>
-
-        <motion.li animate={animateIfMenuIsOpen} onClick={handleLogoutUser}>
-          Sair
         </motion.li>
       </ListMenuStyled>
     </motion.nav>

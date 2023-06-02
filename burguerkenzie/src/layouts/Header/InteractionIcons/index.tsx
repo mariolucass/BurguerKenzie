@@ -1,7 +1,7 @@
-import { FiShoppingCart } from "react-icons/fi";
-import { FaUserCircle } from "react-icons/fa";
-import { useCartContext, useModalContext } from "../../../contexts";
 import { Badge } from "@mui/material";
+import { FaUserCircle } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
+import { useCartContext, useModalContext } from "../../../contexts";
 import { MenuHeader } from "../MenuHeader";
 import { ListInteractionsIcons, UserMenuIcon } from "./styles";
 

@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
 import { Box, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import DinnerIllustration from "../../../assets/restaurantDinner.svg";
 import WaveWelcomeReverseBackground from "../../../assets/wavesReverse.svg";
+import { useMediaContext } from "../../../contexts";
 import {
   animateHiddenBox,
   animateShownBox,
@@ -13,6 +14,7 @@ const styleDiv = {
 };
 
 export const SectionInfo = () => {
+  const { matches768 } = useMediaContext();
   return (
     <Box
       component={motion.div}
@@ -25,7 +27,7 @@ export const SectionInfo = () => {
         p: 2,
         display: "flex",
         borderRadius: 4,
-        maxWidth: 950,
+        maxWidth: matches768 ? 950 : 300,
         gap: 10,
       }}
     >

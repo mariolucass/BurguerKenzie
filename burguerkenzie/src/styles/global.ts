@@ -30,15 +30,19 @@ body{
     width: 100%;
     margin:0;
     padding:0;   
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     background-image: url(${WaveBackground});
     background-repeat: no-repeat;
     background-size: cover;
 
+    /* -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%; */
+
     ::-webkit-scrollbar { 
         display: none; 
     }
- 
 }
 
 button{
@@ -48,11 +52,12 @@ button{
 }
 
 button, input{
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
+
 input{
     ::placeholder{
-        font-family: 'Inter', sans-serif; 
+        font-family: "Inter", sans-serif; 
     }
 }
 `;

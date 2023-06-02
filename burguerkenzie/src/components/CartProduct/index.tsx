@@ -1,21 +1,8 @@
+import { MenuItem, SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
-import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
-import { monetizeString } from "../../utils/utils";
 import { ProductCartInterfaceProps } from "../../interfaces";
-import {
-  Chip,
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
-import {
-  CartProductLi,
-  ImageCartProduct,
-  InteractionsCartProduct,
-  TextCartProduct,
-} from "./styles";
+import { CartProductLi, ImageCartProduct, TextCartProduct } from "./styles";
 
 export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
   const { handleRemoveFromCart, handleQuantity } = useCartContext();

@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
 import { Box, Chip, Divider, Stack, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { BoxSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
 } from "../animations";
-import { BoxSx } from "../../../libs/mui";
 
 interface IProps {
   name: string;

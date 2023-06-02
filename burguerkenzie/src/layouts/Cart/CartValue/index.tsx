@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useCartContext } from "../../../contexts";
 import { monetizeString } from "../../../utils/utils";
 import { CartValueDiv } from "./styles";

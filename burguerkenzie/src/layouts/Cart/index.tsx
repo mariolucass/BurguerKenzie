@@ -1,10 +1,10 @@
-import { LabelCart } from "./styles";
-import { EmptyCart } from "./EmptyCart";
+import { Box, Divider, Drawer, List } from "@mui/material";
 import { CartProducts } from "../../components";
 import { useCartContext } from "../../contexts";
-import { Box, Divider, Drawer, List } from "@mui/material";
-import { CartValue } from "./CartValue";
 import { CartInteractions } from "./CartInteractions";
+import { CartValue } from "./CartValue";
+import { EmptyCart } from "./EmptyCart";
+import { LabelCart } from "./styles";
 
 export const Cart = () => {
   const { currentSale, openCart, setOpenCart } = useCartContext();
@@ -28,17 +28,23 @@ export const Cart = () => {
 
         <Divider flexItem />
 
-        <List sx={{ p: 1 }}>
+        <List sx={{ p: 1, width: "100%" }}>
           {currentSale.length ? <CartProducts /> : <EmptyCart />}
         </List>
 
-        <Divider flexItem />
+        {currentSale.length ? (
+          <>
+            <Divider flexItem />
 
-        <CartValue />
+            <CartValue />
 
-        <Divider flexItem />
+            <Divider flexItem />
 
-        <CartInteractions />
+            <CartInteractions />
+          </>
+        ) : (
+          <></>
+        )}
       </Box>
     </Drawer>
   );

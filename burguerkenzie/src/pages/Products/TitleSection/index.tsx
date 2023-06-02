@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
+import {
+  default as Burguers,
+  default as Drinks,
+} from "../../../assets/drinks.svg";
 import Favourites from "../../../assets/favourites.svg";
-import Burguers from "../../../assets/drinks.svg";
-import Drinks from "../../../assets/drinks.svg";
 
 export const TitleSection = () => {
   const { categoryName } = useParams();

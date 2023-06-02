@@ -1,4 +1,4 @@
-import { KeyboardEventHandler } from "react";
+import Payment from "payment";
 
 export const monetizeString = (money: number) => {
   return money.toLocaleString("pt-BR", {
@@ -7,18 +7,61 @@ export const monetizeString = (money: number) => {
   });
 };
 
-export const handleCardNumber = (e: any) => {
-  const brands = {
-    visa: "/^4d{12}(d{3})?$/",
-    mastercard: "/^(5[1-5]d{4}|677189)d{10}$/",
-    diners: "/^3(0[0-5]|[68]d)d{11}$/",
-    discover: "/^6(?:011|5[0-9]{2})[0-9]{12}$/",
-    amex: "/^3[47]d{13}$/",
-    jcb: "/^(?:2131|1800|35d{3})d{11}$/",
-    aura: "/^(5078d{2})(d{2})(d{11})$/",
-    hipercard: "/^(606282d{10}(d{3})?)|(3841d{15})$/",
-    maestro: "/^(?:5[0678]dd|6304|6390|67dd)d{8,15}$/",
-  };
+export const clearNumber = (value = "") => {
+  return value.replace(/\D+/g, "");
 };
 
-export const handleCardExpiry = (e: any) => {};
+export const formatCreditCardNumber = (value: string) => {
+  if (!value) {
+    return value;
+  }
+
+  const issuer = Payment.fns.cardType(value);
+  const clearValue = clearNumber(value);
+  let nextValue;
+
+  switch (issuer) {
+    case "amex":
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        10
+      )} ${clearValue.slice(10, 15)}`;
+      break;
+    case "dinersclub":
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        10
+      )} ${clearValue.slice(10, 14)}`;
+      break;
+    default:
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        8
+      )} ${clearValue.slice(8, 12)} ${clearValue.slice(12, 19)}`;
+      break;
+  }
+
+  return nextValue.trim();
+};
+
+export const formatCVC = (value: string, number: string) => {
+  const clearValue = clearNumber(value);
+  let maxLength = 4;
+
+  if (number) {
+    const issuer = Payment.fns.cardType(number);
+    maxLength = issuer === "amex" ? 4 : 3;
+  }
+
+  return clearValue.slice(0, maxLength);
+};
+
+export const formatExpirationDate = (value: string) => {
+  const clearValue = clearNumber(value);
+
+  if (clearValue.length >= 3) {
+    return `${clearValue.slice(0, 2)}/${clearValue.slice(2, 4)}`;
+  }
+
+  return clearValue;
+};

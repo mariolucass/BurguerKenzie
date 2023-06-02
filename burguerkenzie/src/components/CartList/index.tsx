@@ -1,8 +1,8 @@
-import { CartList } from "./styles";
-import { CartProduct } from "../CartProduct";
+import { Divider } from "@mui/material";
 import { useCartContext } from "../../contexts";
 import { CartPageProduct } from "../CartPageProduct";
-import { Divider } from "@mui/material";
+import { CartProduct } from "../CartProduct";
+import { CartList } from "./styles";
 
 interface CartProps {
   isPage?: boolean;

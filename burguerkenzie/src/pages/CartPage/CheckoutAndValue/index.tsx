@@ -1,13 +1,13 @@
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../../contexts";
 import { monetizeString } from "../../../utils/utils";
-import { motion } from "framer-motion";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
 } from "../animations";
-import { useNavigate } from "react-router-dom";
 
 export const CheckoutAndValue = () => {
   const navigate = useNavigate();

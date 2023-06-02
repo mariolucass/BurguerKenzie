@@ -1,7 +1,8 @@
-import { FormPayment } from "./FormPayment";
 import { Container, Grid } from "@mui/material";
 import { DivContainer } from "../../styles/container";
 import { CardIllustration } from "./CardIllustration";
+import { FormPayment } from "./FormPayment";
+import { WarningMessage } from "./WarningMessage";
 
 export const AddCardPage = () => {
   return (
@@ -15,9 +16,17 @@ export const AddCardPage = () => {
           <Grid
             item
             xs={4}
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+            }}
           >
             <FormPayment />
+          </Grid>
+
+          <Grid item xs={12}>
+            <WarningMessage />
           </Grid>
         </Grid>
       </Container>

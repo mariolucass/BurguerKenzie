@@ -1,12 +1,13 @@
-import { useProductsContext } from "../../contexts";
+import { useNavigate } from "react-router-dom";
+import { useMediaContext, useProductsContext } from "../../contexts";
 import { HeaderList } from "./InteractionIcons";
 import { SearchBar } from "./SearchBar";
 import { HeaderDiv, InteractionsDiv } from "./styles";
-import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const navigate = useNavigate();
   const { setFilteredProducts } = useProductsContext();
+  const { matches768 } = useMediaContext();
 
   const handleClickToHome = () => {
     navigate("/dashboard");
@@ -24,7 +25,7 @@ export const Header = () => {
       <InteractionsDiv>
         <SearchBar />
 
-        <HeaderList />
+        {matches768 && <HeaderList />}
       </InteractionsDiv>
     </HeaderDiv>
   );

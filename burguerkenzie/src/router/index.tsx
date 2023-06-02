@@ -1,14 +1,16 @@
-import { AllContexts } from "../contexts";
 import { AnimatePresence } from "framer-motion";
-import { Cart, Header, Footer } from "../layouts";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { AllContexts } from "../contexts";
+import { Cart, Footer, Header } from "../layouts";
 import {
-  CartPage,
-  Dashboard,
-  ProductsPage,
-  CheckoutPage,
-  EspecificProductPage,
   AddCardPage,
+  AddressPage,
+  CartPage,
+  CheckoutPage,
+  Dashboard,
+  EspecificProductPage,
+  ProductsPage,
+  ProfilePage,
 } from "../pages";
 
 const AllRoutes = () => (
@@ -27,6 +29,12 @@ const AllRoutes = () => (
           element={<EspecificProductPage />}
           path=":categoryName/:productId"
         />
+      </Route>
+
+      <Route path="/profile">
+        <Route element={<ProfilePage />} index />
+        <Route path="addCard" element={<AddCardPage />} />
+        <Route path="address" element={<AddressPage />} />
       </Route>
 
       <Route

@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
-import WelcomeIllustration from "../../../assets/welcome.svg";
-import WaveWelcomeBackground from "../../../assets/waves.svg";
-
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import WaveWelcomeBackground from "../../../assets/waves.svg";
+import WelcomeIllustration from "../../../assets/welcome.svg";
+import { useMediaContext } from "../../../contexts";
 import {
   animateHiddenBox,
   animateShownBox,
@@ -14,6 +14,8 @@ const styleDiv = {
 };
 
 export const WelcomeSection = () => {
+  const { matches768 } = useMediaContext();
+
   return (
     <Box
       component={motion.div}
@@ -26,7 +28,7 @@ export const WelcomeSection = () => {
         p: 2,
         display: "flex",
         borderRadius: 4,
-        maxWidth: 950,
+        maxWidth: matches768 ? 950 : 300,
         gap: 10,
       }}
     >

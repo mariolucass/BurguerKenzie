@@ -1,5 +1,4 @@
-import { MenuCategory } from "../../layouts";
-import { TransitionAnimation } from "../../layouts";
+import { MenuCategory, TransitionAnimation } from "../../layouts";
 import { DivContainer } from "../../styles/container";
 import { SectionInfo } from "./InfoSection";
 import { ProductsCarrouselSection } from "./ProductsCarrousel";

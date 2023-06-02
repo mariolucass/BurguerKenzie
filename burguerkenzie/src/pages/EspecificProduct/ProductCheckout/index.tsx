@@ -1,13 +1,13 @@
-import { useCartContext } from "../../../contexts";
-import { monetizeString } from "../../../utils/utils";
 import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useCartContext } from "../../../contexts";
+import { BoxSx } from "../../../libs/mui";
+import { monetizeString } from "../../../utils/utils";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
 } from "../animations";
-import { BoxSx } from "../../../libs/mui";
 
 interface IProps {
   id: number;

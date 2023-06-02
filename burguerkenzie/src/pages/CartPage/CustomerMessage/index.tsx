@@ -1,19 +1,18 @@
-import { ListPayments } from "./styles";
 import { Box, Divider, ListItem, Typography } from "@mui/material";
-
+import { motion } from "framer-motion";
 import Amex from "../../../assets/Payments/Amex.svg";
 import ApplePay from "../../../assets/Payments/ApplePay.svg";
 import GooglePay from "../../../assets/Payments/GooglePay.svg";
 import Mastercard from "../../../assets/Payments/Mastercard.svg";
 import PayPal from "../../../assets/Payments/PayPal.svg";
 import Visa from "../../../assets/Payments/Visa.svg";
-import { motion } from "framer-motion";
+import { BoxSx } from "../../../libs/mui";
 import {
   animateHiddenBox,
   animateShownBox,
   animateTransitionBox,
 } from "../animations";
-import { BoxSx } from "../../../libs/mui";
+import { ListPayments } from "./styles";
 
 export const CustomerMessage = () => {
   const listPayments = [PayPal, Amex, GooglePay, Mastercard, Visa, ApplePay];

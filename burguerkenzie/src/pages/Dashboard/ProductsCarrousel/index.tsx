@@ -1,19 +1,19 @@
 import {
+  Box,
   Card,
-  CardMedia,
   CardContent,
-  Typography,
+  CardMedia,
   Chip,
   Stack,
-  Box,
+  Typography,
 } from "@mui/material";
-import { useProductsContext } from "../../../contexts";
-import { ListCarrousel } from "./styles";
-import { monetizeString } from "../../../utils/utils";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { animateHiddenCard, animateShownCard } from "../animations";
+import { useNavigate } from "react-router-dom";
+import { useProductsContext } from "../../../contexts";
 import { ProductInterface } from "../../../interfaces";
+import { monetizeString } from "../../../utils/utils";
+import { animateHiddenCard, animateShownCard } from "../animations";
+import { ListCarrousel } from "./styles";
 
 interface Props {
   isDrinks?: boolean;

@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import { EmptyCartPage } from "../EmptyCart";
-import { useCartContext } from "../../../contexts";
-import { CartProducts } from "../../../components";
 import { Box, Divider, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { CartProducts } from "../../../components";
+import { useCartContext } from "../../../contexts";
+import { EmptyCartPage } from "../EmptyCart";
 import {
   animateHiddenBox,
   animateShownBox,
@@ -34,8 +34,6 @@ export const CartPageContent = () => {
       <Divider />
 
       {currentSale.length ? <CartProducts isPage /> : <EmptyCartPage />}
-
-      <Divider />
     </Box>
   );
 };
