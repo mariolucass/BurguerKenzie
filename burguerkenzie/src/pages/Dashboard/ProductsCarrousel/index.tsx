@@ -10,7 +10,7 @@ import {
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useProductsContext } from "../../../contexts";
-import { ProductInterface } from "../../../interfaces";
+import { ProductInterface } from "../../../interfaces/products";
 import { animateHiddenCard, animateShownCard } from "../../../libs/framer";
 import { monetizeString } from "../../../utils/utils";
 import { ListCarrousel } from "./styles";

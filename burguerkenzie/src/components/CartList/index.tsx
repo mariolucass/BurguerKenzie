@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { useCartContext } from "../../contexts";
-import { ProductCartInterfaceProps } from "../../interfaces";
+import { ProductCartInterfaceProps } from "../../interfaces/products";
 import { CartPageProduct } from "../CartPageProduct";
 import { CartProduct } from "../CartProduct";
 import { CheckoutPageProduct } from "../CheckoutPageProduct";

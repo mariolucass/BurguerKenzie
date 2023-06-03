@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { CardInterface, Children, ProductCartInterface } from "../interfaces";
+import { Children } from "../interfaces";
+import { CardInterface } from "../interfaces/card";
+import { ProductCartInterface } from "../interfaces/products";
 import { useProductsContext } from "./productsContext";
 
 interface CartContextProps {

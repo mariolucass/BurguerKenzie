@@ -6,13 +6,9 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useCartContext } from "../../contexts";
-import { ProductCartInterface } from "../../interfaces";
+import { ProductCartInterfaceProps } from "../../interfaces/products";
 
-interface Props {
-  product: ProductCartInterface;
-}
-
-export const SelectQuantity = ({ product }: Props) => {
+export const SelectQuantity = ({ product }: ProductCartInterfaceProps) => {
   const { handleRemoveFromCart, handleQuantity } = useCartContext();
   const [quantity, setQuantity] = useState(product.quantity);
 
