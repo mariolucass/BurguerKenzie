@@ -7,6 +7,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import { getCep } from "../../../services/api";
 import { FormAddress } from "./styles";
 
@@ -69,9 +70,7 @@ export const AddressForm = () => {
   return (
     <Box
       sx={{
-        borderRadius: 1,
-        padding: 6,
-        backgroundColor: "white",
+        ...BoxSx,
         display: "flex",
         gap: "1em",
         justifyContent: "center",

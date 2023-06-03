@@ -52,7 +52,7 @@ export const SearchBar = () => {
             </InputAdornment>
           ),
         }}
-        sx={{ width: { matches768 } ? "190px" : "100%" }}
+        sx={{ width: { matches768 } ? "80%" : "190px" }}
       />
     </SearchForm>
   );

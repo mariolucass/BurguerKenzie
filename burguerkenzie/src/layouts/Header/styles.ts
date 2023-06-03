@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const HeaderDiv = styled.header`
@@ -46,16 +45,16 @@ export const HeaderDiv = styled.header`
 
 export const InteractionsDiv = styled.div`
   width: 100%;
-  margin-right: 0px;
   height: 100%;
+  margin-right: 0px;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 
-  max-width: 350px;
+  /* max-width: 350px; */
 
   @media (min-width: 768px) {
-    width: 30%;
+    width: 50%;
     margin-right: 100px;
   }
 `;

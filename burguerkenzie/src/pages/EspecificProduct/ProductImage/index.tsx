@@ -1,5 +1,6 @@
-import { Box, Skeleton } from "@mui/material";
+import { Box, Chip, Divider, Skeleton, Stack, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useProductsContext } from "../../../contexts";
 import {
   animateHiddenBox,
   animateShownBox,
@@ -7,11 +8,9 @@ import {
 } from "../../../libs/framer";
 import { BoxSx, ImageSx } from "../../../libs/mui";
 
-interface IProps {
-  src: string;
-}
+export const ProductContent = () => {
+  const { productEspecific } = useProductsContext();
 
-export const ProductImage = ({ src }: IProps) => {
   return (
     <Box
       sx={BoxSx}
@@ -20,8 +19,48 @@ export const ProductImage = ({ src }: IProps) => {
       animate={animateShownBox}
       transition={animateTransitionBox}
     >
-      {src ? (
-        <Box component="img" src={src} alt="productImage" sx={ImageSx} />
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="flex-start"
+        spacing={4}
+      >
+        <Typography variant="h4">
+          {productEspecific.name ? productEspecific.name : "Loading..."}
+        </Typography>
+
+        <Divider orientation="vertical" flexItem />
+
+        <Stack
+          direction="column"
+          justifyContent="space-around"
+          alignItems="center"
+          spacing={4}
+        >
+          <Chip
+            label={
+              productEspecific.category
+                ? productEspecific.category
+                : "Loading..."
+            }
+            sx={{
+              borderRadius: 1,
+              width: "100%",
+              color: "white",
+              backgroundColor: "#27ae60",
+              fontFamily: "Inter",
+            }}
+          />
+        </Stack>
+      </Stack>
+
+      {productEspecific.img ? (
+        <Box
+          component="img"
+          src={productEspecific.img}
+          alt="productImage"
+          sx={ImageSx}
+        />
       ) : (
         <Skeleton sx={ImageSx} />
       )}

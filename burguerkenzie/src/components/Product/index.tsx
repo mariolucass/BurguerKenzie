@@ -1,7 +1,7 @@
 import { Button, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../contexts";
-import { ProductInterfaceProps } from "../../interfaces";
+import { ProductInterfaceProps } from "../../interfaces/products";
 import { animateTransitionBox } from "../../libs/framer";
 import { monetizeString } from "../../utils/utils";
 import { ButtonDiv, CardProduct, ImageProduct, TextProduct } from "./styles";

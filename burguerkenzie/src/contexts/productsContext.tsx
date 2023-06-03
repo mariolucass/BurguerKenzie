@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Children, ProductInterface } from "../interfaces";
+import { Children } from "../interfaces";
+import { ProductInterface } from "../interfaces/products";
 import { getAllProducts } from "../services/api";
 
 interface ProductsProps {
@@ -8,6 +9,9 @@ interface ProductsProps {
 
   filteredProducts: ProductInterface[];
   setFilteredProducts: React.Dispatch<React.SetStateAction<ProductInterface[]>>;
+
+  productEspecific: ProductInterface;
+  setProductEspecific: React.Dispatch<React.SetStateAction<ProductInterface>>;
 }
 
 const ProductsContext = createContext({} as ProductsProps);
@@ -16,6 +20,10 @@ export const ProductsProvider = ({ children }: Children) => {
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<ProductInterface[]>(
     []
+  );
+
+  const [productEspecific, setProductEspecific] = useState<ProductInterface>(
+    {} as ProductInterface
   );
 
   useEffect(() => {
@@ -33,6 +41,9 @@ export const ProductsProvider = ({ children }: Children) => {
 
         filteredProducts,
         setFilteredProducts,
+
+        productEspecific,
+        setProductEspecific,
       }}
     >
       {children}

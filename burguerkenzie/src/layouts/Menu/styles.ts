@@ -4,7 +4,7 @@ interface ItemProps {
   backgroundColor: string;
 }
 
-export const ListMenu = styled.ul`
+export const ListMenu = styled(motion.ul)`
   margin-top: 1%;
   width: 50%;
   display: flex;

@@ -1,9 +1,32 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useMediaContext, useProductsContext } from "../../contexts";
-import { animateHiddenCard, animateShownCard } from "../../libs/framer";
-import { BoxSx } from "../../libs/mui";
 import { ItemMenu, ListMenu } from "./styles";
+
+const transition = { duration: 1.2, ease: [0.6, 0.01, -0.05, 0.9] };
+
+const parent = {
+  initial: { y: -100 },
+  animate: {
+    y: 0,
+    transition: {
+      staggerChildren: 0.15,
+      staggerDirection: 1,
+    },
+  },
+};
+
+const letter = {
+  initial: {
+    scale: 0.2,
+    y: -500,
+  },
+  animate: {
+    scale: 1,
+    y: 0,
+    transition: { ...transition },
+  },
+};
 
 export const MenuCategory = () => {
   const navigate = useNavigate();
@@ -55,12 +78,15 @@ export const MenuCategory = () => {
       backgroundColor={colorsList[index]}
       whileHover={{ scale: 0.95 }}
       whileTap={{ scale: 0.75 }}
-      initial={{ ...animateHiddenCard, y: -100 }}
-      animate={{ ...animateShownCard, y: 0 }}
+      variants={letter}
+      // initial={{ ...animateHiddenCard, y: -100 }}
+      // animate={{ ...animateShownCard, y: 0 }}
     >
       <Box
         sx={{
-          ...BoxSx,
+          borderRadius: 1,
+          padding: 6,
+          maxHeight: 400,
           height: 64,
           width: 64,
           backgroundColor: "transparent",
@@ -87,5 +113,14 @@ export const MenuCategory = () => {
     </ItemMenu>
   ));
 
-  return <ListMenu>{listRender}</ListMenu>;
+  return (
+    <ListMenu
+      variants={parent}
+      initial="initial"
+      animate="animate"
+      exit={{ opacity: 0, transition: { duration: 0.4 } }}
+    >
+      {listRender}
+    </ListMenu>
+  );
 };

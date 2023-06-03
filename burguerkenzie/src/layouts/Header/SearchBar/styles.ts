@@ -5,6 +5,7 @@ export const SearchForm = styled.form`
   width: 100%;
   height: 100%;
   align-items: center;
+  justify-content: center;
 
   @media (min-width: 768px) {
     width: 190px;

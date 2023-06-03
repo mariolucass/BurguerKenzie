@@ -7,6 +7,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import { EmptyCartPage } from "../EmptyCart";
 
 export const CartPageContent = () => {
@@ -18,13 +19,11 @@ export const CartPageContent = () => {
       animate={animateShownBox}
       transition={animateTransitionBox}
       sx={{
-        p: 6,
-        borderRadius: 1,
-        backgroundColor: "white",
+        ...BoxSx,
+        minHeight: 562,
         display: "flex",
         flexDirection: "column",
         gap: "2em",
-        minHeight: 562,
       }}
     >
       <Typography variant="h4" sx={{ fontWeight: "600" }}>

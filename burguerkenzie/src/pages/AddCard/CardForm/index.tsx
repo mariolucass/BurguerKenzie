@@ -6,6 +6,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import {
   formatCVC,
   formatCreditCardNumber,
@@ -44,9 +45,7 @@ export const FormPayment = () => {
   return (
     <Box
       sx={{
-        borderRadius: 1,
-        padding: 6,
-        backgroundColor: "white",
+        ...BoxSx,
         display: "flex",
         gap: "1em",
         justifyContent: "center",

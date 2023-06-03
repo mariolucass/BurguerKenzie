@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { useCartContext } from "../../../contexts";
+import { useCartContext, useProductsContext } from "../../../contexts";
 import {
   animateHiddenBox,
   animateShownBox,
@@ -14,8 +14,9 @@ interface IProps {
   price: number;
 }
 
-export const ProductCheckout = ({ id, price }: IProps) => {
+export const ProductCheckout = () => {
   const { handleAddToCart } = useCartContext();
+  const { productEspecific } = useProductsContext();
 
   return (
     <Box
@@ -27,13 +28,15 @@ export const ProductCheckout = ({ id, price }: IProps) => {
     >
       <Typography>Apenas</Typography>
       <Typography variant="h2" sx={{ color: "#27ae60", fontWeight: "500" }}>
-        {price ? monetizeString(price) : "Loading..."}
+        {productEspecific.price
+          ? monetizeString(productEspecific.price)
+          : "Loading..."}
       </Typography>
 
       <Button
         sx={{ backgroundColor: "#27ae60" }}
         variant="contained"
-        onClick={() => handleAddToCart(id)}
+        onClick={() => handleAddToCart(productEspecific.id)}
       >
         Adicionar ao carrinho
       </Button>
