@@ -5,15 +5,13 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 
 export const WarningMessage = () => {
   return (
     <Box
       sx={{
-        borderRadius: 1,
-        padding: 6,
-        backgroundColor: "white",
-        minHeight: 0,
+        ...BoxSx,
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",

@@ -7,6 +7,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 
 export const AddressContent = () => {
   const { user, address } = useUserContext();
@@ -19,9 +20,7 @@ export const AddressContent = () => {
       animate={animateShownBox}
       transition={animateTransitionBox}
       sx={{
-        p: 6,
-        borderRadius: 1,
-        backgroundColor: "white",
+        ...BoxSx,
         display: "flex",
         flexDirection: "column",
         gap: "2em",

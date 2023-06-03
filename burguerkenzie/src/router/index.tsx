@@ -1,5 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { AllContexts } from "../contexts";
 import { Cart, Header } from "../layouts";
 import {
@@ -14,39 +14,49 @@ import {
   SearchProductsPage,
 } from "../pages";
 
-const AllRoutes = () => (
-  <AnimatePresence>
-    <Routes>
-      <Route element={<Dashboard />} path="/dashboard" />
+const AllRoutes = () => {
+  const location = useLocation();
 
-      <Route path="/cart">
-        <Route element={<CartPage />} index />
-        <Route element={<CheckoutPage />} path="checkout" />
-      </Route>
+  return (
+    <AnimatePresence mode="wait">
+      <Routes key={location.pathname} location={location}>
+        <Route element={<Dashboard />} path="/dashboard" />
 
-      <Route path="/products">
-        <Route element={<Navigate to={"/dashboard"} replace={true} />} index />
-        <Route element={<ProductsPage />} path=":categoryName" />
-        <Route path="search/:productSearch" element={<SearchProductsPage />} />
+        <Route path="/cart">
+          <Route element={<CartPage />} index />
+          <Route element={<CheckoutPage />} path="checkout" />
+        </Route>
+
+        <Route path="/products">
+          <Route
+            element={<Navigate to={"/dashboard"} replace={true} />}
+            index
+          />
+          <Route element={<ProductsPage />} path=":categoryName" />
+          <Route
+            path="search/:productSearch"
+            element={<SearchProductsPage />}
+          />
+          <Route
+            element={<EspecificProductPage />}
+            path=":categoryName/:productId"
+          />
+        </Route>
+
+        <Route path="/profile">
+          <Route element={<ProfilePage />} index />
+          <Route path="addCard" element={<AddCardPage />} />
+          <Route path="address" element={<AddressPage />} />
+        </Route>
+
         <Route
-          element={<EspecificProductPage />}
-          path=":categoryName/:productId"
+          element={<Navigate to={"/dashboard"} replace={true} />}
+          path="/*"
         />
-      </Route>
-
-      <Route path="/profile">
-        <Route element={<ProfilePage />} index />
-        <Route path="addCard" element={<AddCardPage />} />
-        <Route path="address" element={<AddressPage />} />
-      </Route>
-
-      <Route
-        element={<Navigate to={"/dashboard"} replace={true} />}
-        path="/*"
-      />
-    </Routes>
-  </AnimatePresence>
-);
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 export const RoutesMain = () => (
   <AllContexts>

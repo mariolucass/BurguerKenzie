@@ -1,7 +1,7 @@
 import { Chip, Typography } from "@mui/material";
 import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
-import { ProductCartInterfaceProps } from "../../interfaces";
+import { ProductCartInterfaceProps } from "../../interfaces/products";
 import { monetizeString } from "../../utils/utils";
 import { SelectQuantity } from "../SelectQuantity";
 import {

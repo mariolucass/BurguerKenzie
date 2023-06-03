@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
+import { BoxSx } from "../../../libs/mui";
 import { SearchSpan } from "./styles";
 
 export const TitleSection = () => {
@@ -10,11 +11,10 @@ export const TitleSection = () => {
   return (
     <Box
       sx={{
-        borderRadius: 1,
-        padding: 6,
+        mt: 3,
+        ...BoxSx,
         maxHeight: 400,
         backgroundColor: "rgba(255, 255, 255, 0.75)",
-        mt: 3,
         width: "100%",
         maxWidth: 1000,
         display: "flex",

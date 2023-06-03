@@ -6,6 +6,7 @@ import GooglePay from "../../../assets/Payments/GooglePay.svg";
 import Mastercard from "../../../assets/Payments/Mastercard.svg";
 import PayPal from "../../../assets/Payments/PayPal.svg";
 import Visa from "../../../assets/Payments/Visa.svg";
+import { useMediaContext } from "../../../contexts";
 import {
   animateHiddenBox,
   animateShownBox,
@@ -15,6 +16,7 @@ import { BoxSx } from "../../../libs/mui";
 import { ListPayments } from "./styles";
 
 export const CustomerMessage = () => {
+  const { matches768 } = useMediaContext();
   const listPayments = [PayPal, Amex, GooglePay, Mastercard, Visa, ApplePay];
 
   const renderList = listPayments.map((elem) => {
@@ -44,13 +46,15 @@ export const CustomerMessage = () => {
       transition={animateTransitionBox}
       sx={{
         ...BoxSx,
-        textAlign: "left",
         display: "flex",
         gap: "1em",
         flexDirection: "column",
       }}
     >
-      <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+      <Typography
+        variant="h6"
+        sx={{ fontWeight: "bold", textAlign: matches768 ? "left" : "center" }}
+      >
         Métodos de pagamento
       </Typography>
 

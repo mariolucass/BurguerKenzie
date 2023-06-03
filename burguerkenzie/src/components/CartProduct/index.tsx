@@ -2,7 +2,7 @@ import { Divider, SelectChangeEvent, Typography } from "@mui/material";
 import { useState } from "react";
 import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
-import { ProductCartInterfaceProps } from "../../interfaces";
+import { ProductCartInterfaceProps } from "../../interfaces/products";
 import { monetizeString } from "../../utils/utils";
 import { SelectQuantity } from "../SelectQuantity";
 import {

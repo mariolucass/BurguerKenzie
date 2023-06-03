@@ -1,21 +1,18 @@
 import { Container, Grid } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useProductsContext } from "../../contexts";
-import { ProductInterface } from "../../interfaces";
+import { useMediaContext, useProductsContext } from "../../contexts";
+import { ProductInterface } from "../../interfaces/products";
 import { TransitionAnimation } from "../../layouts";
 import { getAllProducts } from "../../services/api";
+import { MobileEspecificProductPage } from "./Mobile";
 import { ProductCheckout } from "./ProductCheckout";
-import { ProductDescription } from "./ProductDescription";
-import { ProductImage } from "./ProductImage";
+import { ProductContent } from "./ProductImage";
 
 export const EspecificProductPage = () => {
   const { productId } = useParams();
-  const { products } = useProductsContext();
-
-  const [productEspecific, setProductEspecific] = useState<ProductInterface>(
-    {} as ProductInterface
-  );
+  const { products, setProductEspecific } = useProductsContext();
+  const { matches768 } = useMediaContext();
 
   useEffect(() => {
     if (products.length) {
@@ -34,32 +31,21 @@ export const EspecificProductPage = () => {
     }
   }, []);
 
+  if (!matches768) {
+    return <MobileEspecificProductPage />;
+  }
+
   return (
     <TransitionAnimation>
       <Container sx={{ mt: 2 }}>
         <Grid container spacing={2} direction={"row"}>
           <Grid item xs={8} sx={{ minHeight: 350 }}>
-            <ProductDescription
-              name={productEspecific.name}
-              category={productEspecific.category}
-            />
-            <ProductImage src={productEspecific.img} />
+            <ProductContent />
           </Grid>
 
           <Grid item xs={4}>
-            <ProductCheckout
-              id={productEspecific.id}
-              price={productEspecific.price}
-            />
+            <ProductCheckout />
           </Grid>
-
-          <Grid
-            item
-            xs={8}
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          ></Grid>
-
-          <Grid item xs={4}></Grid>
         </Grid>
       </Container>
     </TransitionAnimation>

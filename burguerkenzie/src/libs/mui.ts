@@ -3,8 +3,9 @@ import { ThemeOptions, createTheme } from "@mui/material/styles";
 export const BoxSx = {
   borderRadius: 1,
   padding: 6,
-  maxHeight: 400,
   backgroundColor: "white",
+  boxShadow:
+    "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
 };
 
 export const ImageSx = {

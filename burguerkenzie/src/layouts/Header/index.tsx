@@ -7,7 +7,7 @@ import { HeaderDiv, InteractionsDiv } from "./styles";
 export const Header = () => {
   const navigate = useNavigate();
   const { setFilteredProducts } = useProductsContext();
-  const { matches768 } = useMediaContext();
+  const { matches768, matches1024 } = useMediaContext();
 
   const handleClickToHome = () => {
     navigate("/dashboard");

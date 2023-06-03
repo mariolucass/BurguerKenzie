@@ -7,6 +7,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import { EmptyCartPage } from "../../CartPage/EmptyCart";
 
 export const OrderContent = () => {
@@ -18,9 +19,7 @@ export const OrderContent = () => {
       animate={animateShownBox}
       transition={animateTransitionBox}
       sx={{
-        p: 6,
-        borderRadius: 1,
-        backgroundColor: "white",
+        ...BoxSx,
         display: "flex",
         flexDirection: "column",
         gap: "2em",

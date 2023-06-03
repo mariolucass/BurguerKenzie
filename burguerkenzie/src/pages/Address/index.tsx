@@ -1,26 +1,38 @@
 import { Container, Grid } from "@mui/material";
+import { useMediaContext } from "../../contexts";
+import { TransitionAnimation } from "../../layouts";
 import { DivContainer } from "../../styles/container";
 import { AddressForm } from "./AddressForm";
+import { AddressIllustration } from "./AddressIlustration";
 import { AddressRender } from "./AddressRender";
+import { MobileAddressPage } from "./Mobile";
 
 export const AddressPage = () => {
-  return (
-    <DivContainer>
-      <Container sx={{ mt: 2 }}>
-        <Grid container spacing={2} direction={"row"}>
-          <Grid item xs={8}>
-            <AddressRender />
-          </Grid>
+  const { matches768 } = useMediaContext();
+  if (!matches768) {
+    return <MobileAddressPage />;
+  }
 
-          <Grid
-            item
-            xs={4}
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          >
-            <AddressForm />
+  return (
+    <TransitionAnimation>
+      <DivContainer>
+        <Container sx={{ mt: 2 }}>
+          <Grid container spacing={2} direction={"row"}>
+            <Grid item xs={8}>
+              <AddressRender />
+              <AddressIllustration />
+            </Grid>
+
+            <Grid
+              item
+              xs={4}
+              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            >
+              <AddressForm />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </DivContainer>
+        </Container>
+      </DivContainer>
+    </TransitionAnimation>
   );
 };

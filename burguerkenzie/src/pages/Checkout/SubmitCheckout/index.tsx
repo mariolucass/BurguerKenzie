@@ -6,11 +6,12 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import { monetizeString } from "../../../utils/utils";
 import { ValuesDiv } from "./styles";
 
 export const SubmitContent = () => {
-  const { currentSale, currentSaleValue } = useCartContext();
+  const { currentSaleValue } = useCartContext();
 
   const whatsappURL = `https://api.whatsapp.com/send/?phone=5588997990589&text=Adorei seu projeto !! podemos conversar melhor sobre ?`;
 
@@ -22,8 +23,7 @@ export const SubmitContent = () => {
         animate={animateShownBox}
         transition={animateTransitionBox}
         sx={{
-          p: 6,
-          backgroundColor: "white",
+          ...BoxSx,
           display: "flex",
           flexDirection: "column",
           borderRadius: "8px 8px 0px 0px",
@@ -70,7 +70,7 @@ export const SubmitContent = () => {
         animate={{ ...animateShownBox, y: 0 }}
         transition={animateTransitionBox}
         sx={{
-          p: 3,
+          ...BoxSx,
           borderRadius: "0px 0px 8px 8px",
           backgroundColor: "#93d7af",
           display: "flex",

@@ -8,6 +8,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import { CardDiv } from "./styles";
 
 export const PaymentContent = () => {
@@ -20,17 +21,19 @@ export const PaymentContent = () => {
       animate={animateShownBox}
       transition={animateTransitionBox}
       sx={{
-        p: 6,
-        borderRadius: 1,
-        backgroundColor: "white",
+        ...BoxSx,
+        minHeight: 200,
         display: "flex",
         flexDirection: "column",
         gap: "2em",
-        minHeight: 200,
       }}
     >
       <Box
-        sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
       >
         <Typography variant="h6">2. Método de pagamento</Typography>
         {card.cvc ? <Link to="/profile/address">Alterar</Link> : <></>}

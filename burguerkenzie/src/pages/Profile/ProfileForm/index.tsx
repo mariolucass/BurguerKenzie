@@ -7,6 +7,7 @@ import {
   animateShownBox,
   animateTransitionBox,
 } from "../../../libs/framer";
+import { BoxSx } from "../../../libs/mui";
 import { FormChangeProfile } from "./styles";
 
 export const ProfileForm = () => {
@@ -45,9 +46,7 @@ export const ProfileForm = () => {
   return (
     <Box
       sx={{
-        borderRadius: 1,
-        padding: 6,
-        backgroundColor: "white",
+        ...BoxSx,
         display: "flex",
         gap: "1em",
         justifyContent: "center",

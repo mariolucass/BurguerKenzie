@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { ProductCartInterfaceProps } from "../../interfaces";
+import { ProductCartInterfaceProps } from "../../interfaces/products";
 import { monetizeString } from "../../utils/utils";
 import {
   CartPageProductLi,
