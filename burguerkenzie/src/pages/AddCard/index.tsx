@@ -8,8 +8,8 @@ import { MobileAddCardPage } from "./Mobile";
 import { WarningMessage } from "./WarningMessage";
 
 export const AddCardPage = () => {
-  const { matches768 } = useMediaContext();
-  if (!matches768) {
+  const { hasMinWidth900 } = useMediaContext();
+  if (!hasMinWidth900) {
     return <MobileAddCardPage />;
   }
 

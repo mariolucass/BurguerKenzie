@@ -6,13 +6,12 @@ import { SearchSpan } from "./styles";
 export const TitleSection = () => {
   const navigate = useNavigate();
   const { productSearch } = useParams();
-  console.log(productSearch);
 
   return (
     <Box
       sx={{
-        mt: 3,
         ...BoxSx,
+        mt: 3,
         maxHeight: 400,
         backgroundColor: "rgba(255, 255, 255, 0.75)",
         width: "100%",

@@ -9,36 +9,29 @@ import {
 } from "../../../libs/framer";
 import { BoxSx } from "../../../libs/mui";
 import { getCep } from "../../../services/api";
+import { formatCEP } from "../../../utils/utils";
 import { FormAddress } from "./styles";
 
 export const AddressForm = () => {
   const { address, setAddress } = useUserContext();
-  useEffect(() => {
+
+  useEffect(() => getAddressIfHasToken(), []);
+
+  const getAddressIfHasToken = () => {
     const token = localStorage.getItem("burguerKenzie:address");
     if (token) {
-      const { cep, city, district, state, street, number } = JSON.parse(token);
-      setAddress({
-        cep: cep,
-        city: city,
-        state: state,
-        number: number,
-        street: street,
-        district: district,
-      });
+      const data = JSON.parse(token);
+      setAddress(data);
     }
-  }, []);
+  };
 
-  const checkCep = async (e: any) => {
-    const cep = e.target.value.replace(/\D/g, "");
+  const fetchCep = async (
+    event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>
+  ) => {
+    const cep = event.target.value;
     if (cep.length >= 8) {
-      const { localidade, bairro, uf, logradouro } = await getCep(cep);
-      setAddress({
-        cep: cep,
-        city: localidade,
-        district: bairro,
-        state: uf,
-        street: logradouro,
-      });
+      const data = await getCep(cep);
+      setAddress(data);
     }
   };
 
@@ -50,51 +43,36 @@ export const AddressForm = () => {
     if (name === "cep") {
       value = formatCEP(value);
     }
+
     setAddress((address) => {
       return { ...address, [name]: value };
     });
   };
 
-  const formatCEP = (value: string) => {
-    if (value.length === 5) {
-      value += "-";
-    }
-
-    setAddress((data) => {
-      return { ...data, cep: value };
-    });
-
-    return value;
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    localStorage.setItem("burguerKenzie:address", JSON.stringify(address));
   };
 
   return (
     <Box
-      sx={{
-        ...BoxSx,
-        display: "flex",
-        gap: "1em",
-        justifyContent: "center",
-      }}
       component={motion.div}
       initial={animateHiddenBox}
       animate={animateShownBox}
       transition={animateTransitionBox}
+      sx={{
+        ...BoxSx,
+        gap: "1em",
+        display: "flex",
+        justifyContent: "center",
+      }}
     >
-      <FormAddress
-        onSubmit={(event: any) => {
-          event.preventDefault();
-
-          localStorage.setItem(
-            "burguerKenzie:address",
-            JSON.stringify(address)
-          );
-        }}
-      >
+      <FormAddress onSubmit={handleSubmit}>
         <TextField
           name="cep"
           label="CEP"
           placeholder="Cep"
-          onBlur={checkCep}
+          onBlur={fetchCep}
           onChange={handleInputChange}
           value={address.cep || ""}
           inputProps={{ maxLength: 9 }}

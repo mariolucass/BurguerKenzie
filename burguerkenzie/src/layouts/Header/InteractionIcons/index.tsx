@@ -7,20 +7,19 @@ import { ListInteractionsIcons, UserMenuIcon } from "./styles";
 
 export const HeaderList = () => {
   const { setOpenCart, currentSale } = useCartContext();
-  const { handleOpenMenu, handleCloseMenu } = useModalContext();
+  const { handleOpenMenu } = useModalContext();
 
-  const handleClickCart = () => {
-    setOpenCart(true);
-  };
+  const handleClickCart = () => setOpenCart(true);
 
+  const size = "2em";
   return (
     <ListInteractionsIcons>
       <UserMenuIcon onHoverStart={handleOpenMenu}>
-        <FaUserCircle size={"2em"} />
+        <FaUserCircle size={size} />
       </UserMenuIcon>
 
-      <Badge badgeContent={currentSale.length} showZero className="badge">
-        <FiShoppingCart size={"2em"} onClick={handleClickCart} />
+      <Badge className="badge" badgeContent={currentSale.length} showZero>
+        <FiShoppingCart size={size} onClick={handleClickCart} />
       </Badge>
 
       <MenuHeader />

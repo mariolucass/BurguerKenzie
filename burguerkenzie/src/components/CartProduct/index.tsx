@@ -52,7 +52,6 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
           <div>
             <InteractionsCartProduct>
               <SelectQuantity product={product} />
-
               <RxTrash
                 onClick={() => handleRemoveFromCart(product.id)}
                 size={24}

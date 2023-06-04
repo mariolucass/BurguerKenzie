@@ -36,7 +36,7 @@ export const PaymentContent = () => {
         }}
       >
         <Typography variant="h6">2. Método de pagamento</Typography>
-        {card.cvc ? <Link to="/profile/address">Alterar</Link> : <></>}
+        {card.cvc && <Link to="/profile/address">Alterar</Link>}
       </Box>
 
       {card.cvc ? (
@@ -46,6 +46,7 @@ export const PaymentContent = () => {
             expiry={card.expiry}
             name={card.name}
             number={card.number}
+            preview={true}
           />
         </CardDiv>
       ) : (

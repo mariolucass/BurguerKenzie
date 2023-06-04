@@ -16,7 +16,6 @@ import {
 
 const AllRoutes = () => {
   const location = useLocation();
-
   return (
     <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>
@@ -34,8 +33,8 @@ const AllRoutes = () => {
           />
           <Route element={<ProductsPage />} path=":categoryName" />
           <Route
-            path="search/:productSearch"
             element={<SearchProductsPage />}
+            path="search/:productSearch"
           />
           <Route
             element={<EspecificProductPage />}

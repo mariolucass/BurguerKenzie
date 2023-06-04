@@ -10,39 +10,43 @@ export const SearchBar = () => {
   const navigate = useNavigate();
   const [pesquisa, setPesquisa] = useState("");
   const { products, setFilteredProducts } = useProductsContext();
-  const { matches768 } = useMediaContext();
+  const { hasMinWidth900 } = useMediaContext();
+
+  const searchProduct = () => {
+    const lista = products.filter(
+      (e) =>
+        e.name.toLowerCase().includes(pesquisa) ||
+        e.category.toLowerCase().includes(pesquisa)
+    );
+
+    lista.length ? setFilteredProducts(lista) : noProducts();
+    navigate(`/products/search/${pesquisa}`);
+  };
 
   const noProducts = () => {
     toast.error(`Não encontramos o produto ou categoria procurado`);
     setFilteredProducts([]);
   };
 
-  const searchProduct = () => {
-    const lista = products.filter(
-      (e) =>
-        e.name.toLowerCase().includes(pesquisa.toLowerCase()) ||
-        e.category.toLowerCase().includes(pesquisa.toLowerCase())
-    );
+  const handleSearch = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setPesquisa(event.target.value.toLowerCase());
+  };
 
-    lista.length ? setFilteredProducts(lista) : noProducts();
-
-    navigate(`/products/search/${pesquisa}`);
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    searchProduct();
   };
 
   return (
-    <SearchForm
-      onSubmit={(event) => {
-        event.preventDefault();
-        searchProduct();
-      }}
-    >
+    <SearchForm onSubmit={handleSubmit}>
       <TextField
         placeholder="Busque por item"
         variant="outlined"
         type="text"
-        onChange={(event) => {
-          setPesquisa(event.target.value);
-        }}
+        onChange={handleSearch}
+        sx={{ width: hasMinWidth900 ? "190px" : "80%" }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -52,7 +56,6 @@ export const SearchBar = () => {
             </InputAdornment>
           ),
         }}
-        sx={{ width: { matches768 } ? "80%" : "190px" }}
       />
     </SearchForm>
   );

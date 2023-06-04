@@ -1,22 +1,27 @@
 import { Container, Grid } from "@mui/material";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCartContext } from "../../contexts";
+import { useCartContext, useMediaContext } from "../../contexts";
 import { TransitionAnimation } from "../../layouts";
 import { DivContainer } from "../../styles/container";
 import { AddressContent } from "./AddressSection";
+import { MobileCheckout } from "./Mobile";
 import { OrderContent } from "./OrderSection";
 import { PaymentContent } from "./PaymentSection";
 import { SubmitContent } from "./SubmitCheckout";
-export const CheckoutPage = () => {
-  const navigate = useNavigate();
-  const { currentSale } = useCartContext();
 
+export const CheckoutPage = () => {
+  const { currentSale } = useCartContext();
   useEffect(() => {
-    if (!currentSale.length) {
-      navigate("/products/favourites");
-    }
+    !currentSale.length && navigate("/products/favourites");
   }, [currentSale]);
+
+  const navigate = useNavigate();
+  const { hasMinWidth900 } = useMediaContext();
+
+  if (!hasMinWidth900) {
+    return <MobileCheckout />;
+  }
 
   return (
     <TransitionAnimation>

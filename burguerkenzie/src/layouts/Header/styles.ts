@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const HeaderDiv = styled.header`
+export const HeaderDiv = styled(motion.header)`
   display: flex;
   background-color: var(--white);
   flex-direction: column;
@@ -8,28 +9,14 @@ export const HeaderDiv = styled.header`
   height: 150px;
   padding: 1rem;
   align-items: center;
-  /* border-bottom: 2px solid var(--gray-50); */
-
-  svg {
-    filter: invert(57%) sepia(21%) saturate(1491%) hue-rotate(93deg)
-      brightness(94%) contrast(81%);
-  }
-
-  h1 {
-    cursor: pointer;
-  }
 
   .spanLogo {
     color: red;
     font-size: 1.2rem;
   }
 
-  .badge {
-    span {
-      background-color: var(--color-primary);
-      color: var(--white);
-      font-family: "Inter";
-    }
+  h1 {
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
@@ -43,15 +30,13 @@ export const HeaderDiv = styled.header`
   }
 `;
 
-export const InteractionsDiv = styled.div`
+export const InteractionsDiv = styled(motion.div)`
   width: 100%;
   height: 100%;
   margin-right: 0px;
   align-items: center;
   display: flex;
   justify-content: flex-end;
-
-  /* max-width: 350px; */
 
   @media (min-width: 768px) {
     width: 50%;

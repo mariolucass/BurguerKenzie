@@ -17,7 +17,7 @@ export const TextCartProduct = styled.div`
   display: flex;
   gap: 0.5em;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 
   h3 {
     white-space: nowrap;

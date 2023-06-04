@@ -5,13 +5,13 @@ import { DivContainer } from "../../styles/container";
 import { CartPageContent } from "./CartContent";
 import { CartPageRecommendations } from "./CartRecommendations";
 import { CheckoutAndValue } from "./CheckoutAndValue";
-import { CustomerMessage } from "./CustomerMessage";
 import { MobileCartPage } from "./Mobile";
+import { PaymentsMethods } from "./PaymentsMethods";
 
 export const CartPage = () => {
   const { currentSale } = useCartContext();
-  const { matches768 } = useMediaContext();
-  if (!matches768) {
+  const { hasMinWidth900 } = useMediaContext();
+  if (!hasMinWidth900) {
     return <MobileCartPage />;
   }
 
@@ -31,7 +31,7 @@ export const CartPage = () => {
                 sx={{ display: "flex", flexDirection: "column", gap: 2 }}
               >
                 <CheckoutAndValue />
-                <CustomerMessage />
+                <PaymentsMethods />
               </Grid>
             ) : (
               <Grid
@@ -39,7 +39,7 @@ export const CartPage = () => {
                 xs={4}
                 sx={{ display: "flex", flexDirection: "column", gap: 2 }}
               >
-                <CustomerMessage />
+                <PaymentsMethods />
               </Grid>
             )}
 

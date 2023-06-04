@@ -14,7 +14,7 @@ const styleDiv = {
 };
 
 export const WelcomeSection = () => {
-  const { matches768 } = useMediaContext();
+  const { hasMinWidth900 } = useMediaContext();
 
   return (
     <Box
@@ -22,17 +22,21 @@ export const WelcomeSection = () => {
       initial={animateHiddenBox}
       animate={animateShownBox}
       transition={animateTransitionBox}
-      boxShadow={10}
       style={styleDiv}
       sx={{
         p: 2,
-        display: "flex",
-        borderRadius: 4,
-        maxWidth: matches768 ? 950 : 300,
         gap: 10,
+        borderRadius: 2,
+        display: "flex",
+        maxWidth: hasMinWidth900 ? 1000 : "80%",
+        backgroundSize: "cover",
+        boxShadow:
+          "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
       }}
     >
-      <img src={WelcomeIllustration} />
+      <Box>
+        <Box component="img" src={WelcomeIllustration} />
+      </Box>
 
       <Box
         sx={{
@@ -41,13 +45,14 @@ export const WelcomeSection = () => {
           padding: 1,
           display: "flex",
           flexDirection: "column",
+          textAlign: "right",
         }}
       >
-        <Typography variant="h3" sx={{ color: "#ffffff", textAlign: "right" }}>
+        <Typography variant="h3" color="#ffffff">
           Piscou, chegou!
         </Typography>
 
-        <Typography sx={{ color: "#ffffff", textAlign: "right" }}>
+        <Typography color="#ffffff">
           Nossos pedidos são feitos com rapidez, versatilidade e preparo, sempre
           com o objetivo de matar sua fome.
         </Typography>
