@@ -62,7 +62,7 @@ export const FormPayment = () => {
           placeholder="Número do cartão"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
-          inputProps={{ maxLength: 16 }}
+          value={card.number || ""}
         />
         <TextField
           name="name"
@@ -70,6 +70,7 @@ export const FormPayment = () => {
           placeholder="Nome"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
+          value={card.name || ""}
           inputProps={{ maxLength: 16 }}
         />
         <TextField
@@ -78,7 +79,7 @@ export const FormPayment = () => {
           placeholder="Validade"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
-          inputProps={{ maxLength: 4 }}
+          value={card.expiry || ""}
         />
         <TextField
           name="cvc"
@@ -86,7 +87,7 @@ export const FormPayment = () => {
           placeholder="CVC"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
-          inputProps={{ maxLength: 3 }}
+          value={card.cvc || ""}
         />
 
         <Divider flexItem />

@@ -8,27 +8,30 @@ import {
   animateTransitionBox,
 } from "../../../libs/framer";
 import { BoxSx } from "../../../libs/mui";
+import { formatPhone } from "../../../utils/utils";
 import { FormChangeProfile } from "./styles";
 
 export const ProfileForm = () => {
   const { user, setUser } = useUserContext();
-  useEffect(() => {
+
+  useEffect(() => getProfileIfHasToken(), []);
+
+  const getProfileIfHasToken = () => {
     const token = localStorage.getItem("burguerKenzie:user");
     if (token) {
-      const { username, email, phone, image } = JSON.parse(token);
-      setUser({
-        username: username,
-        email: email,
-        phone: phone,
-        image: image,
-      });
+      const data = JSON.parse(token);
+      setUser(data);
     }
-  }, []);
+  };
 
   const handleInputChange = (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     let { name, value } = e.target;
+
+    if (name === "phone") {
+      value = formatPhone(value);
+    }
 
     if (name === "image") {
       if (value.length > 0) {
@@ -36,19 +39,20 @@ export const ProfileForm = () => {
           return { ...user, [name]: value };
         });
       }
-    } else {
-      setUser((user) => {
-        return { ...user, [name]: value };
-      });
+      return;
     }
+
+    setUser((user) => {
+      return { ...user, [name]: value };
+    });
   };
 
   return (
     <Box
       sx={{
         ...BoxSx,
-        display: "flex",
         gap: "1em",
+        display: "flex",
         justifyContent: "center",
       }}
       component={motion.div}
@@ -65,22 +69,23 @@ export const ProfileForm = () => {
         <TextField
           name="username"
           label="Usuário"
-          placeholder="Nome de usuário"
+          placeholder="seunomedeusuário"
           value={user.username || ""}
           onChange={handleInputChange}
         />
 
         <TextField
+          type="url"
           name="image"
-          label="Imagem de perfil"
-          placeholder="Foto do perfil"
+          label="Foto do perfil"
+          placeholder="www.example.com"
           onBlur={handleInputChange}
         />
 
         <TextField
           name="email"
           label="Email"
-          placeholder="Email"
+          placeholder="email@mail.com"
           value={user.email || ""}
           onChange={handleInputChange}
         />
@@ -88,9 +93,10 @@ export const ProfileForm = () => {
         <TextField
           name="phone"
           label="Celular"
-          placeholder="Celular"
+          placeholder="(99) 99999-9999"
           value={user.phone || ""}
           onChange={handleInputChange}
+          inputProps={{ maxLength: 15 }}
         />
 
         <Divider flexItem />

@@ -15,28 +15,24 @@ import {
 import { BoxSx } from "../../../libs/mui";
 import { ListPayments } from "./styles";
 
-export const CustomerMessage = () => {
-  const { matches768 } = useMediaContext();
+export const PaymentsMethods = () => {
+  const { hasMinWidth900 } = useMediaContext();
+
   const listPayments = [PayPal, Amex, GooglePay, Mastercard, Visa, ApplePay];
 
-  const renderList = listPayments.map((elem) => {
-    return (
-      <ListItem key={elem} sx={{ width: "128px", height: "32px", p: 0 }}>
-        <Box
-          component={"img"}
-          src={elem}
-          alt=""
-          sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            p: 0,
-            m: 0,
-          }}
-        />
-      </ListItem>
-    );
-  });
+  const imgSx = {
+    p: 0,
+    m: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  };
+
+  const renderList = listPayments.map((elem) => (
+    <ListItem key={elem} sx={{ p: 0, width: "128px", height: "32px" }}>
+      <Box component={"img"} src={elem} sx={imgSx} />
+    </ListItem>
+  ));
 
   return (
     <Box
@@ -53,7 +49,10 @@ export const CustomerMessage = () => {
     >
       <Typography
         variant="h6"
-        sx={{ fontWeight: "bold", textAlign: matches768 ? "left" : "center" }}
+        sx={{
+          fontWeight: "bold",
+          textAlign: hasMinWidth900 ? "left" : "center",
+        }}
       >
         Métodos de pagamento
       </Typography>

@@ -1,6 +1,5 @@
 import { Box, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { useUserContext } from "../../../contexts";
 import {
   animateHiddenBox,
   animateShownBox,
@@ -9,10 +8,12 @@ import {
 import { BoxSx } from "../../../libs/mui";
 
 export const AddressRender = () => {
-  const { user } = useUserContext();
-
   return (
     <Box
+      component={motion.div}
+      initial={animateHiddenBox}
+      animate={animateShownBox}
+      transition={animateTransitionBox}
       sx={{
         ...BoxSx,
         minHeight: 198,
@@ -20,10 +21,6 @@ export const AddressRender = () => {
         flexDirection: "column",
         justifyContent: "space-around",
       }}
-      component={motion.div}
-      initial={animateHiddenBox}
-      animate={animateShownBox}
-      transition={animateTransitionBox}
     >
       <Typography variant="h4" sx={{ fontWeight: "600" }}>
         Edite os dados do seu endereço:

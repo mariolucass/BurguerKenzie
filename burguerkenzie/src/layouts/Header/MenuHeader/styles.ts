@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const ListMenuStyled = styled(motion.ul)`
+export const NavMenuStyled = styled(motion.nav)`
   position: relative;
   z-index: 1;
   background-color: #ffffff;

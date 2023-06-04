@@ -16,7 +16,18 @@ export const apiLocation = axios.create({
 });
 
 export const getCep = async (cep: string) => {
-  const { data } = await apiLocation.get(`/${cep}/json/`);
+  const cepFormat = cep.replace(/\D/g, "");
 
-  return data;
+  const { data } = await apiLocation.get(`/${cepFormat}/json/`);
+  console.log(data);
+
+  const dataObj = {
+    cep: cep,
+    city: data.localidade,
+    district: data.bairro,
+    state: data.uf,
+    street: data.logradouro,
+  };
+
+  return dataObj;
 };

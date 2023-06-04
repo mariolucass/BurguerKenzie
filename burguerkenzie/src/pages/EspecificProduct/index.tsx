@@ -12,26 +12,34 @@ import { ProductContent } from "./ProductImage";
 export const EspecificProductPage = () => {
   const { productId } = useParams();
   const { products, setProductEspecific } = useProductsContext();
-  const { matches768 } = useMediaContext();
+  const { hasMinWidth900 } = useMediaContext();
+
+  const getEspecificProductWithoutFetch = () => {
+    const product = products.find((product) => product.id === +productId!);
+
+    if (product) {
+      setProductEspecific(product);
+    } else {
+    }
+  };
+
+  const getEspecificProductWithFetch = async () => {
+    const products: ProductInterface[] = await getAllProducts();
+    const product = products.find((product) => product.id === +productId!);
+
+    if (product) {
+      setProductEspecific(product);
+    } else {
+    }
+  };
 
   useEffect(() => {
-    if (products.length) {
-      const product = products.find((product) => product.id === +productId!);
-      if (product) {
-        setProductEspecific(product);
-      }
-    } else {
-      (async () => {
-        const products: ProductInterface[] = await getAllProducts();
-        const product = products.find((product) => product.id === +productId!);
-        if (product) {
-          setProductEspecific(product);
-        }
-      })();
-    }
+    products.length
+      ? getEspecificProductWithoutFetch()
+      : getEspecificProductWithFetch();
   }, []);
 
-  if (!matches768) {
+  if (!hasMinWidth900) {
     return <MobileEspecificProductPage />;
   }
 

@@ -1,9 +1,11 @@
 import { Container, Grid } from "@mui/material";
+import { useCartContext } from "../../../contexts";
 import { CartPageContent } from "../CartContent";
 import { CheckoutAndValue } from "../CheckoutAndValue";
-import { CustomerMessage } from "../CustomerMessage";
+import { PaymentsMethods } from "../PaymentsMethods";
 
 export const MobileCartPage = () => {
+  const { currentSale } = useCartContext();
   return (
     <Container sx={{ mt: 2 }}>
       <Grid container spacing={2} direction={"column"}>
@@ -11,12 +13,14 @@ export const MobileCartPage = () => {
           <CartPageContent />
         </Grid>
 
-        <Grid item xs={4}>
-          <CheckoutAndValue />
-        </Grid>
+        {currentSale && (
+          <Grid item xs={4}>
+            <CheckoutAndValue />
+          </Grid>
+        )}
 
         <Grid item xs={4}>
-          <CustomerMessage />
+          <PaymentsMethods />
         </Grid>
 
         {/* <Grid item xs={4}>

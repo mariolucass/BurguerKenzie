@@ -20,6 +20,8 @@ export const AvatarDiv = styled(motion.div)`
 `;
 
 export const ContentDiv = styled(motion.div)`
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -31,8 +33,18 @@ export const ContentDiv = styled(motion.div)`
   );
   padding: 1rem;
   border-radius: 16px;
-  border-left: 8px solid #84d5fb;
   border-bottom: 8px solid #84d5fb;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+
+    background: linear-gradient(
+      180deg,
+      rgba(63, 180, 232, 1) 48.5%,
+      rgba(5, 121, 189, 1) 48.5%
+    );
+  }
 `;
 
 export const DataDiv = styled(motion.div)`

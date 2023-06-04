@@ -13,7 +13,7 @@ import { monetizeString } from "../../../utils/utils";
 export const CheckoutAndValue = () => {
   const navigate = useNavigate();
   const { currentSaleValue } = useCartContext();
-  const { matches768 } = useMediaContext();
+  const { hasMinWidth900 } = useMediaContext();
 
   return (
     <Box
@@ -31,7 +31,7 @@ export const CheckoutAndValue = () => {
     >
       <Stack
         direction="column"
-        alignItems={matches768 ? "flex-start" : "center"}
+        alignItems={hasMinWidth900 ? "flex-start" : "center"}
         spacing={2}
       >
         <Typography variant="h5" sx={{ fontWeight: "bold" }}>

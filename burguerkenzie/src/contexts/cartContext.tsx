@@ -35,6 +35,7 @@ export const CartProvider = ({ children }: Children) => {
     name: "",
     number: "",
   });
+
   const handleTotalValue = () => {
     const totalValue = +currentSale
       .reduce((acc, e) => acc + e.price * e.quantity, 0)

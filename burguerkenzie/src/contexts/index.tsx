@@ -8,8 +8,8 @@ import { ProductsProvider } from "./productsContext";
 import { UserProvider } from "./userContext";
 
 export const AllContexts = ({ children }: Children) => (
-  <MediaProvider>
-    <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+    <MediaProvider>
       <UserProvider>
         <ProductsProvider>
           <CartProvider>
@@ -17,8 +17,8 @@ export const AllContexts = ({ children }: Children) => (
           </CartProvider>
         </ProductsProvider>
       </UserProvider>
-    </ThemeProvider>
-  </MediaProvider>
+    </MediaProvider>
+  </ThemeProvider>
 );
 
 export * from "./cartContext";

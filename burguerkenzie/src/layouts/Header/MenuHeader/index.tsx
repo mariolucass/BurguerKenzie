@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useModalContext } from "../../../contexts";
 import { animateHiddenUl, animateShownUl } from "../../../libs/framer";
-import { ListMenuStyled } from "./styles";
+import { NavMenuStyled } from "./styles";
 
 export const MenuHeader = () => {
   const navigate = useNavigate();
@@ -15,43 +15,41 @@ export const MenuHeader = () => {
   const handleRedirectToAddress = () => navigate("/profile/address");
 
   return (
-    <motion.nav className="menu">
-      <ListMenuStyled
-        onHoverEnd={handleCloseMenu}
+    <NavMenuStyled
+      onHoverEnd={handleCloseMenu}
+      animate={animateIfMenuIsOpen}
+      style={{
+        pointerEvents: openMenu ? "auto" : "none",
+        clipPath: "inset(10% 50% 90% 50% round 10px)",
+      }}
+    >
+      <motion.li
         animate={animateIfMenuIsOpen}
-        style={{
-          pointerEvents: openMenu ? "auto" : "none",
-          clipPath: "inset(10% 50% 90% 50% round 10px)",
-        }}
+        onClick={() => navigate("/dashboard")}
       >
-        <motion.li
-          animate={animateIfMenuIsOpen}
-          onClick={() => navigate("/dashboard")}
-        >
-          Dashboard
-        </motion.li>
+        Dashboard
+      </motion.li>
 
-        <motion.li
-          animate={animateIfMenuIsOpen}
-          onClick={handleRedirectToAddress}
-        >
-          Editar Endereço
-        </motion.li>
+      <motion.li
+        animate={animateIfMenuIsOpen}
+        onClick={handleRedirectToAddress}
+      >
+        Editar Endereço
+      </motion.li>
 
-        <motion.li
-          animate={animateIfMenuIsOpen}
-          onClick={handleRedirectToProfile}
-        >
-          Editar Perfil
-        </motion.li>
+      <motion.li
+        animate={animateIfMenuIsOpen}
+        onClick={handleRedirectToProfile}
+      >
+        Editar Perfil
+      </motion.li>
 
-        <motion.li
-          animate={animateIfMenuIsOpen}
-          onClick={handleRedirectToAddCard}
-        >
-          Adicionar Cartão
-        </motion.li>
-      </ListMenuStyled>
-    </motion.nav>
+      <motion.li
+        animate={animateIfMenuIsOpen}
+        onClick={handleRedirectToAddCard}
+      >
+        Adicionar Cartão
+      </motion.li>
+    </NavMenuStyled>
   );
 };

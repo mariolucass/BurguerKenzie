@@ -8,8 +8,8 @@ import { AddressRender } from "./AddressRender";
 import { MobileAddressPage } from "./Mobile";
 
 export const AddressPage = () => {
-  const { matches768 } = useMediaContext();
-  if (!matches768) {
+  const { hasMinWidth900 } = useMediaContext();
+  if (!hasMinWidth900) {
     return <MobileAddressPage />;
   }
 

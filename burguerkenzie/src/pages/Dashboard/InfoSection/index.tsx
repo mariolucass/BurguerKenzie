@@ -14,21 +14,23 @@ const styleDiv = {
 };
 
 export const SectionInfo = () => {
-  const { matches768 } = useMediaContext();
+  const { hasMinWidth900 } = useMediaContext();
+
   return (
     <Box
       component={motion.div}
       initial={animateHiddenBox}
       animate={animateShownBox}
       transition={animateTransitionBox}
-      boxShadow={10}
       style={styleDiv}
       sx={{
         p: 2,
+        borderRadius: 2,
         display: "flex",
-        borderRadius: 4,
-        maxWidth: matches768 ? 950 : 300,
-        gap: 10,
+        maxWidth: hasMinWidth900 ? 1000 : "80%",
+        backgroundSize: "cover",
+        boxShadow:
+          "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
       }}
     >
       <Box
@@ -50,7 +52,9 @@ export const SectionInfo = () => {
         </Typography>
       </Box>
 
-      <img src={DinnerIllustration} />
+      <Box>
+        <Box component="img" src={DinnerIllustration} />
+      </Box>
     </Box>
   );
 };

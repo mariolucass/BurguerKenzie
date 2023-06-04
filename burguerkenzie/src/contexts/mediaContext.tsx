@@ -3,36 +3,36 @@ import { createContext, useContext } from "react";
 import { Children } from "../interfaces";
 
 interface iContextProvider {
-  matches320: boolean;
-  matches480: boolean;
-  matches600: boolean;
-  matches768: boolean;
-  matches900: boolean;
-  matches1024: boolean;
-  matches1200: boolean;
+  hasMinWidth320: boolean;
+  hasMinWidth480: boolean;
+  hasMinWidth600: boolean;
+  hasMinWidth768: boolean;
+  hasMinWidth900: boolean;
+  hasMinWidth1024: boolean;
+  hasMinWidth1200: boolean;
 }
 
 const MediaContext = createContext({} as iContextProvider);
 
 export const MediaProvider = ({ children }: Children) => {
-  const matches320 = useMediaQuery("(min-width:320px)");
-  const matches480 = useMediaQuery("(min-width:480px)");
-  const matches600 = useMediaQuery("(min-width:600px)");
-  const matches768 = useMediaQuery("(min-width:768px)");
-  const matches900 = useMediaQuery("(min-width:900px)");
-  const matches1024 = useMediaQuery("(min-width:1024px)");
-  const matches1200 = useMediaQuery("(min-width:1200px)");
+  const hasMinWidth320 = useMediaQuery("(min-width:320px)");
+  const hasMinWidth480 = useMediaQuery("(min-width:480px)");
+  const hasMinWidth600 = useMediaQuery("(min-width:600px)");
+  const hasMinWidth768 = useMediaQuery("(min-width:768px)");
+  const hasMinWidth900 = useMediaQuery("(min-width:900px)");
+  const hasMinWidth1024 = useMediaQuery("(min-width:1024px)");
+  const hasMinWidth1200 = useMediaQuery("(min-width:1200px)");
 
   return (
     <MediaContext.Provider
       value={{
-        matches320,
-        matches480,
-        matches600,
-        matches768,
-        matches900,
-        matches1024,
-        matches1200,
+        hasMinWidth320,
+        hasMinWidth480,
+        hasMinWidth600,
+        hasMinWidth768,
+        hasMinWidth900,
+        hasMinWidth1024,
+        hasMinWidth1200,
       }}
     >
       {children}

@@ -8,7 +8,7 @@ import {
   animateTransitionBox,
 } from "../../../libs/framer";
 import { BoxSx } from "../../../libs/mui";
-import { AvatarDiv, ContentDiv, DataDiv } from "./styles";
+import { AvatarDiv, ContentDiv } from "./styles";
 
 export const ProfileRender = () => {
   const { user } = useUserContext();
@@ -21,6 +21,7 @@ export const ProfileRender = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
+        alignItems: "flex-start",
       }}
       component={motion.div}
       initial={animateHiddenBox}
@@ -42,7 +43,7 @@ export const ProfileRender = () => {
           <Avatar src={user.image} sx={{ width: 176, height: 176 }} />
         )}
 
-        <DataDiv>
+        <Box>
           <Typography variant="subtitle1" color={"white"}>
             Nome:
           </Typography>
@@ -63,7 +64,7 @@ export const ProfileRender = () => {
           <Typography variant="h6" color={"white"}>
             {user.phone ? user.phone : "99999-9999"}
           </Typography>
-        </DataDiv>
+        </Box>
       </ContentDiv>
     </Box>
   );

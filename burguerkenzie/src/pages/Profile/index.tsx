@@ -7,8 +7,9 @@ import { ProfileForm } from "./ProfileForm";
 import { ProfileRender } from "./ProfileRender";
 
 export const ProfilePage = () => {
-  const { matches768 } = useMediaContext();
-  if (!matches768) {
+  const { hasMinWidth900 } = useMediaContext();
+
+  if (!hasMinWidth900) {
     return <MobileProfilePage />;
   }
 

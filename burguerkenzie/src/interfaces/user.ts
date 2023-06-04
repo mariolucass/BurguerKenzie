@@ -8,7 +8,7 @@ export interface IUser {
 export interface Address {
   cep: string;
   street: string;
-  number?: string;
+  number?: number;
   district: string;
   city: string;
   state: string;

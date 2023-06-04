@@ -5,7 +5,6 @@ import { getAllProducts } from "../services/api";
 
 interface ProductsProps {
   products: ProductInterface[];
-  setProducts: React.Dispatch<React.SetStateAction<ProductInterface[]>>;
 
   filteredProducts: ProductInterface[];
   setFilteredProducts: React.Dispatch<React.SetStateAction<ProductInterface[]>>;
@@ -26,18 +25,21 @@ export const ProductsProvider = ({ children }: Children) => {
     {} as ProductInterface
   );
 
-  useEffect(() => {
-    (async () => {
+  const fetchProducts = async () => {
+    if (products.length === 0) {
       const products = await getAllProducts();
       setProducts(products);
-    })();
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
   }, []);
 
   return (
     <ProductsContext.Provider
       value={{
         products,
-        setProducts,
 
         filteredProducts,
         setFilteredProducts,
