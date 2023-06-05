@@ -1,21 +1,19 @@
 # BurguerKenzie
 
-Projeto de um site para venda de alimentos, com suporte a usuários compradores e anunciantes. 
+Projeto de um site para rede alimentícia, com suporte a produtos como lanches, refeições e bebidas. 
 
 ## Features
 
-- Suporte a diferentes usuários os quais tem uma experiencia personalizada.
-- Anúncios com informacões claras e essenciais.
-- Filtros que garantem uma busca mais assertiva e ágil.
-- Back-End robusto que garante uma confiabilidade e rapidez nas operacões.
-
+- Responsividade eficaz, garantindo a melhor experiência para o usuário, se baseando em conceitos de UX e UI.
+- Anúncios com informações claras e essenciais.
+- Filtros que garantem uma busca mais assertiva e ágil dos produtos.
 
 ## Rode Localmente
 
 Realize o clone do projeto:
 
 ```bash
-  git clone https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-s1-hamburgueria-da-kenzie-mariolucass-2.git
+  git clone https://github.com/mariolucass/BurguerKenzie.git
 ```
 
 Vá para o diretório do projeto:
@@ -65,4 +63,5 @@ Inicie o servidor:
 
 ## Feedback
 
-Se você tiver algum feedback, entre em contato conosco em mariolasdev@gmail.com
+Se você tiver algum feedback, entre em contato comigo em mariolasdev@gmail.com
+
