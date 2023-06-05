@@ -43,3 +43,29 @@ export const InteractionsDiv = styled(motion.div)`
     margin-right: 100px;
   }
 `;
+
+export const LogoDiv = styled(motion.div)`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: var(--gray-100);
+  }
+
+  svg {
+    cursor: pointer;
+    filter: invert(57%) sepia(21%) saturate(1491%) hue-rotate(93deg)
+      brightness(94%) contrast(81%);
+  }
+
+  .badge {
+    span {
+      background-color: var(--color-primary);
+      color: var(--white);
+    }
+  }
+`;
+
+export const InteractionsIconsMobile = styled(motion.div)``;

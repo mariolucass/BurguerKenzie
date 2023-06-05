@@ -16,7 +16,6 @@ export const AddressForm = () => {
   const { address, setAddress } = useUserContext();
 
   useEffect(() => getAddressIfHasToken(), []);
-
   const getAddressIfHasToken = () => {
     const token = localStorage.getItem("burguerKenzie:address");
     if (token) {
@@ -91,8 +90,9 @@ export const AddressForm = () => {
           name="street"
           label="Rua"
           placeholder="Rua"
-          value={address.street || ""}
           onChange={handleInputChange}
+          value={address.street || ""}
+          disabled={address.cep === ""}
         />
 
         <TextField
@@ -101,23 +101,26 @@ export const AddressForm = () => {
           placeholder="Bairro"
           value={address.district || ""}
           onChange={handleInputChange}
+          disabled={address.cep === ""}
         />
 
         <TextField
           name="city"
           label="Cidade"
           placeholder="Cidade"
-          value={address.city || ""}
           onChange={handleInputChange}
+          value={address.city || ""}
+          disabled={address.cep === ""}
         />
 
         <TextField
           name="state"
           label="Estado"
           placeholder="Estado"
-          value={address.state || ""}
           onChange={handleInputChange}
           inputProps={{ maxLength: 2 }}
+          value={address.state || ""}
+          disabled={address.cep === ""}
         />
 
         <Divider flexItem />

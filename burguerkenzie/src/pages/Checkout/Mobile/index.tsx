@@ -11,18 +11,16 @@ export const MobileCheckout = () => {
         <Grid item xs={4}>
           <AddressContent />
         </Grid>
-
         <Grid item xs={4}>
           <PaymentContent />
         </Grid>
-
         <Grid item xs={4}>
           {/* <OrderContent /> */}
         </Grid>
-
         <Grid item xs={4}>
           <SubmitContent />
         </Grid>
+        s
       </Grid>
     </Container>
   );

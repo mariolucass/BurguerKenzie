@@ -1,5 +1,4 @@
-import { Divider, SelectChangeEvent, Typography } from "@mui/material";
-import { useState } from "react";
+import { Divider, Typography } from "@mui/material";
 import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
 import { ProductCartInterfaceProps } from "../../interfaces/products";
@@ -14,19 +13,7 @@ import {
 } from "./styles";
 
 export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
-  const { handleRemoveFromCart, handleQuantity } = useCartContext();
-  const [quantity, setQuantity] = useState(product.quantity);
-
-  const handleChangeQuantity = (event: SelectChangeEvent) => {
-    const quantityChosen = +event.target.value;
-    if (quantityChosen === 0) {
-      handleRemoveFromCart(product.id);
-    } else {
-      handleQuantity(product.id, quantityChosen);
-      setQuantity(quantityChosen);
-    }
-  };
-
+  const { handleRemoveFromCart } = useCartContext();
   return (
     <CartProductLi>
       <ImageCartProduct>

@@ -1,34 +1,45 @@
-import { useNavigate } from "react-router-dom";
-import { useMediaContext, useProductsContext } from "../../contexts";
+import { Badge } from "@mui/material";
+import { FiShoppingCart } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { useCartContext, useMediaContext } from "../../contexts";
 import { HeaderDrawer } from "./Drawer";
 import { HeaderList } from "./InteractionIcons";
 import { SearchBar } from "./SearchBar";
-import { HeaderDiv, InteractionsDiv } from "./styles";
+import {
+  HeaderDiv,
+  InteractionsDiv,
+  InteractionsIconsMobile,
+  LogoDiv,
+} from "./styles";
 
 export const Header = () => {
-  const navigate = useNavigate();
-
   const { hasMinWidth900 } = useMediaContext();
-  const { setFilteredProducts } = useProductsContext();
 
-  const handleClickToHome = () => {
-    navigate("/dashboard");
-    setFilteredProducts([]);
-  };
+  const { currentSale, setOpenCart } = useCartContext();
+
+  const handleClickCart = () => setOpenCart(true);
 
   return (
     <HeaderDiv>
-      <div>
-        {hasMinWidth900 ?? <HeaderDrawer />}
+      <LogoDiv>
+        {!hasMinWidth900 && (
+          <InteractionsIconsMobile>
+            <HeaderDrawer />
 
-        <h1 onClick={handleClickToHome}>
-          Burguer <span className="spanLogo">Kenzie</span>
-        </h1>
-      </div>
+            <Badge className="badge" badgeContent={currentSale.length} showZero>
+              <FiShoppingCart size={"2em"} onClick={handleClickCart} />
+            </Badge>
+          </InteractionsIconsMobile>
+        )}
+        <Link to="/dashboard">
+          <h1>
+            Burguer <span className="spanLogo">Kenzie</span>
+          </h1>
+        </Link>
+      </LogoDiv>
 
       <InteractionsDiv>
         <SearchBar />
-
         {hasMinWidth900 && <HeaderList />}
       </InteractionsDiv>
     </HeaderDiv>

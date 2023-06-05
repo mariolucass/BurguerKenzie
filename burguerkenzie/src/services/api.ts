@@ -19,7 +19,6 @@ export const getCep = async (cep: string) => {
   const cepFormat = cep.replace(/\D/g, "");
 
   const { data } = await apiLocation.get(`/${cepFormat}/json/`);
-  console.log(data);
 
   const dataObj = {
     cep: cep,
