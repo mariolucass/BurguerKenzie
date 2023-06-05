@@ -11,11 +11,9 @@ export const Product = ({ product }: ProductInterfaceProps) => {
   const { handleAddToCart } = useCartContext();
 
   const handleRedirectToProductPage = () => {
-    if (product.category === "Sanduíches") {
-      navigate(`/products/burguers/${product.id}`);
-    } else {
-      navigate(`/products/drinks/${product.id}`);
-    }
+    const category = product.category === "Sanduíches" ? "burguers" : "drinks";
+
+    navigate(`/products/${category}/${product.id}`);
   };
 
   return (
@@ -47,6 +45,7 @@ export const Product = ({ product }: ProductInterfaceProps) => {
         >
           Adicionar
         </Button>
+
         <Button
           variant="outlined"
           size="medium"

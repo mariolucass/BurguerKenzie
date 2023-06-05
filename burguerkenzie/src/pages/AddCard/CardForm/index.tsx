@@ -27,7 +27,6 @@ export const FormPayment = () => {
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     let { name, value } = e.target;
-    console.log(name);
 
     if (name === "number") {
       value = formatCreditCardNumber(value);

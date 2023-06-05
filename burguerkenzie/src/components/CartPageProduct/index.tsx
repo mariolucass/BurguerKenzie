@@ -19,7 +19,6 @@ export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
   const totalProduct = monetizeString(product.price * product.quantity);
 
   let string = `${price}`;
-
   if (product.quantity != 1) {
     string += ` x ${product.quantity} = ${totalProduct}`;
   }

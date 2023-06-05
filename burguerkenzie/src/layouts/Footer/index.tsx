@@ -1,18 +1,8 @@
 import { Divider, Typography } from "@mui/material";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
-import { useProductsContext } from "../../contexts";
 import { FooterDiv } from "./styles";
 
 export const Footer = () => {
-  const navigate = useNavigate();
-  const { setFilteredProducts } = useProductsContext();
-
-  const handleClickToHome = () => {
-    navigate("/dashboard");
-    setFilteredProducts([]);
-  };
-
   const projectOwner = {
     id: 1,
     nome: "Mário",

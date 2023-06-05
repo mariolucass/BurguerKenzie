@@ -12,6 +12,7 @@ export const HeaderList = () => {
   const handleClickCart = () => setOpenCart(true);
 
   const size = "2em";
+
   return (
     <ListInteractionsIcons>
       <UserMenuIcon onHoverStart={handleOpenMenu}>

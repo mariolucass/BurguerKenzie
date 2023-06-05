@@ -21,7 +21,21 @@ export const GlobalStyle = createGlobalStyle`
     margin:0 ;
     padding:0;
     box-sizing: border-box;
-    list-style:none
+    list-style:none;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 }
 
 body{

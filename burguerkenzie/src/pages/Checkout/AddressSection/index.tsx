@@ -11,7 +11,6 @@ import { BoxSx } from "../../../libs/mui";
 
 export const AddressContent = () => {
   const { user, address } = useUserContext();
-  console.log(address);
 
   return (
     <Box

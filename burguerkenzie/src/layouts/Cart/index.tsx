@@ -1,6 +1,6 @@
 import { Box, Divider, Drawer, List } from "@mui/material";
 import { CartProducts } from "../../components";
-import { useCartContext } from "../../contexts";
+import { useCartContext, useMediaContext } from "../../contexts";
 import { CartInteractions } from "./CartInteractions";
 import { CartValue } from "./CartValue";
 import { EmptyCart } from "./EmptyCart";
@@ -8,13 +8,14 @@ import { LabelCart } from "./styles";
 
 export const Cart = () => {
   const { currentSale, openCart, setOpenCart } = useCartContext();
+  const { hasMinWidth900 } = useMediaContext();
 
   return (
     <Drawer anchor="right" open={openCart} onClose={() => setOpenCart(false)}>
       <Box
         sx={{
-          width: "30vw",
-          maxWidth: "350px",
+          width: hasMinWidth900 ? "30vw" : "75vw",
+          maxWidth: hasMinWidth900 ? "350px" : "500px",
           height: "100%",
           backgroundColor: "white",
           display: "flex",
