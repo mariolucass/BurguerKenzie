@@ -7,7 +7,7 @@ import { TransitionAnimation } from "../../layouts";
 import { getAllProducts } from "../../services/api";
 import { MobileEspecificProductPage } from "./Mobile";
 import { ProductCheckout } from "./ProductCheckout";
-import { ProductContent } from "./ProductImage";
+import { ProductContent } from "./ProductContent";
 
 export const EspecificProductPage = () => {
   const { productId } = useParams();
@@ -18,6 +18,7 @@ export const EspecificProductPage = () => {
     const product = products.find((product) => product.id === +productId!);
 
     if (product) {
+      document.title = `BurguerKenzie - ${product.name}`;
       setProductEspecific(product);
     } else {
     }
@@ -28,6 +29,7 @@ export const EspecificProductPage = () => {
     const product = products.find((product) => product.id === +productId!);
 
     if (product) {
+      document.title = `BurguerKenzie - ${product.name}`;
       setProductEspecific(product);
     } else {
     }
@@ -45,7 +47,7 @@ export const EspecificProductPage = () => {
 
   return (
     <TransitionAnimation>
-      <Container sx={{ mt: 2 }}>
+      <Container sx={{ mt: 2, mb: 2 }}>
         <Grid container spacing={2} direction={"row"}>
           <Grid item xs={8} sx={{ minHeight: 350 }}>
             <ProductContent />

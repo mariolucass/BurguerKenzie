@@ -1,6 +1,5 @@
 import { Box, Button, Divider, TextField } from "@mui/material";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { useUserContext } from "../../../contexts";
 import {
   animateHiddenBox,
@@ -13,16 +12,7 @@ import { formatCEP } from "../../../utils/utils";
 import { FormAddress } from "./styles";
 
 export const AddressForm = () => {
-  const { address, setAddress } = useUserContext();
-
-  useEffect(() => getAddressIfHasToken(), []);
-  const getAddressIfHasToken = () => {
-    const token = localStorage.getItem("burguerKenzie:address");
-    if (token) {
-      const data = JSON.parse(token);
-      setAddress(data);
-    }
-  };
+  const { user, setUser } = useUserContext();
 
   const fetchCep = async (
     event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>
@@ -30,7 +20,10 @@ export const AddressForm = () => {
     const cep = event.target.value;
     if (cep.length >= 8) {
       const data = await getCep(cep);
-      setAddress(data);
+
+      setUser((user) => {
+        return { ...user, address: data };
+      });
     }
   };
 
@@ -43,14 +36,18 @@ export const AddressForm = () => {
       value = formatCEP(value);
     }
 
-    setAddress((address) => {
-      return { ...address, [name]: value };
+    setUser((user) => {
+      return { ...user, address: { ...user.address, [name]: value } };
     });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    localStorage.setItem("burguerKenzie:address", JSON.stringify(address));
+
+    localStorage.setItem(
+      "burguerKenzie:user",
+      JSON.stringify({ address: user.address })
+    );
   };
 
   return (
@@ -73,7 +70,7 @@ export const AddressForm = () => {
           placeholder="Cep"
           onBlur={fetchCep}
           onChange={handleInputChange}
-          value={address.cep || ""}
+          value={(user.address ? user.address.cep : "") || ""}
           inputProps={{ maxLength: 9 }}
           required
         />
@@ -82,7 +79,7 @@ export const AddressForm = () => {
           name="number"
           label="Número"
           placeholder="Número"
-          value={address.number || ""}
+          value={(user.address ? user.address.number : "") || ""}
           onChange={handleInputChange}
         />
 
@@ -91,17 +88,17 @@ export const AddressForm = () => {
           label="Rua"
           placeholder="Rua"
           onChange={handleInputChange}
-          value={address.street || ""}
-          disabled={address.cep === ""}
+          value={(user.address ? user.address.street : "") || ""}
+          disabled={!user.address || user.address.cep === ""}
         />
 
         <TextField
           name="district"
           label="Bairro"
           placeholder="Bairro"
-          value={address.district || ""}
+          value={(user.address ? user.address.district : "") || ""}
           onChange={handleInputChange}
-          disabled={address.cep === ""}
+          disabled={!user.address || user.address.cep === ""}
         />
 
         <TextField
@@ -109,8 +106,8 @@ export const AddressForm = () => {
           label="Cidade"
           placeholder="Cidade"
           onChange={handleInputChange}
-          value={address.city || ""}
-          disabled={address.cep === ""}
+          value={(user.address ? user.address.city : "") || ""}
+          disabled={!user.address || user.address.cep === ""}
         />
 
         <TextField
@@ -119,8 +116,8 @@ export const AddressForm = () => {
           placeholder="Estado"
           onChange={handleInputChange}
           inputProps={{ maxLength: 2 }}
-          value={address.state || ""}
-          disabled={address.cep === ""}
+          value={(user.address ? user.address.state : "") || ""}
+          disabled={!user.address || user.address.cep === ""}
         />
 
         <Divider flexItem />

@@ -12,15 +12,12 @@ const ModalContext = createContext({} as iContextProvider);
 
 export const ModalProvider = ({ children }: Children) => {
   const [openMenu, setOpenMenu] = useState(false);
-
   const handleOpenMenu = () => setOpenMenu(true);
   const handleCloseMenu = () => setOpenMenu(false);
-
   return (
     <ModalContext.Provider
       value={{
         openMenu,
-
         handleOpenMenu,
         handleCloseMenu,
       }}
