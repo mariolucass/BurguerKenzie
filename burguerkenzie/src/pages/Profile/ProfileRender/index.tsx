@@ -44,25 +44,30 @@ export const ProfileRender = () => {
         )}
 
         <Box>
-          <Typography variant="subtitle1" color={"white"}>
+          <Typography variant="subtitle1" color={"white"} sx={{ ml: 1 }}>
             Nome:
           </Typography>
-          <Typography variant="h6" color={"white"}>
-            {user.username ? user.username : "seu_nome_de_usuário"}
+          <Typography variant="h6" color={"white"} sx={{ ml: 2 }}>
+            {user.username ? user.username : "nome"}
           </Typography>
 
-          <Typography variant="subtitle1" color={"white"}>
+          <Typography variant="subtitle1" color={"white"} sx={{ ml: 1 }}>
             Email:
           </Typography>
-          <Typography variant="h6" color={"white"}>
+          <Typography
+            variant="h6"
+            color={"white"}
+            sx={{ width: 200, ml: 2 }}
+            noWrap={true}
+          >
             {user.email ? user.email : "email@example.com"}
           </Typography>
 
-          <Typography variant="subtitle1" color={"white"}>
+          <Typography variant="subtitle1" color={"white"} sx={{ ml: 1 }}>
             Telefone:
           </Typography>
-          <Typography variant="h6" color={"white"}>
-            {user.phone ? user.phone : "99999-9999"}
+          <Typography variant="h6" color={"white"} sx={{ ml: 2 }}>
+            {user.phone ? user.phone : "(99) 99999-9999"}
           </Typography>
         </Box>
       </ContentDiv>

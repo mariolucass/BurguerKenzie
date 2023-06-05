@@ -24,6 +24,7 @@ export const ProductContent = () => {
         justifyContent="space-between"
         alignItems="flex-start"
         spacing={4}
+        sx={{ maxWidth: "100%" }}
       >
         <Typography variant="h4">
           {productEspecific.name ? productEspecific.name : "Loading..."}

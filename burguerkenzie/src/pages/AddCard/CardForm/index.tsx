@@ -58,7 +58,7 @@ export const FormPayment = () => {
         <TextField
           name="number"
           label="Número do cartão"
-          placeholder="Número do cartão"
+          placeholder="9999 9999 9999 9999"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           value={card.number || ""}
@@ -66,7 +66,7 @@ export const FormPayment = () => {
         <TextField
           name="name"
           label="Nome"
-          placeholder="Nome"
+          placeholder="Marco Cunha"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           value={card.name || ""}
@@ -75,7 +75,7 @@ export const FormPayment = () => {
         <TextField
           name="expiry"
           label="Validade"
-          placeholder="Validade"
+          placeholder="MM / YY"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           value={card.expiry || ""}
@@ -83,7 +83,7 @@ export const FormPayment = () => {
         <TextField
           name="cvc"
           label="CVC"
-          placeholder="CVC"
+          placeholder="999"
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           value={card.cvc || ""}

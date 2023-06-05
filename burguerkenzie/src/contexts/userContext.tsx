@@ -1,36 +1,28 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Children } from "../interfaces";
-import { Address, IUser } from "../interfaces/user";
+import { IUser } from "../interfaces/user";
 
 interface iContextProvider {
   user: IUser;
   setUser: React.Dispatch<React.SetStateAction<IUser>>;
-
-  address: Address;
-  setAddress: React.Dispatch<React.SetStateAction<Address>>;
 }
 
 const UserContext = createContext({} as iContextProvider);
 
 export const UserProvider = ({ children }: Children) => {
   const [user, setUser] = useState<IUser>({} as IUser);
-  const [address, setAddress] = useState<Address>({
-    cep: "",
-    city: "",
-    district: "",
-    state: "",
-    street: "",
-  } as Address);
+
+  useEffect(() => getProfileIfHasToken(), []);
+  const getProfileIfHasToken = () => {
+    const token = localStorage.getItem("burguerKenzie:user");
+    if (token) {
+      const data = JSON.parse(token);
+      setUser(data);
+    }
+  };
 
   return (
-    <UserContext.Provider
-      value={{
-        user,
-        setUser,
-        address,
-        setAddress,
-      }}
-    >
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );

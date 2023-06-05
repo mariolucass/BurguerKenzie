@@ -17,11 +17,18 @@ export const ProductList = styled(motion.ul)`
     gap: 4em;
   }
 
+  @media (min-width: 1023px) {
+    height: 40%;
+    margin-bottom: 100px;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   @media (min-width: 1280px) {
     width: 62.5%;
     flex-wrap: wrap;
     height: 40%;
     max-width: 1000px;
-    justify-content: center;
   }
 `;

@@ -27,8 +27,6 @@ export const AddressRender = () => {
       </Typography>
 
       <Divider flexItem />
-
-      {/* <img src={MapSvg} alt="" /> */}
     </Box>
   );
 };

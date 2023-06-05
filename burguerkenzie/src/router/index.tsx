@@ -14,8 +14,18 @@ import {
   SearchProductsPage,
 } from "../pages";
 
+import { useEffect } from "react";
+
 const AllRoutes = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    const pageName = location.pathname.slice(1).split("/")[0];
+    const title = pageName.charAt(0).toUpperCase() + pageName.slice(1);
+
+    document.title = `BurguerKenzie - ${title}`;
+  }, [location]);
+
   return (
     <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>

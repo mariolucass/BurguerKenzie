@@ -9,11 +9,6 @@ import {
 import { BoxSx } from "../../../libs/mui";
 import { monetizeString } from "../../../utils/utils";
 
-interface IProps {
-  id: number;
-  price: number;
-}
-
 export const ProductCheckout = () => {
   const { handleAddToCart } = useCartContext();
   const { productEspecific } = useProductsContext();

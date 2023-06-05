@@ -3,13 +3,13 @@ export interface IUser {
   username: string;
   email: string;
   phone: string;
-}
 
-export interface Address {
-  cep: string;
-  street: string;
-  number?: number;
-  district: string;
-  city: string;
-  state: string;
+  address: {
+    cep: string;
+    street: string;
+    number?: string | number;
+    district: string;
+    city: string;
+    state: string;
+  };
 }

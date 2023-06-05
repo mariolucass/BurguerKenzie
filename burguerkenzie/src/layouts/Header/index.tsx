@@ -13,7 +13,7 @@ import {
 } from "./styles";
 
 export const Header = () => {
-  const { hasMinWidth900 } = useMediaContext();
+  const { hasMinWidth900, hasMinWidth768, hasMinWidth1024 } = useMediaContext();
 
   const { currentSale, setOpenCart } = useCartContext();
 
@@ -22,7 +22,7 @@ export const Header = () => {
   return (
     <HeaderDiv>
       <LogoDiv>
-        {!hasMinWidth900 && (
+        {!hasMinWidth1024 && (
           <InteractionsIconsMobile>
             <HeaderDrawer />
 
@@ -40,7 +40,7 @@ export const Header = () => {
 
       <InteractionsDiv>
         <SearchBar />
-        {hasMinWidth900 && <HeaderList />}
+        {hasMinWidth1024 && <HeaderList />}
       </InteractionsDiv>
     </HeaderDiv>
   );

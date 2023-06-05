@@ -18,7 +18,7 @@ export const CartPage = () => {
   return (
     <TransitionAnimation>
       <DivContainer>
-        <Container sx={{ mt: 2 }}>
+        <Container sx={{ mt: 2, mb: 2 }}>
           <Grid container spacing={2} direction={"row"}>
             <Grid item xs={8}>
               <CartPageContent />
