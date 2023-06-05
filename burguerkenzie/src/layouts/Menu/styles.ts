@@ -17,6 +17,10 @@ export const ListMenu = styled(motion.ul)`
     height: 40%;
     max-width: 1000px;
   }
+
+  @media (max-width: 1024px) {
+    margin-top: 4%;
+  }
 `;
 
 export const ItemMenu = styled(motion.li)<ItemProps>`

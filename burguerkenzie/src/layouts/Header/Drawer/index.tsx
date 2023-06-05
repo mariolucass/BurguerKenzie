@@ -20,24 +20,29 @@ export const HeaderDrawer = () => {
   const navigate = useNavigate();
   const [openBurguerMenu, setOpenBurguerMenu] = useState(false);
   const toggleBurguerMenu = () => setOpenBurguerMenu(!openBurguerMenu);
+  const size = "2em";
 
   const list = [
-    { name: "Dashboard", url: "/dashboard", icon: <BsCartDashFill /> },
+    {
+      name: "Dashboard",
+      url: "/dashboard",
+      icon: <BsCartDashFill size={size} />,
+    },
     {
       name: "Editar Endereço",
       url: "/profile/address",
-      icon: <FaAddressCard />,
+      icon: <FaAddressCard size={size} />,
     },
-    { name: "Editar Perfil", url: "/profile", icon: <CgProfile /> },
+    { name: "Editar Perfil", url: "/profile", icon: <CgProfile size={size} /> },
     {
       name: "Adicionar Cartão",
       url: "/profile/addcard",
-      icon: <AiFillCreditCard />,
+      icon: <AiFillCreditCard size={size} />,
     },
     {
       name: "Carrinho",
       url: "/cart",
-      icon: <AiOutlineShoppingCart />,
+      icon: <AiOutlineShoppingCart size={size} />,
     },
   ];
 
@@ -50,7 +55,9 @@ export const HeaderDrawer = () => {
         }}
       >
         {elem.icon}
-        <Typography variant="h6">{elem.name}</Typography>
+        <Typography variant="h6" sx={{ ml: 4 }}>
+          {elem.name}
+        </Typography>
       </ListItemButton>
     </ListItem>
   ));
@@ -68,10 +75,11 @@ export const HeaderDrawer = () => {
       >
         <Box
           sx={{
-            p: 1,
+            height: 50,
             width: "100%",
             display: "flex",
             justifyContent: "flex-start",
+            alignContent: "flex-start",
             backgroundColor: "#27ae60",
           }}
         >

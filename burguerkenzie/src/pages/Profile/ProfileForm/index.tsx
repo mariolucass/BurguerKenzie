@@ -1,6 +1,5 @@
 import { Box, Button, Divider, TextField } from "@mui/material";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { useUserContext } from "../../../contexts";
 import {
   animateHiddenBox,
@@ -14,20 +13,11 @@ import { FormChangeProfile } from "./styles";
 export const ProfileForm = () => {
   const { user, setUser } = useUserContext();
 
-  useEffect(() => getProfileIfHasToken(), []);
-
-  const getProfileIfHasToken = () => {
-    const token = localStorage.getItem("burguerKenzie:user");
-    if (token) {
-      const data = JSON.parse(token);
-      setUser(data);
-    }
-  };
-
   const handleInputChange = (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     let { name, value } = e.target;
+    console.log(value.length);
 
     if (name === "phone") {
       value = formatPhone(value);
@@ -69,9 +59,10 @@ export const ProfileForm = () => {
         <TextField
           name="username"
           label="Usuário"
-          placeholder="seunomedeusuário"
+          placeholder="usuário"
           value={user.username || ""}
           onChange={handleInputChange}
+          inputProps={{ maxLength: 17 }}
         />
 
         <TextField

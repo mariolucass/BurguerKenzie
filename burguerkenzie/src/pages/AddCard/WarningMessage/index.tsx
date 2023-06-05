@@ -14,7 +14,8 @@ export const WarningMessage = () => {
         ...BoxSx,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
+        justifyContent: "space-between",
+        gap: "2em",
       }}
       component={motion.div}
       initial={animateHiddenBox}
@@ -24,7 +25,7 @@ export const WarningMessage = () => {
       <Alert severity="warning">
         <AlertTitle>Alerta!</AlertTitle>
         Essa página apenas simula uma página real para adicionar cartões de
-        crédito! — <strong>Use apenas números ficticios!</strong>
+        crédito! — <strong>Use apenas dados ficticios!</strong>
       </Alert>
     </Box>
   );

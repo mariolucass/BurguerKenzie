@@ -28,6 +28,12 @@ export const HeaderDiv = styled(motion.header)`
       margin-left: 115px;
     }
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    h1 {
+      margin-left: 0px;
+    }
+  }
 `;
 
 export const InteractionsDiv = styled(motion.div)`
@@ -40,6 +46,9 @@ export const InteractionsDiv = styled(motion.div)`
 
   @media (min-width: 768px) {
     width: 50%;
+  }
+
+  @media (min-width: 1025px) {
     margin-right: 100px;
   }
 `;
@@ -65,6 +74,11 @@ export const LogoDiv = styled(motion.div)`
       background-color: var(--color-primary);
       color: var(--white);
     }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    justify-content: flex-start;
+    gap: 10%;
   }
 `;
 

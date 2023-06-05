@@ -7,6 +7,11 @@ import { ModalProvider } from "./modalContext";
 import { ProductsProvider } from "./productsContext";
 import { UserProvider } from "./userContext";
 
+export { useCartContext } from "./cartContext";
+export { useMediaContext } from "./mediaContext";
+export { useModalContext } from "./modalContext";
+export { useProductsContext } from "./productsContext";
+export { useUserContext } from "./userContext";
 export const AllContexts = ({ children }: Children) => (
   <ThemeProvider theme={theme}>
     <MediaProvider>
@@ -20,9 +25,3 @@ export const AllContexts = ({ children }: Children) => (
     </MediaProvider>
   </ThemeProvider>
 );
-
-export * from "./cartContext";
-export * from "./mediaContext";
-export * from "./modalContext";
-export * from "./productsContext";
-export * from "./userContext";

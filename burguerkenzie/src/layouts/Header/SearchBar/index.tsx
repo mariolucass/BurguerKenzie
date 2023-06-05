@@ -10,7 +10,7 @@ export const SearchBar = () => {
   const navigate = useNavigate();
   const [pesquisa, setPesquisa] = useState("");
   const { products, setFilteredProducts } = useProductsContext();
-  const { hasMinWidth900 } = useMediaContext();
+  const { hasMinWidth768 } = useMediaContext();
 
   const searchProduct = () => {
     const lista = products.filter(
@@ -46,7 +46,7 @@ export const SearchBar = () => {
         variant="outlined"
         type="text"
         onChange={handleSearch}
-        sx={{ width: hasMinWidth900 ? "190px" : "80%" }}
+        sx={{ width: hasMinWidth768 ? "190px" : "80%" }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

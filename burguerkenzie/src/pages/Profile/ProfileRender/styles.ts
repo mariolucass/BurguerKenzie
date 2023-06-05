@@ -25,15 +25,18 @@ export const ContentDiv = styled(motion.div)`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: rgb(63, 180, 232);
+  background: rgb(39, 174, 96);
   background: linear-gradient(
     90deg,
-    rgba(63, 180, 232, 1) 50%,
-    rgba(5, 121, 189, 1) 50%
+    rgba(255, 255, 255, 1) 50%,
+    rgba(39, 174, 96, 1) 50%
   );
   padding: 1rem;
   border-radius: 16px;
-  border-bottom: 8px solid #84d5fb;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+  border-bottom: 8px solid #1b7a58;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -41,8 +44,8 @@ export const ContentDiv = styled(motion.div)`
 
     background: linear-gradient(
       180deg,
-      rgba(63, 180, 232, 1) 48.5%,
-      rgba(5, 121, 189, 1) 48.5%
+      rgba(255, 255, 255, 1) 48.5%,
+      rgba(39, 174, 96, 1) 48.5%
     );
   }
 `;

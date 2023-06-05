@@ -15,13 +15,13 @@ interface iContextProvider {
 const MediaContext = createContext({} as iContextProvider);
 
 export const MediaProvider = ({ children }: Children) => {
-  const hasMinWidth320 = useMediaQuery("(min-width:320px)");
-  const hasMinWidth480 = useMediaQuery("(min-width:480px)");
-  const hasMinWidth600 = useMediaQuery("(min-width:600px)");
-  const hasMinWidth768 = useMediaQuery("(min-width:768px)");
-  const hasMinWidth900 = useMediaQuery("(min-width:900px)");
-  const hasMinWidth1024 = useMediaQuery("(min-width:1024px)");
-  const hasMinWidth1200 = useMediaQuery("(min-width:1200px)");
+  const hasMinWidth320 = useMediaQuery("(min-width:321px)");
+  const hasMinWidth480 = useMediaQuery("(min-width:481px)");
+  const hasMinWidth600 = useMediaQuery("(min-width:601px)");
+  const hasMinWidth768 = useMediaQuery("(min-width:769px)");
+  const hasMinWidth900 = useMediaQuery("(min-width:901px)");
+  const hasMinWidth1024 = useMediaQuery("(min-width:1026px)");
+  const hasMinWidth1200 = useMediaQuery("(min-width:1201px)");
 
   return (
     <MediaContext.Provider

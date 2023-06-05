@@ -6,7 +6,7 @@ import { SubmitContent } from "../SubmitCheckout";
 
 export const MobileCheckout = () => {
   return (
-    <Container sx={{ mt: 2 }}>
+    <Container sx={{ mt: 2, mb: 2 }}>
       <Grid container spacing={2} direction={"column"}>
         <Grid item xs={4}>
           <AddressContent />
