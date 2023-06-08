@@ -1,4 +1,5 @@
 import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { AllContexts } from "../contexts";
 import { Cart, Header } from "../layouts";
@@ -14,15 +15,11 @@ import {
   SearchProductsPage,
 } from "../pages";
 
-import { useEffect } from "react";
-
 const AllRoutes = () => {
   const location = useLocation();
-
   useEffect(() => {
     const pageName = location.pathname.slice(1).split("/")[0];
     const title = pageName.charAt(0).toUpperCase() + pageName.slice(1);
-
     document.title = `BurguerKenzie - ${title}`;
   }, [location]);
 
@@ -70,10 +67,7 @@ const AllRoutes = () => {
 export const RoutesMain = () => (
   <AllContexts>
     <Header />
-
     <AllRoutes />
-
     <Cart />
-    {/* <Footer /> */}
   </AllContexts>
 );

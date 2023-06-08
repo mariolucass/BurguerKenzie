@@ -43,7 +43,6 @@ export const AddressForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     localStorage.setItem(
       "burguerKenzie:user",
       JSON.stringify({ address: user.address })

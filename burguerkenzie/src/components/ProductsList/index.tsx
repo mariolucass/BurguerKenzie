@@ -5,9 +5,7 @@ import { ProductList } from "./styles";
 
 export const ProductsList = () => {
   const { products, filteredProducts } = useProductsContext();
-
   const listToRender = filteredProducts.length ? filteredProducts : products;
-
   const renderProducts = listToRender.map((elem) => (
     <Product product={elem} key={elem.id} />
   ));

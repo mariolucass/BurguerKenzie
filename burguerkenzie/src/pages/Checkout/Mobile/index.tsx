@@ -1,6 +1,6 @@
 import { Container, Grid } from "@mui/material";
-
 import { AddressContent } from "../AddressSection";
+import { OrderContent } from "../OrderSection";
 import { PaymentContent } from "../PaymentSection";
 import { SubmitContent } from "../SubmitCheckout";
 
@@ -15,12 +15,11 @@ export const MobileCheckout = () => {
           <PaymentContent />
         </Grid>
         <Grid item xs={4}>
-          {/* <OrderContent /> */}
+          <OrderContent />
         </Grid>
         <Grid item xs={4}>
           <SubmitContent />
         </Grid>
-        s
       </Grid>
     </Container>
   );

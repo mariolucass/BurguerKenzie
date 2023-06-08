@@ -7,7 +7,6 @@ export const CartInteractions = () => {
   const navigate = useNavigate();
 
   const { setCurrentSale, setOpenCart } = useCartContext();
-
   const handleRemoveAllProducts = () => setCurrentSale([]);
   const handleRedirectToCheckout = () => {
     navigate("/cart");

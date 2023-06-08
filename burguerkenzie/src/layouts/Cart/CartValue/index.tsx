@@ -5,7 +5,6 @@ import { CartValueDiv } from "./styles";
 
 export const CartValue = () => {
   const { currentSaleValue } = useCartContext();
-
   return (
     <CartValueDiv>
       <Typography>Total:</Typography>

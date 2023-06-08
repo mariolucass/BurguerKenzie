@@ -17,7 +17,6 @@ export const ProfileForm = () => {
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     let { name, value } = e.target;
-    console.log(value.length);
 
     if (name === "phone") {
       value = formatPhone(value);

@@ -16,22 +16,18 @@ export const CartProducts = ({ isCartPage, isCheckoutPage }: CartProps) => {
 
   const RenderProduct = ({ product }: ProductCartInterfaceProps) => {
     const props = { key: product.id, product };
-
     if (isCheckoutPage) {
       return <CheckoutPageProduct {...props} />;
     }
-
     if (isCartPage) {
       return <CartPageProduct {...props} />;
     }
-
     return <CartProduct {...props} />;
   };
 
   const renderCartProducts = currentSale.map((product, index) => (
     <Fragment key={product.id}>
       <RenderProduct product={product} />
-
       {index != currentSale.length - 1 && <Divider flexItem component="li" />}
     </Fragment>
   ));

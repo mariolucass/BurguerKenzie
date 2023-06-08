@@ -17,12 +17,6 @@ import { FormAddCard } from "./styles";
 export const FormPayment = () => {
   const { card, setCard } = useCartContext();
 
-  const handleInputFocus = (e: any) => {
-    setCard((card) => {
-      return { ...card, focus: e.target.name };
-    });
-  };
-
   const handleInputChange = (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -38,6 +32,11 @@ export const FormPayment = () => {
 
     setCard((card) => {
       return { ...card, [name]: value };
+    });
+  };
+  const handleInputFocus = (e: any) => {
+    setCard((card) => {
+      return { ...card, focus: e.target.name };
     });
   };
 
