@@ -33,6 +33,8 @@ export const CartPageContent = () => {
       <Divider />
 
       {currentSale.length ? <CartProducts isCartPage /> : <EmptyCartPage />}
+
+      <Divider />
     </Box>
   );
 };

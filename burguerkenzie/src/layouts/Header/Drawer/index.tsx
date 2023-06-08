@@ -15,6 +15,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaAddressCard } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { StyledDrawer } from "./styles";
 
 export const HeaderDrawer = () => {
   const navigate = useNavigate();
@@ -29,6 +30,11 @@ export const HeaderDrawer = () => {
       icon: <BsCartDashFill size={size} />,
     },
     {
+      name: "Carrinho",
+      url: "/cart",
+      icon: <AiOutlineShoppingCart size={size} />,
+    },
+    {
       name: "Editar Endereço",
       url: "/profile/address",
       icon: <FaAddressCard size={size} />,
@@ -38,11 +44,6 @@ export const HeaderDrawer = () => {
       name: "Adicionar Cartão",
       url: "/profile/addcard",
       icon: <AiFillCreditCard size={size} />,
-    },
-    {
-      name: "Carrinho",
-      url: "/cart",
-      icon: <AiOutlineShoppingCart size={size} />,
     },
   ];
 
@@ -55,7 +56,7 @@ export const HeaderDrawer = () => {
         }}
       >
         {elem.icon}
-        <Typography variant="h6" sx={{ ml: 4 }}>
+        <Typography variant="h6" sx={{ ml: 2 }}>
           {elem.name}
         </Typography>
       </ListItemButton>
@@ -76,21 +77,26 @@ export const HeaderDrawer = () => {
         <Box
           sx={{
             height: 50,
-            width: "100%",
+            width: "75vw",
             display: "flex",
             justifyContent: "flex-start",
             alignContent: "flex-start",
             backgroundColor: "#27ae60",
           }}
         >
-          <IconButton sx={{ mb: 2 }} onClick={toggleBurguerMenu}>
-            <HiX />
+          <IconButton
+            sx={{ mb: 2, height: "100%" }}
+            onClick={toggleBurguerMenu}
+          >
+            <HiX size={"1.5em"} />
           </IconButton>
         </Box>
 
         <Divider />
 
-        <List>{listRender}</List>
+        <StyledDrawer>
+          <List>{listRender}</List>
+        </StyledDrawer>
       </Drawer>
     </>
   );

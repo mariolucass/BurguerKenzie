@@ -62,7 +62,7 @@ export const InteractionsCartProduct = styled.div`
   }
 `;
 
-export const StyledDiv = styled(motion.div)`
+export const ContentDiv = styled(motion.div)`
   display: flex;
   height: 60%;
   width: 100%;

@@ -14,22 +14,18 @@ import {
 
 export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
   const { handleRemoveFromCart } = useCartContext();
-
   const price = monetizeString(product.price);
-  const totalProduct = monetizeString(product.price * product.quantity);
-
-  let string = `${price}`;
-  if (product.quantity != 1) {
-    string += ` x ${product.quantity} = ${totalProduct}`;
-  }
 
   return (
     <CartPageProductLi>
+      <InteractionsCartPageProduct>
+        <SelectQuantity product={product} />
+        <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
+      </InteractionsCartPageProduct>
       <DescriptionCartPageProduct>
         <ImageCartPageProduct>
           <img src={product.img} alt={product.name} />
         </ImageCartPageProduct>
-
         <TextCartPageProduct>
           <h3>{product.name}</h3>
 
@@ -43,19 +39,13 @@ export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
             }}
           />
         </TextCartPageProduct>
+        <Typography
+          variant="h6"
+          sx={{ minWidth: "180px", padding: "8px 0 0 8px", fontWeight: "bold" }}
+        >
+          {`${price}`}
+        </Typography>
       </DescriptionCartPageProduct>
-
-      <Typography
-        variant="h6"
-        sx={{ minWidth: "180px", padding: "8px 0 0 8px" }}
-      >
-        {string}
-      </Typography>
-
-      <InteractionsCartPageProduct>
-        <SelectQuantity product={product} />
-        <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
-      </InteractionsCartPageProduct>
     </CartPageProductLi>
   );
 };

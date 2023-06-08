@@ -1,5 +1,4 @@
 import { ThemeOptions, createTheme } from "@mui/material/styles";
-
 export const BoxSx = {
   borderRadius: 1,
   maxWidth: "90vw",

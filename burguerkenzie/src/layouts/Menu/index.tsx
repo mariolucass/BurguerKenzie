@@ -16,7 +16,6 @@ const listMenuVariant = {
     transition: transitionList,
   },
 };
-
 const itemMenuVariant = {
   initial: { y: -500 },
   animate: {

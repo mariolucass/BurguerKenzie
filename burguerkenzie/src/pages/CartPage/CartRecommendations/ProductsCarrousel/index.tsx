@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardContent,
   CardMedia,
@@ -37,15 +38,14 @@ export const ProductsRecommendations = () => {
           component={motion.div}
           initial={{ ...animateHiddenCard, y: 100 }}
           animate={{ ...animateShownCard, y: 0 }}
-          onClick={handleRedirectToProductPage}
           whileHover={{ scale: 0.95 }}
           whileTap={{ scale: 0.75 }}
         >
-          <Box sx={{ width: 177 }}>
+          <Box sx={{ width: "35%" }}>
             <CardMedia component="img" image={elem.img} />
           </Box>
 
-          <CardContent sx={{ width: "45%" }}>
+          <CardContent sx={{ width: "65%" }}>
             <Stack
               direction="column"
               justifyContent="space-around"
@@ -88,6 +88,15 @@ export const ProductsRecommendations = () => {
               <Typography color="#27ae60">
                 {monetizeString(elem.price)}
               </Typography>
+            </Stack>
+
+            <Stack display={"flex"} flexDirection={"row"}>
+              <Button variant="contained" onClick={handleRedirectToProductPage}>
+                Adicionar
+              </Button>
+              <Button variant="outlined" onClick={handleRedirectToProductPage}>
+                Detalhes
+              </Button>
             </Stack>
           </CardContent>
         </Card>

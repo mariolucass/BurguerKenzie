@@ -14,6 +14,22 @@ import { CardDiv } from "./styles";
 export const PaymentContent = () => {
   const { card } = useCartContext();
 
+  const RenderCardOrLink = () => {
+    return card.cvc ? (
+      <CardDiv>
+        <Cards
+          cvc={card.cvc}
+          expiry={card.expiry}
+          name={card.name}
+          number={card.number}
+          preview={true}
+        />
+      </CardDiv>
+    ) : (
+      <Link to="/profile/addcard">Adicionar um cartão</Link>
+    );
+  };
+
   return (
     <Box
       component={motion.div}
@@ -29,29 +45,12 @@ export const PaymentContent = () => {
       }}
     >
       <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
+        sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
       >
         <Typography variant="h6">2. Método de pagamento</Typography>
         {card.cvc && <Link to="/profile/address">Alterar</Link>}
       </Box>
-
-      {card.cvc ? (
-        <CardDiv>
-          <Cards
-            cvc={card.cvc}
-            expiry={card.expiry}
-            name={card.name}
-            number={card.number}
-            preview={true}
-          />
-        </CardDiv>
-      ) : (
-        <Link to="/profile/addcard">Adicionar um cartão</Link>
-      )}
+      <RenderCardOrLink />
     </Box>
   );
 };

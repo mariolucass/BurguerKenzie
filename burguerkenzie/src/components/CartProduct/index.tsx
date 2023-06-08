@@ -1,4 +1,5 @@
 import { Divider, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import { RxTrash } from "react-icons/rx";
 import { useCartContext } from "../../contexts";
 import { ProductCartInterfaceProps } from "../../interfaces/products";
@@ -6,9 +7,9 @@ import { monetizeString } from "../../utils/utils";
 import { SelectQuantity } from "../SelectQuantity";
 import {
   CartProductLi,
+  ContentDiv,
   ImageCartProduct,
   InteractionsCartProduct,
-  StyledDiv,
   TextCartProduct,
 } from "./styles";
 
@@ -25,18 +26,8 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
 
         <Divider variant="middle" flexItem />
 
-        <StyledDiv>
-          <div>
-            <Typography color={"#27ae60"} variant="subtitle2">
-              {product.category}
-            </Typography>
-
-            <Typography color={""} sx={{ fontWeight: "bold" }}>
-              {monetizeString(product.price)}
-            </Typography>
-          </div>
-
-          <div>
+        <ContentDiv>
+          <motion.div>
             <InteractionsCartProduct>
               <SelectQuantity product={product} />
               <RxTrash
@@ -44,8 +35,17 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
                 size={24}
               />
             </InteractionsCartProduct>
-          </div>
-        </StyledDiv>
+          </motion.div>
+          <motion.div>
+            <Typography color={"#27ae60"} variant="subtitle2">
+              {product.category}
+            </Typography>
+
+            <Typography sx={{ fontWeight: "bold" }}>
+              {monetizeString(product.price)}
+            </Typography>
+          </motion.div>
+        </ContentDiv>
       </TextCartProduct>
     </CartProductLi>
   );

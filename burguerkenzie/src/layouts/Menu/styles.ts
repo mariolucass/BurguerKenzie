@@ -37,10 +37,9 @@ export const ItemMenu = styled(motion.li)<ItemProps>`
     ${(props) => props.backgroundColor} 50%,
     var(--white) 50%
   );
+  cursor: pointer;
 
   :last-child .image {
     margin-top: 10px;
   }
-
-  cursor: pointer;
 `;
