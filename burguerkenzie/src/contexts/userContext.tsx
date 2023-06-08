@@ -11,7 +11,6 @@ const UserContext = createContext({} as iContextProvider);
 
 export const UserProvider = ({ children }: Children) => {
   const [user, setUser] = useState<IUser>({} as IUser);
-
   useEffect(() => getProfileIfHasToken(), []);
   const getProfileIfHasToken = () => {
     const token = localStorage.getItem("burguerKenzie:user");
@@ -20,7 +19,6 @@ export const UserProvider = ({ children }: Children) => {
       setUser(data);
     }
   };
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

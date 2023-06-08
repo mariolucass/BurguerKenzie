@@ -12,9 +12,7 @@ import { ValuesDiv } from "./styles";
 
 export const SubmitContent = () => {
   const { currentSaleValue } = useCartContext();
-
   const whatsappURL = `https://api.whatsapp.com/send/?phone=5588997990589&text=Adorei seu projeto !! podemos conversar melhor sobre ?`;
-
   return (
     <>
       <Box

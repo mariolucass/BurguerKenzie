@@ -22,17 +22,11 @@ export const SelectQuantity = ({ product }: ProductCartInterfaceProps) => {
     }
   };
 
-  const renderSelectOptions = [...Array(10).keys()].map((elem) => {
-    return elem == 0 ? (
-      <MenuItem key={elem} value={elem}>
-        {elem} (Excluir)
-      </MenuItem>
-    ) : (
-      <MenuItem key={elem} value={elem}>
-        {elem}
-      </MenuItem>
-    );
-  });
+  const renderSelectOptions = [...Array(10).keys()].map((elem) => (
+    <MenuItem key={elem} value={elem}>
+      {elem} {elem === 0 ? "(Excluir)" : ""}
+    </MenuItem>
+  ));
 
   return (
     <FormControl size="small">

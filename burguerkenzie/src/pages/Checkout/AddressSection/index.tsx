@@ -11,6 +11,21 @@ import { BoxSx } from "../../../libs/mui";
 
 export const AddressContent = () => {
   const { user } = useUserContext();
+  const string =
+    user.address &&
+    `${user.address.city}, ${user.address.state} ${user.address.cep}`;
+
+  const RenderDataOrLink = () => {
+    return user.address ? (
+      <div>
+        <Typography>{user.username}</Typography>
+        <Typography>{user.address.street}</Typography>
+        <Typography>{string}</Typography>
+      </div>
+    ) : (
+      <Link to="/profile/address">Adicionar um endereço</Link>
+    );
+  };
 
   return (
     <Box
@@ -30,20 +45,9 @@ export const AddressContent = () => {
         sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
       >
         <Typography variant="h6">1. Endereço de entrega</Typography>
-        {user.address.city ? <Link to="/profile/address">Alterar</Link> : <></>}
+        {user.address ? <Link to="/profile/address">Alterar</Link> : <></>}
       </Box>
-
-      {user.address.city ? (
-        <div>
-          <Typography>{user.username}</Typography>
-          <Typography>{user.address.street}</Typography>
-          <Typography>
-            {user.address.city}, {user.address.state} {user.address.cep}
-          </Typography>
-        </div>
-      ) : (
-        <Link to="/profile/address">Adicionar um endereço</Link>
-      )}
+      <RenderDataOrLink />
     </Box>
   );
 };

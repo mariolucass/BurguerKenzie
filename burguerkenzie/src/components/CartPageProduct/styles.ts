@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const CartPageProductLi = styled.li`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  min-width: 100%;
   height: 50%;
   margin: 0 auto;
 `;

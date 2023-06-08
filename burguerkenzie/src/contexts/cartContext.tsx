@@ -6,18 +6,14 @@ import { useProductsContext } from "./productsContext";
 
 interface CartContextProps {
   currentSale: ProductCartInterface[];
+  currentSaleValue: number;
+  openCart: boolean;
+  card: CardInterface;
   setCurrentSale: React.Dispatch<React.SetStateAction<ProductCartInterface[]>>;
-
   handleAddToCart: (id: number) => void;
   handleRemoveFromCart: (id: number) => void;
   handleQuantity: (id: number, quantity: number) => void;
-
-  openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
-
-  currentSaleValue: number;
-
-  card: CardInterface;
   setCard: React.Dispatch<React.SetStateAction<CardInterface>>;
 }
 
@@ -89,14 +85,11 @@ export const CartProvider = ({ children }: Children) => {
         currentSale,
         setCurrentSale,
         currentSaleValue,
-
         handleAddToCart,
         handleRemoveFromCart,
         handleQuantity,
-
         openCart,
         setOpenCart,
-
         card,
         setCard,
       }}

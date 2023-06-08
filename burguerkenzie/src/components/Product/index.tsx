@@ -9,13 +9,10 @@ import { ButtonDiv, CardProduct, ImageProduct, TextProduct } from "./styles";
 export const Product = ({ product }: ProductInterfaceProps) => {
   const navigate = useNavigate();
   const { handleAddToCart } = useCartContext();
-
   const handleRedirectToProductPage = () => {
     const category = product.category === "Sanduíches" ? "burguers" : "drinks";
-
     navigate(`/products/${category}/${product.id}`);
   };
-
   return (
     <CardProduct
       initial={{ opacity: 0, scale: 0.5 }}
