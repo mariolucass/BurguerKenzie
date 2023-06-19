@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CartList = styled.ul`
+export const CartList = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   gap: 1rem;

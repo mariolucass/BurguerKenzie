@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CartProductLi = styled.li`
+export const CartProductLi = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -9,7 +9,7 @@ export const CartProductLi = styled.li`
   margin: 0 auto;
 `;
 
-export const TextCartProduct = styled.div`
+export const TextCartProduct = styled(motion.div)`
   width: 75%;
   height: 100%;
   padding: 8px 0 0 8px;
@@ -31,7 +31,7 @@ export const TextCartProduct = styled.div`
   }
 `;
 
-export const ImageCartProduct = styled.div`
+export const ImageCartProduct = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,10 +48,9 @@ export const ImageCartProduct = styled.div`
   }
 `;
 
-export const InteractionsCartProduct = styled.div`
+export const InteractionsCartProduct = styled(motion.div)`
   height: 100px;
   display: flex;
-  /* flex-direction: column; */
   gap: 1em;
 
   justify-content: center;
