@@ -1,5 +1,6 @@
 import { Box, Button, Divider, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../../contexts";
 import {
   animateHiddenBox,
@@ -26,9 +27,13 @@ export const SubmitContent = () => {
           flexDirection: "column",
           borderRadius: "8px 8px 0px 0px",
           minHeight: 300,
-          gap: "2em",
+          gap: "1em",
         }}
       >
+        <Button variant="outlined" component={Link} to={"/cart"}>
+          Voltar
+        </Button>
+
         <Button
           variant="contained"
           component={motion.a}
