@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useProductsContext } from "../../../../contexts";
+import { useCartContext, useProductsContext } from "../../../../contexts";
 import { ProductInterface } from "../../../../interfaces/products";
 import { animateHiddenCard, animateShownCard } from "../../../../libs/framer";
 import { monetizeString } from "../../../../utils/utils";
@@ -19,6 +19,7 @@ import { ListCarrousel } from "./styles";
 export const ProductsRecommendations = () => {
   const { products } = useProductsContext();
   const navigate = useNavigate();
+  const { handleAddToCart } = useCartContext();
 
   const listToRender = (list: ProductInterface[]) => {
     return list.map((elem) => {
@@ -91,7 +92,10 @@ export const ProductsRecommendations = () => {
             </Stack>
 
             <Stack display={"flex"} flexDirection={"row"}>
-              <Button variant="contained" onClick={handleRedirectToProductPage}>
+              <Button
+                variant="contained"
+                onClick={() => handleAddToCart(elem.id)}
+              >
                 Adicionar
               </Button>
               <Button variant="outlined" onClick={handleRedirectToProductPage}>

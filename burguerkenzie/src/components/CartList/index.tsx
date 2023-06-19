@@ -10,12 +10,33 @@ interface CartProps {
   isCartPage?: boolean;
   isCheckoutPage?: boolean;
 }
+const transitionItem = { duration: 1.2, ease: [0.6, 0.01, -0.05, 0.9] };
+const transitionList = {
+  staggerChildren: 0.15,
+  staggerDirection: 1,
+};
+
+const listMenuVariant = {
+  initial: { y: -100 },
+  animate: {
+    y: 0,
+    transition: transitionList,
+  },
+};
+const itemMenuVariant = {
+  initial: { x: -500 },
+  animate: {
+    x: 0,
+    transition: transitionItem,
+  },
+};
 
 export const CartProducts = ({ isCartPage, isCheckoutPage }: CartProps) => {
   const { currentSale } = useCartContext();
 
   const RenderProduct = ({ product }: ProductCartInterfaceProps) => {
-    const props = { key: product.id, product };
+    const props = { key: product.id, product, variants: itemMenuVariant };
+
     if (isCheckoutPage) {
       return <CheckoutPageProduct {...props} />;
     }
@@ -32,5 +53,9 @@ export const CartProducts = ({ isCartPage, isCheckoutPage }: CartProps) => {
     </Fragment>
   ));
 
-  return <CartList>{renderCartProducts}</CartList>;
+  return (
+    <CartList initial="initial" animate="animate" variants={listMenuVariant}>
+      {renderCartProducts}
+    </CartList>
+  );
 };

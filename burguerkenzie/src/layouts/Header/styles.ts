@@ -5,7 +5,7 @@ export const HeaderDiv = styled(motion.header)`
   display: flex;
   background-color: var(--white);
   flex-direction: column;
-  width: calc(100vw);
+  width: calc(100vw - 0.5rem);
   height: 150px;
   padding: 1rem;
   align-items: center;

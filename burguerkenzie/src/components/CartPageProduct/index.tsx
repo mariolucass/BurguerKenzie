@@ -1,6 +1,6 @@
 import { Chip, Typography } from "@mui/material";
 import { RxTrash } from "react-icons/rx";
-import { useCartContext } from "../../contexts";
+import { useCartContext, useMediaContext } from "../../contexts";
 import { ProductCartInterfaceProps } from "../../interfaces/products";
 import { monetizeString } from "../../utils/utils";
 import { SelectQuantity } from "../SelectQuantity";
@@ -15,6 +15,7 @@ import {
 export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
   const { handleRemoveFromCart } = useCartContext();
   const price = monetizeString(product.price);
+  const { hasMinWidth1024 } = useMediaContext();
 
   return (
     <CartPageProductLi>
@@ -22,10 +23,12 @@ export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
         <SelectQuantity product={product} />
         <RxTrash onClick={() => handleRemoveFromCart(product.id)} size={24} />
       </InteractionsCartPageProduct>
+
       <DescriptionCartPageProduct>
         <ImageCartPageProduct>
           <img src={product.img} alt={product.name} />
         </ImageCartPageProduct>
+
         <TextCartPageProduct>
           <h3>{product.name}</h3>
 
@@ -41,7 +44,12 @@ export const CartPageProduct = ({ product }: ProductCartInterfaceProps) => {
         </TextCartPageProduct>
         <Typography
           variant="h6"
-          sx={{ minWidth: "180px", padding: "8px 0 0 8px", fontWeight: "bold" }}
+          color="#828282"
+          sx={{
+            minWidth: "180px",
+            padding: hasMinWidth1024 ? "8px 0 0 8px" : "0",
+            fontWeight: "bold",
+          }}
         >
           {`${price}`}
         </Typography>

@@ -1,22 +1,23 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CartPageProductLi = styled.li`
+export const CartPageProductLi = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 50%;
   margin: 0 auto;
+  min-height: 125px;
 `;
 
-export const TextCartPageProduct = styled.div`
-  width: 40%;
+export const TextCartPageProduct = styled(motion.div)`
+  width: 80%;
   height: 100%;
   padding: 8px 0 0 8px;
   height: 100px;
   display: flex;
   gap: 0.5em;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
 
   h3 {
@@ -24,9 +25,14 @@ export const TextCartPageProduct = styled.div`
     text-overflow: ellipsis;
     overflow: hidden;
   }
+
+  @media (max-width: 769px) {
+    width: 30%;
+    flex-direction: column;
+  }
 `;
 
-export const ImageCartPageProduct = styled.div`
+export const ImageCartPageProduct = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +49,7 @@ export const ImageCartPageProduct = styled.div`
   }
 `;
 
-export const InteractionsCartPageProduct = styled.div`
+export const InteractionsCartPageProduct = styled(motion.div)`
   height: 100px;
   display: flex;
   gap: 1em;

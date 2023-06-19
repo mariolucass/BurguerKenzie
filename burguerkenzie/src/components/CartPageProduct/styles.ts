@@ -4,9 +4,16 @@ import styled from "styled-components";
 export const CartPageProductLi = styled.li`
   display: flex;
   justify-content: space-between;
-  min-width: 100%;
+  width: 100%;
   height: 50%;
   margin: 0 auto;
+  height: 100%;
+
+  @media (max-width: 769px) {
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 export const TextCartPageProduct = styled.div`
@@ -23,6 +30,12 @@ export const TextCartPageProduct = styled.div`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  @media (max-width: 769px) {
+    width: 100%;
+    height: 10%;
+    align-items: center;
   }
 `;
 
@@ -53,10 +66,28 @@ export const InteractionsCartPageProduct = styled.div`
   svg {
     cursor: pointer;
   }
+
+  @media (max-width: 769px) {
+    min-height: 100%;
+  }
 `;
 
 export const DescriptionCartPageProduct = styled(motion.div)`
   display: flex;
   gap: 1em;
-  min-width: 65%;
+  width: 85%;
+
+  @media (max-width: 769px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-height: 60%;
+
+    div {
+      padding: 0;
+    }
+  }
 `;

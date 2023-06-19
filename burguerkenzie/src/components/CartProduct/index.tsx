@@ -36,6 +36,7 @@ export const CartProduct = ({ product }: ProductCartInterfaceProps) => {
               />
             </InteractionsCartProduct>
           </motion.div>
+
           <motion.div>
             <Typography color={"#27ae60"} variant="subtitle2">
               {product.category}
